@@ -128,7 +128,7 @@ div#divSeparator1 {
     position: absolute;
 	left: 38%;
     top: 268px;
-    width: 62%;
+    width: 300px;
     height: 1px;
     background: #bbddff;
 }
@@ -139,7 +139,7 @@ div#divSeparator2 {
     top: 268px;
     width: 1px;
     height: 3000px;
-    margin-left: 16px;
+    margin-left: 20px;
 
     background: #bbddff;
 }
