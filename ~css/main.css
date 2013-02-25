@@ -127,19 +127,18 @@ div#divBanner div#divSignature {
 div#divSeparator1 {
     position: absolute;
 	left: 38%;
-    top: 368px;
+    top: 268px;
     width: 62%;
     height: 1px;
-
     background: #bbddff;
 }
 
 div#divSeparator2 {
     position: absolute;
 	left: 66%;
-    top: 368px;
+    top: 268px;
     width: 1px;
-    height: 4000px;
+    height: auto;
     margin-left: 16px;
 
     background: #bbddff;
