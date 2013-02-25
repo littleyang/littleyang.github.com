@@ -148,9 +148,9 @@ div#divSeparator2 {
 div#divMiddle {
 	position: absolute;
 	left: 38%;
-  top: 384px;
+  top: 284px;
 	width: 28%;
-    padding-right: 32px;
+    padding-right: 12px;
 }
 
 div#divRight {
