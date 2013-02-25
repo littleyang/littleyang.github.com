@@ -136,7 +136,8 @@ div#divSeparator2 {
 	left: 62%;
     top: 248px;
     width: 1px;
-    height: 2400px;
+    min-height: 2400px;
+    height: auto;
     margin-left: 6px;
 
     background: #bbddff;
