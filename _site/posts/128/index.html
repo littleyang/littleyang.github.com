@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Blog">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="application-name" content="Looking-Glass" />
+    <meta name="author" content="LittleYang" />
+    <meta name="generator" content="Jekyll 0.12.0" />
+    <meta name="description" content="The enemy of good is good enough." />
+    <meta name="keywords" content="" />
+
+    <meta itemprop="name" content="【译文】Scala与Git：“好”的敌人是“足够好”">
+    <meta itemprop="description" content="The enemy of good is good enough.">
+    <meta itemprop="image" content="" />
+
+    <title>【译文】Scala与Git：“好”的敌人是“足够好”</title>
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="57x57" />
+
+    <link rel="author" type="text/html" href="https://plus.google.com/100974147585154622588/about" />
+    <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+
+    <!-- Google Web Fonts (not in use) -->
+    <!-- link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Droid+Sans' / -->
+
+    <link rel="stylesheet" type="text/css" href="/~css/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/~css/mobile.css" media="all and (max-width:1023px)" />
+
+    <!-- Pygments -->
+    <link rel="stylesheet" type="text/css" href="/~css/pygments.css" media="all" />
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="/~css/tomorrow-night.min.css">
+    <script src="/~js/highlight.pack.js"></script>
+    <!-- script>hljs.initHighlightingOnLoad();</script -->
+
+    <!-- jQuery & Galleria -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="/~plugins/galleria/galleria-1.2.8.min.js"></script>
+
+    <!-- MathJax (not in use) -->
+    <!-- script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+
+    <!-- ShareThis (not in use) -->
+    <!-- script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "9aabed9c-ac3f-4f96-8f5a-8e7a27307543"}); </script -->
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27086900-1']);
+        _gaq.push(['_setDomainName', '.soimort.org']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script type="text/javascript" src="/~js/main.js"></script>
+
+</head>
+
+<body>
+    <!-- load background image (must be put in body) -->
+    <script type="text/javascript">
+        document.body.style.backgroundImage = "url('http://i.imgur.com/0eQ5v.jpg')";
+    </script>
+
+    <nav id="navBarTop">
+        <ul class="navBarListLeft">
+            <li><a href="/"><img src="/~images/home.png" alt="home" title="Home" class="navDock" height="24" /></a></li>
+            <li><a href="/atom.xml" target="_blank"><img src="/~images/feed.png" alt="feed" title="Feed" class="navDock" height="24" /></a></li>
+        </ul>
+
+        <ul class="navBarListRight">
+            <li style="position: relative; top: -5px"><b>LittleYang</b> on </li>
+            <!-- Google+ --><li><a href="https://plus.google.com/107586052733788098083/" target="_blank"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="gplus" title="Google+" class="navDock" height="24" /></a></li>
+            <!-- Twitter --><li><a href="https://twitter.com/soimort" target="_blank"><img src="/~images/twitter.png" alt="twitter" title="Twitter" class="navDock" height="24" /></a></li>
+            <!-- Facebook --><!-- li><a href="https://www.facebook.com/soimort" target="_blank"><img src="/~images/facebook.png" alt="facebook" title="Facebook" class="navDock" height="24" /></a></li -->
+            <!-- deviantArt --><li><a href="http://soimort.deviantart.com" target="_blank"><img src="/~images/deviantart.png" alt="deviantart" title="deviantART" class="navDock" height="24" /></a></li>
+            <!-- GitHub --><li><a href="http://github.com/soimort" target="_blank"><img src="/~images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a></li>
+        </ul>
+    </nav>
+
+    <nav id="navBarBottom">
+        <div class="navBarListLeft">
+            <div style="position: relative; top: 4px; width: 60%">
+                © 2013 <a href="http://www.google.com" target="_blank"><b>Little Yang</b></a>. Under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank"><b>CC BY-SA 3.0 License</b></a>.
+            </div>
+        </div>
+
+        <div class="navBarListRight">
+            <div style="position: relative; top: 4px; right: 0">
+                 |Powered by <a href="http://jekyllrb.com/" target="_blank"><b>Jekyll</b></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="divTitle">
+    <h1>【译文】Scala与Git：“好”的敌人是“足够好”</h1>
+    <p><div class="g-plusone" data-size="medium" data-annotation="none"></div></p>
+    <p><b>22 Dec 2012</b>, by <b>Mort</b></p>
+    <p>The enemy of good is good enough.</p>
+    <div id="divTitleNav">
+        <a href="/"><img src="/~images/left-arrow.png" class="navDock" /></a>
+    </div>
+</div>
+
+<div id="divPost">
+    <article id="articlePost">
+        <p>Original Article: <a href="http://branchandbound.net/blog/scala/2012/12/scala-is-like-git/">Scala is like Git</a> by <a href="http://branchandbound.net/">Sander Mak</a><br>
+(Chinese Translation by <a href="http://www.soimort.org/">Mort Yao</a>)</p>
+
+<hr>
+
+<p><em><a href="https://twitter.com/odersky">Martin Odersky</a>在<a href="https://twitter.com/odersky/status/281797316065783808">推</a>上分享了<a href="http://branchandbound.net/blog/scala/2012/12/scala-is-like-git/">这篇文章</a>。</em></p>
+
+<p><em>如果你对了解Scala语言有一些兴趣，那么<a href="http://blog.typesafe.com/recounting-the-functional-programming-princip">Coursera上有过他开的一门Scala课程</a>：<a href="https://class.coursera.org/progfun-2012-001/">Functional Programming Principles in Scala</a>。</em></p>
+
+<p><em>如果你还不知道<a href="http://en.wikipedia.org/wiki/Martin_Odersky">Martin Odersky</a>是谁：就是他发明了Scala语言。</em></p>
+
+<p><em>本文的作者是<a href="https://twitter.com/Sander_Mak">Sander Mak</a>。</em></p>
+
+<hr>
+
+<p>Scala总是被描绘成一种过于复杂的语言。很多时候，这些关于复杂性的探讨总让我联想起那些类似的关于Git复杂性的争论。我知道，把一个版本控制系统同一门编程语言放到一起来做比较，认真说起来的话多少有些蛋疼。不过，请稍安毋躁，因为我相信这会给关于Scala复杂性的争论带来一个全新的视角。</p>
+
+<p>Git和Scala都是强有力的工具，它们被创造出来的目的是为了不再囿于现状的大胆突破，而绝非温和式地改进。Git不只是一个更好的CVS/Subversion：它的分布式本质使它有着本质上的不同。Scala亦是如此：它不只是一个更好的Java，而是一次大胆的向FP/OO混搭编程的尝试。 <em>（Mort译注：虽然Git并不是第一个提出来分布式版本管理的概念，Linus写它是为了取代BitKeeper，一个闭源的商业版分布式VCS。Scala甚至也远远算不上是最早结合了FP/OOP的语言）</em>有趣的是，这些关于复杂性的争论常常是在将Git或Scala同本质上局限性更明显的那些技术作比较的基础上得来的。是的，很明显，不管你在Subversion或Java中做什么事情，可能都会要容易许多。但在这些争论中本不该被忽略的一个事实是，如果使用Git和Scala，你会具备能力去完成更多的任务。这不只是有关（复杂性的）代价，更有关实际的利益。你愿意看好这些强大工具的前景而提前买入吗？ <em>（Mort译注：这句话应该是取自John C. Maxwell的投资名言：People buy into the leader before they buy into the vision.（人们因为看好领导者而买入要远早于看好前景而买入。））</em></p>
+
+<h2>强大的工具需要投资</h2>
+
+<p>我花了结结实实一年的时间，去实际地在一个团队环境中利用Git协作，才真切地领会到它所提供的便利之处。在此前，我只是自娱自乐地做一些简单的个人项目，主要是在GitHub上，Git的很多方面依然会使我产生困惑（为什么我需要一个临时区域（staging area）？为什么做同样一件事情会有三种方法？）通过信任那些走在我前面的人们、以及拥抱Git的团队协作特性，我的生产效率最终达到了一个前所未有的层次。Scala的学习曲线亦是相似的。尽管我在大学期间有过函数式编程方面的知识背景，但Scala仍然有许多需要我去熟悉了解的地方。如同Git一样，只有在度过了你对于这个工具并不充分熟悉的艰难阶段之后，你才能体会到它的优势竟是如此之强悍。</p>
+
+<p>这种在时间和精力上的投资需要肯定会为初学者带来一些障碍。然而，Git逾越了这条障碍，因为它提供了许多人们渴望已久的独特功能特性：简便的分支（branching）与合并（merging，或<a href="http://typesafe.com/stack">rebasing</a>，我简直爱死它了！）。类似地，Scala的杀手锏是其<a href="http://lampwww.epfl.ch/%7Ephaller/upmarc/">无所不在的并行化</a>和一套高度集成了Scala、Akka和Play的<a href="http://typesafe.com/stack">技术框架栈</a>。</p>
+
+<h2>干净整洁的核心</h2>
+
+<p>我最喜欢的关于Git和Scala的方面是，它们都采取了基于简单的概念来构建干净整洁的核心这种方法学。Git通过它的<a href="http://eagain.net/articles/git-for-computer-scientists/">有向无环图</a>来表示commits、trees和blobs。每一个git操作本质上都是对这个图的变换（和/或图中的refs，更准确地说）。复杂吗？也许是的，而一旦你掌握了它，你就拥有了更强大的法力。Scala也可以作一个相似的类比。尽管概念的数量更加繁多——它毕竟是一门编程语言，而不是一个版本控制系统——对我来说，所有的语言特性不但在小处、更在大处常常有所体现。所有的语言特性可以被嵌套和组合书写，正如你所期望的那样。</p>
+
+<p>Scala有一个相对小的语言核心，这是由Scala的语言规范仅有Java语言规范的四分之一大小决定的。Scala的语法同样也很轻量级。容许我补充一句，语言规范的大小并不直接标志着语言本身能力上的优势（只要想象一下，<a href="http://progopedia.com/language/brainfuck/">Brainfuck语言</a>）。Martin Odersky有句名言曰：</p>
+
+<p><strong>吾尝欲赋仓颉之力于Scala言语兮，亦欲穷至简至美之道兮，唯以统合今世之猥杂程式术数义理而求索之。</strong><br>
+<strong>(I have always tried to make Scala a very powerful but at the same beautifully simple language, by trying to find unifications of formerly disparate concepts.)</strong></p>
+
+<p>这种设计哲学激发了我的强烈共鸣<em>（Mort：+1）</em>。固然Scala没能够完全统一所有它本来应该能统一的一切，但与此同时它也成为了一个非常实用的、考虑到了实用主义式权衡的编程语言，比如和Java的互操作性之类<em>（Mort：说起与Java平台的实用性结合，这确实是Scala比起其他设计哲学相似的语言诸如Oz、Rust，做得更成功的地方）</em>。C&#39;est la vie.</p>
+
+<h2>复杂性</h2>
+
+<p>尽管Git和Scala一样都拥有简洁明了的原始核心，它们外在的复杂性却出奇地高。Git的命令行界面有<a href="http://stackoverflow.com/questions/7866353/git-list-all-available-commands">一大箩筐命令</a>，并且因为其各种标记用法的不一致性而<a href="http://steveko.wordpress.com/2012/02/24/10-things-i-hate-about-git/">臭名远扬</a> <em>（Mort无责任吐槽：所以说<code>git remote</code>和<code>git branch</code>这两个子命令的用法当初是哪个二逼设计的嘛。。。）</em>。Scala的语法对于初学者来说同样有一些<a href="http://www.slideshare.net/normation/scala-dreaded">让他们震精之处</a>。是的，Scala也许是有那么<a href="http://programmers.stackexchange.com/questions/179699/whats-the-problem-with-scalas-xml-literals">一个</a>或者<a href="http://stackoverflow.com/questions/13011204/scalas-postfix-ops">两个</a>比较过分的特性。然而，一旦你去了解了内在的、联系一切事物的核心模型，这样的问题虽然起初比较困扰，但你终将克服它们。它不过是种<a href="http://c2.com/cgi/wiki?AccidentalComplexity">意料之外的复杂性</a>。我很赞赏Scala团队为<a href="http://docs.scala-lang.org/sips/pending/modularizing-language-features.html">模块化语言特性</a>所作出的努力，它允许了你去渐进地纠正这些问题。</p>
+
+<p>总而言之，在这些工具优雅的核心模型上工作，对于我来说是件挺值得的事情。当然，在Git和Scala中，你同样会有一些足够用来吊死你自己的绳索。不过你得对自己负责！</p>
+
+<h2>图形界面</h2>
+
+<p>但是事情还远没有结束。一种新技术要想被广泛认可，尤其是获得所谓“企业界”的垂青，最重要的一点就是具备良好的GUI支持。Git的GUI和Scala的IDE支持一直以来多少都有些形同鸡肋的赶脚。我甚至不太确定Git的GUI是否真的降低了使用上的复杂性。我<a href="http://code.google.com/p/gitextensions/">尝试过</a><a href="http://code.google.com/p/tortoisegit/">一些</a>，但是并不喜欢它们。就Scala的那些IDE插件来说，它们简直就像是做给脑残用的一样。定位类型和隐式声明功能对于大型的项目代码库来说可是无价之宝。幸运的是，Scala的Eclipse插件现在正由<a href="http://typesafe.com/">Typesafe</a>支持开发，并且正在快速地推进当中。IntelliJ的Scala插件进展状况也尚良好。我得说Scala在这方面的支持做得比Git要好些，尽管，公正地讲，比起其他的编程语言来还是差了一大截。</p>
+
+<h2>实际应用</h2>
+
+<p>就使用Git时来说，一件显然的事情是，它并不遵循某个特定的工作流程。因此，许多截然不同的工作流程都可能被各种倡导起来。有些甚至包括附加的工具支持，诸如<a href="https://github.com/nvie/gitflow">git-flow</a>和<a href="http://www.git-legit.org/">Legit</a>之流。这意味着Git本身存在缺点吗？让Git单独去完成这些任务太复杂了吗？我并不这样认为。这只是人们为了找到一个可以共同工作的起点、而又不想去重复发明轮子所得到的产物。但这也说明一点，没有哪种工作流程和支持工具最终会全面胜出。看起来，多样性才是解决问题的根本法宝。</p>
+
+<p>对于Scala来说，事情稍微有些不同。语言的认知度在提升，但社区仍然在寻找一个共同的“发言声音”。对于一种编程语言来说这更加关键，尤其是像Scala这种表达能力丰富的语言。说起来，Java语言，已经经过了两个十年的时间来发育成熟、孵化出被广泛认可的习语和相应的代码风格规范。我相信Scala仍然需要经历一个类似的过程。这个过程开始的标志<a href="http://docs.scala-lang.org/style/">已经出现</a>。我们需要一本最终出现的《Effective Scala》之类的书来领路，正如<a href="http://www.amazon.com/gp/product/0321356683/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321356683&amp;linkCode=as2&amp;tag=branandboun-20">《Effective Java》</a>之于Java而言。</p>
+
+<h2>“好”的敌人是“足够好”（The enemy of good is good enough）</h2>
+
+<p>为什么人们要从SVN迁移到Git，或者，从Java迁移到Scala？好歹Subversion也已经拥有了合并-跟踪功能，而Java 8最终也将会加入对lambdas的支持。关键点是，这些特性的增加并不能从本质上改变“旧时代”工具的核心模型。如果一定要说改变了什么，它们只是引入了有悖于初衷的、预料之外的复杂性，并没有真正地洗心革面上升到全新的发展阶段。它们对于很多人来说已经“足够好”了，我也知道，迁移自己惯用的版本控制系统或编程语言到一种新的工具上绝非弹指之劳。不过，我鼓励你们仍然应该去探索一些新的可能性、看看“足够好”是否足以成为阻止你迁移到新工具的理由。</p>
+
+<p>在一些堪称“现代”的技术中也存在着相互之间的竞争。Git的对头是<a href="http://en.wikipedia.org/wiki/Mercurial">Mercurial</a>和<a href="http://en.wikipedia.org/wiki/Bazaar_(software)">Bazaar</a>。Scala潜在的竞争对手则是<a href="http://www.drdobbs.com/jvm/the-kotlin-programming-language/231500204">Kotlin</a>和<a href="http://ceylon-lang.org/">Ceylon</a> <em>（Mort译注：这个竞争估计仅仅是就基于JVM的强/静态类型语言而言。原文的评论中有人指出，这两种语言最近两年都没什么人提了……囧）</em>。所有这些替代品都把简单（simplicity）和直观性（intuitiveness）作为宣传策略上的卖点。它们起初看来可能是会更加直观些。我有点好奇它们是否必须得在核心模型和内部设计哲学上做出妥协，以达到外部接口的直观性。融合面向对象与函数式两种编程范式的确是一项艰巨的工作。等到这些新的程序语言有了比较体面的发布版本之后，我一定会再回顾一下这个问题。</p>
+
+<p>归根结底，Git的胜出是因为它提供了看得见摸得着的好处，尽管它表面上看起来可能略复杂。Scala亦是如此。</p>
+
+    </article>
+    
+    
+    <article id="articlePost" style="padding-bottom: 0">
+        <div id="divDisqus">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'soimort';
+                
+                var disqus_url = 'http://www.soimort.org/posts/128/index.html';
+                
+                
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </article>
+    
+</div>
+
+
+</body>
+</html>

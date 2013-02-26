@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Blog">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="application-name" content="Looking-Glass" />
+    <meta name="author" content="LittleYang" />
+    <meta name="generator" content="Jekyll 0.12.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <meta itemprop="name" content="坑爹的课程项目之Arduino合成器">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="" />
+
+    <title>坑爹的课程项目之Arduino合成器</title>
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="57x57" />
+
+    <link rel="author" type="text/html" href="https://plus.google.com/100974147585154622588/about" />
+    <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+
+    <!-- Google Web Fonts (not in use) -->
+    <!-- link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Droid+Sans' / -->
+
+    <link rel="stylesheet" type="text/css" href="/~css/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/~css/mobile.css" media="all and (max-width:1023px)" />
+
+    <!-- Pygments -->
+    <link rel="stylesheet" type="text/css" href="/~css/pygments.css" media="all" />
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="/~css/tomorrow-night.min.css">
+    <script src="/~js/highlight.pack.js"></script>
+    <!-- script>hljs.initHighlightingOnLoad();</script -->
+
+    <!-- jQuery & Galleria -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="/~plugins/galleria/galleria-1.2.8.min.js"></script>
+
+    <!-- MathJax (not in use) -->
+    <!-- script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+
+    <!-- ShareThis (not in use) -->
+    <!-- script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "9aabed9c-ac3f-4f96-8f5a-8e7a27307543"}); </script -->
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27086900-1']);
+        _gaq.push(['_setDomainName', '.soimort.org']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script type="text/javascript" src="/~js/main.js"></script>
+
+</head>
+
+<body>
+    <!-- load background image (must be put in body) -->
+    <script type="text/javascript">
+        document.body.style.backgroundImage = "url('http://i.imgur.com/0eQ5v.jpg')";
+    </script>
+
+    <nav id="navBarTop">
+        <ul class="navBarListLeft">
+            <li><a href="/"><img src="/~images/home.png" alt="home" title="Home" class="navDock" height="24" /></a></li>
+            <li><a href="/atom.xml" target="_blank"><img src="/~images/feed.png" alt="feed" title="Feed" class="navDock" height="24" /></a></li>
+        </ul>
+
+        <ul class="navBarListRight">
+            <li style="position: relative; top: -5px"><b>LittleYang</b> on </li>
+            <!-- Google+ --><li><a href="https://plus.google.com/107586052733788098083/" target="_blank"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="gplus" title="Google+" class="navDock" height="24" /></a></li>
+            <!-- Twitter --><li><a href="https://twitter.com/soimort" target="_blank"><img src="/~images/twitter.png" alt="twitter" title="Twitter" class="navDock" height="24" /></a></li>
+            <!-- Facebook --><!-- li><a href="https://www.facebook.com/soimort" target="_blank"><img src="/~images/facebook.png" alt="facebook" title="Facebook" class="navDock" height="24" /></a></li -->
+            <!-- deviantArt --><li><a href="http://soimort.deviantart.com" target="_blank"><img src="/~images/deviantart.png" alt="deviantart" title="deviantART" class="navDock" height="24" /></a></li>
+            <!-- GitHub --><li><a href="http://github.com/soimort" target="_blank"><img src="/~images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a></li>
+        </ul>
+    </nav>
+
+    <nav id="navBarBottom">
+        <div class="navBarListLeft">
+            <div style="position: relative; top: 4px; width: 60%">
+                © 2013 <a href="http://www.google.com" target="_blank"><b>Little Yang</b></a>. Under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank"><b>CC BY-SA 3.0 License</b></a>.
+            </div>
+        </div>
+
+        <div class="navBarListRight">
+            <div style="position: relative; top: 4px; right: 0">
+                 |Powered by <a href="http://jekyllrb.com/" target="_blank"><b>Jekyll</b></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="divTitle">
+    <h1>坑爹的课程项目之Arduino合成器</h1>
+    <p><div class="g-plusone" data-size="medium" data-annotation="none"></div></p>
+    <p><b>09 Jan 2013</b>, by <b>Mort</b></p>
+    <p></p>
+    <div id="divTitleNav">
+        <a href="/"><img src="/~images/left-arrow.png" class="navDock" /></a>
+    </div>
+</div>
+
+<div id="divPost">
+    <article id="articlePost">
+        <p>最近的拖延症愈发严重了。比如电路考试前一天晚上开始通宵预习，比如在线课程总是赶在作业截止时间前一天晚上通宵看完视频，比如实验课前一天晚上通宵补程序，诸如此类的。（喂喂其实从三年前起这毛病就一直没改好么）</p>
+
+<p>然后是这个圣诞节前就布置下来的Arduino项目，周一要做presentation了居然拖到周日晚上才开始做，<del>真是都不知道自己平时在干嘛。。。</del></p>
+
+<p>虽然早就想好了要做一个合成器+MIDI sequencer，实现以下种种功能：</p>
+
+<ul>
+<li>用USB键盘作为输入（通过一个USB shield）。</li>
+<li>借助MIDI shield合成音频并输出。</li>
+<li>Arduino与计算机进行串口通信，能够输出MIDI序列。</li>
+<li>在计算机上实现MIDI序列的可视化。（Java + Processing或Node.js + Processing.js）</li>
+<li>把“计算机”从笔记本替换成Raspberry Pi。</li>
+</ul>
+
+<p>结果因为只剩下一个晚上的时间，根本连一项功能也没实现(´д`;)</p>
+
+<p>因为这门课程项目的打分只有G（通过）和U（不通过）两个等级，要求很简单：</p>
+
+<ol>
+<li>有Input / Output。</li>
+<li>有A/D转换。</li>
+<li>有中断。</li>
+<li>（可选）用Processing可视化串口输出。</li>
+</ol>
+
+<p>再看看自己手头现有的材料，最终决定做的坑爹项目如下：</p>
+
+<ol>
+<li>用触点传感器做输入，扬声器做输出。I/O有了。</li>
+<li>把传感器的按压位置对应到<a href="http://www.arduino.cc/en/Tutorial/Melody">音频的频率</a>，A/D也有了。</li>
+<li>中断什么的加个按钮，按一下开始播放“两只老虎”。（音符和频率的转换参考了<a href="http://en.wikipedia.org/wiki/Note">这里</a>）</li>
+<li>Processing可做可不做。于是果断不做。</li>
+</ol>
+
+<p>完成的代码在这里：<a href="https://github.com/soimort/Arduino-Synth">https://github.com/soimort/Arduino-Synth</a></p>
+
+<p>做展示的时候老师问我做这个东西用了多长时间，我说一个周末。。。</p>
+
+<p>一个同学说他也告诉老师花了一个周末的时间其实他只花了五六个小时（其中写代码用了半个小时）</p>
+
+<p>我就不好意思说我花了多长时间了wwwwww</p>
+
+<p>最后把<a href="/slides/101">幻灯片</a>放上来，为了赶时间做得有点高桥流：（Chrome和Firefox可以<a href="#" id="fullScreenButton">全屏模式观看</a>）</p>
+
+<style>
+#wrapper {
+    width: 100%;
+    height: 800px;
+    
+    background-color: #000;
+    background-image: url('http://i.imgur.com/d7hIM.jpg');
+    border-radius: 8px;
+}
+
+#presentation {
+    transform: scale(0.5, 0.5);
+    -webkit-transform: scale(0.5, 0.5);
+    -moz-transform: scale(0.5, 0.5);
+    -o-transform: scale(0.5, 0.5);
+    
+    transform-origin: top right;
+    -webkit-transform-origin: top right;
+    -moz-transform-origin: top right;
+    -o-transform-origin: top right;
+    
+    float: right;
+    
+    border-radius: 8px;
+    box-shadow: 0 0 8px 0 #102040;
+}
+</style>
+
+<div id="wrapper">
+    <iframe id="presentation" src="/slides/101" width="200%" height="800px" webkitAllowFullScreen mozallowfullscreen allowFullScreen ></iframe>
+</div>
+
+<script>
+// no mousewheel scrolling - not working in Firefox
+$("#presentation").on("mousewheel DOMMouseScroll", function(e) {
+    e.preventDefault();
+});
+
+// WebKit
+document.addEventListener("webkitfullscreenchange", function () {
+    if (document.webkitFullscreenElement)
+        $('#presentation').css('transform','scale(1, 1)');
+    else
+        $('#presentation').css('transform','scale(0.5, 0.5)');
+}, false);
+
+// Firefox
+document.addEventListener("mozfullscreenchange", function () {
+    if (document.mozFullScreen)
+        $('#presentation').css('transform','scale(1, 1)');
+    else
+        $('#presentation').css('transform','scale(0.5, 0.5)');
+}, false);
+
+function toggleFullScreen() {
+    var elem = document.getElementById("presentation");
+    
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    }
+};
+
+$("#fullScreenButton").click(function() {
+    toggleFullScreen();
+});
+
+</script>
+
+<p>&nbsp;</p>
+
+    </article>
+    
+    
+    <article id="articlePost" style="padding-bottom: 0">
+        <div id="divDisqus">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'soimort';
+                
+                var disqus_url = 'http://www.soimort.org/posts/133/index.html';
+                
+                
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </article>
+    
+</div>
+
+
+</body>
+</html>

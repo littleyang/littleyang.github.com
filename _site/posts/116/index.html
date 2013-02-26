@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Blog">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="application-name" content="Looking-Glass" />
+    <meta name="author" content="LittleYang" />
+    <meta name="generator" content="Jekyll 0.12.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <meta itemprop="name" content="Linux上的PSP模拟器：JPCSP的安装和使用">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="" />
+
+    <title>Linux上的PSP模拟器：JPCSP的安装和使用</title>
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="57x57" />
+
+    <link rel="author" type="text/html" href="https://plus.google.com/100974147585154622588/about" />
+    <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+
+    <!-- Google Web Fonts (not in use) -->
+    <!-- link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Droid+Sans' / -->
+
+    <link rel="stylesheet" type="text/css" href="/~css/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/~css/mobile.css" media="all and (max-width:1023px)" />
+
+    <!-- Pygments -->
+    <link rel="stylesheet" type="text/css" href="/~css/pygments.css" media="all" />
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="/~css/tomorrow-night.min.css">
+    <script src="/~js/highlight.pack.js"></script>
+    <!-- script>hljs.initHighlightingOnLoad();</script -->
+
+    <!-- jQuery & Galleria -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="/~plugins/galleria/galleria-1.2.8.min.js"></script>
+
+    <!-- MathJax (not in use) -->
+    <!-- script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+
+    <!-- ShareThis (not in use) -->
+    <!-- script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "9aabed9c-ac3f-4f96-8f5a-8e7a27307543"}); </script -->
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27086900-1']);
+        _gaq.push(['_setDomainName', '.soimort.org']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script type="text/javascript" src="/~js/main.js"></script>
+
+</head>
+
+<body>
+    <!-- load background image (must be put in body) -->
+    <script type="text/javascript">
+        document.body.style.backgroundImage = "url('http://i.imgur.com/0eQ5v.jpg')";
+    </script>
+
+    <nav id="navBarTop">
+        <ul class="navBarListLeft">
+            <li><a href="/"><img src="/~images/home.png" alt="home" title="Home" class="navDock" height="24" /></a></li>
+            <li><a href="/atom.xml" target="_blank"><img src="/~images/feed.png" alt="feed" title="Feed" class="navDock" height="24" /></a></li>
+        </ul>
+
+        <ul class="navBarListRight">
+            <li style="position: relative; top: -5px"><b>LittleYang</b> on </li>
+            <!-- Google+ --><li><a href="https://plus.google.com/107586052733788098083/" target="_blank"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="gplus" title="Google+" class="navDock" height="24" /></a></li>
+            <!-- Twitter --><li><a href="https://twitter.com/soimort" target="_blank"><img src="/~images/twitter.png" alt="twitter" title="Twitter" class="navDock" height="24" /></a></li>
+            <!-- Facebook --><!-- li><a href="https://www.facebook.com/soimort" target="_blank"><img src="/~images/facebook.png" alt="facebook" title="Facebook" class="navDock" height="24" /></a></li -->
+            <!-- deviantArt --><li><a href="http://soimort.deviantart.com" target="_blank"><img src="/~images/deviantart.png" alt="deviantart" title="deviantART" class="navDock" height="24" /></a></li>
+            <!-- GitHub --><li><a href="http://github.com/soimort" target="_blank"><img src="/~images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a></li>
+        </ul>
+    </nav>
+
+    <nav id="navBarBottom">
+        <div class="navBarListLeft">
+            <div style="position: relative; top: 4px; width: 60%">
+                © 2013 <a href="http://www.google.com" target="_blank"><b>Little Yang</b></a>. Under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank"><b>CC BY-SA 3.0 License</b></a>.
+            </div>
+        </div>
+
+        <div class="navBarListRight">
+            <div style="position: relative; top: 4px; right: 0">
+                 |Powered by <a href="http://jekyllrb.com/" target="_blank"><b>Jekyll</b></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="divTitle">
+    <h1>Linux上的PSP模拟器：JPCSP的安装和使用</h1>
+    <p><div class="g-plusone" data-size="medium" data-annotation="none"></div></p>
+    <p><b>27 Jul 2012</b>, by <b>Mort</b></p>
+    <p></p>
+    <div id="divTitleNav">
+        <a href="/"><img src="/~images/left-arrow.png" class="navDock" /></a>
+    </div>
+</div>
+
+<div id="divPost">
+    <article id="articlePost">
+        <p><a href="http://jpcsp.org/">JPCSP</a>是当今最流行的开源PSP模拟器，支持Win 32/64 / Linux 32/64 / Mac OS X平台。</p>
+
+<p>根据<a href="http://code.google.com/p/jpcsp/">项目主页</a>：JPCSP是使用Java写的，但是模拟PSP游戏已经可以达到满速（100%）。</p>
+
+<p>这里是我在Arch Linux（x86_64）上安装JPCSP的经过，使用了OpenJDK 7.0的JRE。尽管如此，使用较旧的OpenJDK 6或Oracle 的JRE也许可以回避安装方式一（从官网下载最新版本）中某些不必要的错误。</p>
+<div class="highlight"><pre><code class="text">$ sudo pacman -S jre7-openjdk --needed
+</code></pre></div>
+<h1>安装方式一：从官网下载最新版本</h1>
+
+<p>在JPCSP官网（<a href="http://jpcsp.org/">http://jpcsp.org/</a>）上下载对应的Latest svn builds（Linux 64版本）。</p>
+
+<p>解压到任意文件夹，执行<code>start-linux-amd64.sh</code>启动脚本：
+    $ cd jpcsp-linux-amd64
+    $ chmod +x start-linux-amd64.sh
+    $ ./start-linux-amd64.sh</p>
+
+<p>模拟器不能正常运行。抛出如下异常：</p>
+<div class="highlight"><pre><code class="text">Exception in thread &quot;GUI&quot; java.lang.UnsatisfiedLinkError:
+no lwjgl in java.library.path
+</code></pre></div>
+<p><a href="http://lwjgl.org/">LWJGL</a>（Lightweight Java Game Library）按理说是已经包含在JPCSP里面的，无需再单独安装。在JPCSP安装路径的<code>lib/</code>目录下面可以找到<code>lwjgl.jar</code>、<code>lwjgl_util.jar</code>两个JAR文件，<code>lib/linux-amd64/</code>下面也有它的动态链接库（<code>liblwjgl64.so</code>）。</p>
+
+<p>去看LWJGL的wiki，只写了可能的错误是因为本地库的路径<code>-Djava.library.path=path/to/dir</code>设置不正确。再去看<code>start-linux-amd64.sh</code>的内容，可是java后面确实有<code>-Djava.library.path=lib/linux-amd64</code>的选项啊？疑惑中……</p>
+
+<p>怀疑是因为动态链接库文件名的问题。建立三个对应的文件名不带“64”的符号链接<code>libjinput-linux.so</code>、<code>liblwjgl.so</code>、<code>libopenal.so</code>：</p>
+<div class="highlight"><pre><code class="text">$ ln -s lib/linux-amd64/libjinput-linux64.so lib/linux-amd64/libjinput-linux.so
+$ ln -s lib/linux-amd64/liblwjgl64.so lib/linux-amd64/liblwjgl.so
+$ ln -s lib/linux-amd64/libopenal64.so lib/linux-amd64/libopenal.so
+</code></pre></div>
+<p>果然，不再抛出该异常。但是又出现了新的状况：</p>
+<div class="highlight"><pre><code class="text">Exception in thread &quot;GUI&quot; java.lang.UnsatisfiedLinkError:
+/home/soimort/Programs/jpcsp-linux-amd64/lib/linux-amd64/liblwjgl.so:
+libjawt.so: cannot open shared object file: No such file or directory
+</code></pre></div>
+<p><code>libjawt.so</code>是Java AWT Native Interface的动态链接库，按理说这东西是没理由不存在的啊……</p>
+
+<p>搜了一下，发现不少人遇到同样的LWJGL在Linux + OpenJDK 7下无法加载<code>libjawt.so</code>的诡异问题：（OpenJDK 6下貌似正常）</p>
+
+<ul>
+<li>&quot;libjawt.so&quot; not loaded by Java 7
+
+<ul>
+<li><a href="http://mail.openjdk.java.net/pipermail/jdk7-dev/2011-August/002256.html">http://mail.openjdk.java.net/pipermail/jdk7-dev/2011-August/002256.html</a></li>
+</ul></li>
+<li>Java issue: libjawt.so. No such file or directory
+
+<ul>
+<li><a href="https://bbs.archlinux.org/viewtopic.php?id=124432">https://bbs.archlinux.org/viewtopic.php?id=124432</a></li>
+</ul></li>
+<li>Urgent panic - JRE7 / LWJGL / Linux broken
+
+<ul>
+<li><a href="http://lwjgl.org/forum/index.php/topic,4085.0.html">http://lwjgl.org/forum/index.php/topic,4085.0.html</a></li>
+</ul></li>
+</ul>
+
+<p>虽然不是很明白，但是似乎只能通过手动导出<code>LD_LIBRARY_PATH</code>环境变量来解决问题。找到<code>libjawt.so</code>所在的文件夹（也就是JRE安装时动态链接库的所在路径），在我的系统上是<code>/usr/lib/jvm/java-7-openjdk/jre/lib/amd64/libjawt.so</code>。然后：</p>
+<div class="highlight"><pre><code class="text">$ export LD_LIBRARY_PATH=/usr/lib/jvm/java-7-openjdk/jre/lib/amd64
+</code></pre></div>
+<p>即可正常运行JPCSP。为了省去以后的麻烦，直接修改<code>start-linux-amd64.sh</code>，在启动JPCSP之前加入此行内容：</p>
+<div class="highlight"><pre><code class="text">#!/bin/sh
+export LD_LIBRARY_PATH=&quot;/usr/lib/jvm/java-7-openjdk/jre/lib/amd64&quot;
+java -Xmx1024m -Xss2m -XX:MaxPermSize=128m -XX:ReservedCodeCacheSize=64m \
+    -Djava.library.path=lib/linux-amd64 -jar bin/jpcsp.jar $@
+</code></pre></div>
+<p>然后就可以正常运行JPCSP了：</p>
+<div class="highlight"><pre><code class="text">$ ./start-linux-amd64.sh
+</code></pre></div>
+<h1>安装方式二：从AUR安装</h1>
+
+<p>到目前为止，AUR上的JPCSP版本仍然基于原来的<a href="http://jogamp.org/jogl/www/">JOGL</a>（Java Bindings for the OpenGL API），而不是LWJGL，所以在JRE 7下运行不会发生<code>libjawt.so</code>无法加载的错误。</p>
+
+<p>直接从AUR安装以下两个包即可：</p>
+
+<ul>
+<li><strong>jogl</strong>: <a href="https://aur.archlinux.org/packages.php?ID=54677">https://aur.archlinux.org/packages.php?ID=54677</a></li>
+<li><strong>jpcsp</strong>: <a href="https://aur.archlinux.org/packages.php?ID=29774">https://aur.archlinux.org/packages.php?ID=29774</a></li>
+</ul>
+
+<p>安装后可通过</p>
+<div class="highlight"><pre><code class="text">$ jpcsp
+</code></pre></div>
+<p>来运行模拟器。</p>
+
+<p>初次运行时，如果控制台产生类似如下错误输出：</p>
+<div class="highlight"><pre><code class="text">log4j:ERROR Could not parse file [LogSettings.xml].
+java.io.FileNotFoundException: /home/soimort/.jpcsp/LogSettings.xml
+(No such file or directory)
+</code></pre></div>
+<p>这是由于没有可用于保存本地配置文件的目录（普通用户没有安装位置<code>/opt/jpcsp</code>下的写权限）。在用户主目录下创建<code>.jpcsp/</code>目录并将<code>/opt/jpcsp/LogSettings.xml</code>直接拷贝到此处即可：</p>
+<div class="highlight"><pre><code class="text">$ mkdir ~/.jpcsp
+$ cp /opt/jpcsp/LogSettings.xml ~/.jpcsp/
+</code></pre></div>
+<h1>设置与使用</h1>
+
+<p>那啥。PSP是不能用鼠标来控制的。。。<img src="http://static.tieba.baidu.com/tb/editor/images/jd/j_0013.gif"/>
+所以要记住常用的键盘键位（当然如果有手柄就另当别论了）：</p>
+
+<ul>
+<li>↑ / ↓ / ← / →: 光标键<strong>↑ / ↓ / ← / →</strong></li>
+<li>○ / × / □ / △: <strong>D / S / A / W</strong></li>
+<li>L / R: <strong>Q / E</strong></li>
+<li>START: <strong>Enter</strong></li>
+<li>SELECT: <strong>Space</strong></li>
+</ul>
+
+<p><img src="http://i.imgur.com/m39Tc.png" alt="Controls"></p>
+
+<p><code>.iso</code>镜像文件要放到JPCSP安装路径下的<code>umdimages/</code>文件夹内。菜单File - Load UMD载入UMD游戏镜像。</p>
+
+<p>注意并不是所有的PSP游戏都能在模拟器下正常运行，即使能运行的镜像有的也需要使用第三方工具破解。当然破解镜像的方法不在本文范围之内。。。</p>
+
+<p>点击“Run”开始运行。</p>
+
+<p>在不做任何额外设置的情况下，模拟器的帧速有可能会卡到游戏根本无法进行。在我的Dell Latitude上（Intel四核Core i5 2540M 2.6GHz + 4GB RAM + 集成Intel HD Graphics 3000），一开始的选单画面仅有5～6 FPS<img src="http://static.tieba.baidu.com/tb/editor/images/jd/j_0009.gif"/></p>
+
+<p><img src="http://i.imgur.com/I1lzT.jpg" alt="Video"></p>
+
+<p>经过测试，发现选中“Enable saving GE screen to Textures instead of Memory”这一项可以有效提速。其它选项的设置在我的机器上对帧速基本没有明显影响。</p>
+
+<p>关于Video设置里面每个选项的具体含义，有两篇帖子可供参考：</p>
+
+<ul>
+<li><a href="http://www.emunewz.net/forum/showthread.php?tid=6738">http://www.emunewz.net/forum/showthread.php?tid=6738</a></li>
+<li><a href="http://www.emunewz.net/forum/showthread.php?tid=4262&amp;pid=13327#pid13327">http://www.emunewz.net/forum/showthread.php?tid=4262&amp;pid=13327#pid13327</a></li>
+</ul>
+
+<p>按照论坛里的说法，这些选项是关于低阶PSP图像函数如何映射到OpenGL函数的设置，对性能的影响与具体的游戏具体的场景也有关系……所以说是个很微妙的东西。</p>
+
+<p>就拿《AKB 1/48》来说，经过上述选项的调整，在选单界面下FPS可以达到稳定的30左右：</p>
+
+<p>（呃。。。决定去攻略一下小石田先&lt;3）</p>
+
+<p><img src="http://i.imgur.com/Hu6Nk.jpg" alt="Menu_1"></p>
+
+<p><img src="http://i.imgur.com/IR400.jpg" alt="Menu_2"></p>
+
+<p>但是在对话场景下就变得很不流畅，FPS降到了6左右，画面的切换延迟感明显。。。<img src="http://static.tieba.baidu.com/tb/editor/images/jd/j_0012.gif"/></p>
+
+<p>Video配置下面的Only GE graphics，Use Vertex Cache等等各种选项都尝试过了，对话场景的帧速依然没有明显的改善。</p>
+
+<p>好在这种场景下是不需要太高的帧速的。于是不如就慢慢欣赏吧<img src="http://static.tieba.baidu.com/tb/editor/images/jd/j_0002.gif"/></p>
+
+<p><img src="http://i.imgur.com/SBlwl.jpg" alt="Dialog"></p>
+
+<p>以上，模拟器设置的优化提速还有待研究。</p>
+
+<p>剩下来的一个问题是，《AKB 1/48》的镜像虽然包含效果音，但是对白、神告白的语音和BGM全没有（听不到萌音还有什么乐趣啊喂。。。）</p>
+
+<p>好几个G的语音包正在龟速下载中<img src="http://static.tieba.baidu.com/tb/editor/images/jd/j_0013.gif"/></p>
+
+<p>BGM的播放貌似需要有SonicStage（只有Windows版本），这个问题如何解决以后再慢慢研究。。。</p>
+
+    </article>
+    
+    
+    <article id="articlePost" style="padding-bottom: 0">
+        <div id="divDisqus">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'soimort';
+                
+                var disqus_url = 'http://www.soimort.org/tech-blog/2012/07/27/jpcsp.html';
+                
+                
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </article>
+    
+</div>
+
+
+</body>
+</html>

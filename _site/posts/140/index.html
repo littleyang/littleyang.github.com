@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Blog">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="application-name" content="Looking-Glass" />
+    <meta name="author" content="LittleYang" />
+    <meta name="generator" content="Jekyll 0.12.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <meta itemprop="name" content="【译文】Ruby 2.0来啦！">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="" />
+
+    <title>【译文】Ruby 2.0来啦！</title>
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="57x57" />
+
+    <link rel="author" type="text/html" href="https://plus.google.com/100974147585154622588/about" />
+    <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+
+    <!-- Google Web Fonts (not in use) -->
+    <!-- link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Droid+Sans' / -->
+
+    <link rel="stylesheet" type="text/css" href="/~css/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/~css/mobile.css" media="all and (max-width:1023px)" />
+
+    <!-- Pygments -->
+    <link rel="stylesheet" type="text/css" href="/~css/pygments.css" media="all" />
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="/~css/tomorrow-night.min.css">
+    <script src="/~js/highlight.pack.js"></script>
+    <!-- script>hljs.initHighlightingOnLoad();</script -->
+
+    <!-- jQuery & Galleria -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="/~plugins/galleria/galleria-1.2.8.min.js"></script>
+
+    <!-- MathJax (not in use) -->
+    <!-- script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+
+    <!-- ShareThis (not in use) -->
+    <!-- script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "9aabed9c-ac3f-4f96-8f5a-8e7a27307543"}); </script -->
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27086900-1']);
+        _gaq.push(['_setDomainName', '.soimort.org']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script type="text/javascript" src="/~js/main.js"></script>
+
+</head>
+
+<body>
+    <!-- load background image (must be put in body) -->
+    <script type="text/javascript">
+        document.body.style.backgroundImage = "url('http://i.imgur.com/0eQ5v.jpg')";
+    </script>
+
+    <nav id="navBarTop">
+        <ul class="navBarListLeft">
+            <li><a href="/"><img src="/~images/home.png" alt="home" title="Home" class="navDock" height="24" /></a></li>
+            <li><a href="/atom.xml" target="_blank"><img src="/~images/feed.png" alt="feed" title="Feed" class="navDock" height="24" /></a></li>
+        </ul>
+
+        <ul class="navBarListRight">
+            <li style="position: relative; top: -5px"><b>LittleYang</b> on </li>
+            <!-- Google+ --><li><a href="https://plus.google.com/107586052733788098083/" target="_blank"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="gplus" title="Google+" class="navDock" height="24" /></a></li>
+            <!-- Twitter --><li><a href="https://twitter.com/soimort" target="_blank"><img src="/~images/twitter.png" alt="twitter" title="Twitter" class="navDock" height="24" /></a></li>
+            <!-- Facebook --><!-- li><a href="https://www.facebook.com/soimort" target="_blank"><img src="/~images/facebook.png" alt="facebook" title="Facebook" class="navDock" height="24" /></a></li -->
+            <!-- deviantArt --><li><a href="http://soimort.deviantart.com" target="_blank"><img src="/~images/deviantart.png" alt="deviantart" title="deviantART" class="navDock" height="24" /></a></li>
+            <!-- GitHub --><li><a href="http://github.com/soimort" target="_blank"><img src="/~images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a></li>
+        </ul>
+    </nav>
+
+    <nav id="navBarBottom">
+        <div class="navBarListLeft">
+            <div style="position: relative; top: 4px; width: 60%">
+                © 2013 <a href="http://www.google.com" target="_blank"><b>Little Yang</b></a>. Under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank"><b>CC BY-SA 3.0 License</b></a>.
+            </div>
+        </div>
+
+        <div class="navBarListRight">
+            <div style="position: relative; top: 4px; right: 0">
+                 |Powered by <a href="http://jekyllrb.com/" target="_blank"><b>Jekyll</b></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="divTitle">
+    <h1>【译文】Ruby 2.0来啦！</h1>
+    <p><div class="g-plusone" data-size="medium" data-annotation="none"></div></p>
+    <p><b>23 Feb 2013</b>, by <b>Mort</b></p>
+    <p></p>
+    <div id="divTitleNav">
+        <a href="/"><img src="/~images/left-arrow.png" class="navDock" /></a>
+    </div>
+</div>
+
+<div id="divPost">
+    <article id="articlePost">
+        <p>Original Article: <a href="https://speakerdeck.com/shyouhei/whats-new-in-ruby-2-dot-0">What&#39;s New in Ruby 2.0</a> by <a href="https://twitter.com/shyouhei">Urabe Shyouhei</a><br>
+(Chinese Translation by <strong>Mort Yao</strong>)</p>
+
+<hr>
+
+<p>本月24日（也就是明天）Ruby 2.0终于就要发布了。</p>
+
+<p>Ruby核心团队的卜部昌平桑昨天在<a href="https://twitter.com/hidek/status/304882370690023425">一个内部学习会上的presentation</a>，介绍了Ruby 2.0所包含的一些新特性。</p>
+
+<p>（本文内容选译自该幻灯片。）</p>
+
+<script async class="speakerdeck-embed" data-id="298bdc605efb013056301231381ff75d" data-ratio="1.78086956521739" src="//speakerdeck.com/assets/embed.js"></script>
+
+<hr>
+
+<h2>为什么有Ruby 2.0？</h2>
+
+<ul>
+<li><p>因为我们在改变事物。</p></li>
+<li><p>我们渴望让自己变得越来越快乐、健康、以及高产。</p></li>
+<li><p>不必畏惧。“拥抱变化。”</p></li>
+</ul>
+
+<h2>Ruby 2.0有什么新鲜的？</h2>
+
+<h3>什么<u>不是</u>Ruby 2中的新鲜货</h3>
+
+<ul>
+<li><p>几乎所有的东西。</p></li>
+<li><p>“100%后向兼容”，matz如是说。</p>
+
+<ul>
+<li>在现实中……</li>
+</ul></li>
+<li><p>（举个例子来说）Rails仍然能完好运行如初。</p></li>
+</ul>
+
+<h3>也就是说，</h3>
+
+<ul>
+<li><p>新的东西被加进来了。</p></li>
+<li><p>许多内部的东西得到了改进。</p></li>
+</ul>
+
+<h2>Ruby 2.0的新句法</h2>
+
+<h3>关键字参数（Keyword arguments）</h3>
+
+<p>下面的代码在1.x中能够正常工作：</p>
+<div class="highlight"><pre><code class="ruby"><span class="n">obj</span><span class="o">.</span><span class="n">method</span> <span class="s2">&quot;with&quot;</span><span class="p">,</span> <span class="ss">:lots</span> <span class="o">=&gt;</span> <span class="s2">&quot;of&quot;</span><span class="p">,</span>
+                   <span class="ss">:args</span> <span class="o">=&gt;</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span>
+                   <span class="ss">:hash</span> <span class="o">=&gt;</span> <span class="s2">&quot;form&quot;</span>
+</code></pre></div>
+<p>但是，问题出在哪呢？</p>
+
+<p>问题是在定义该方法的时候：
+<strong><em>（Mort注：在Ruby 1.x中，只能将多个带符号名称的参数作为一个Hash来传递给方法。要为参数指定默认值，实现起来就很累赘，参见如下代码）</em></strong></p>
+<div class="highlight"><pre><code class="ruby"><span class="k">def</span> <span class="nc">obj</span><span class="o">.</span><span class="nf">method</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">hash</span><span class="p">)</span>
+  <span class="n">lots</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="ss">:lots</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;default&quot;</span>
+  <span class="n">args</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="ss">:args</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;another&quot;</span>
+  <span class="n">hand</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="ss">:by</span> <span class="n">hand</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;annoying&quot;</span>
+  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>注意到代码中错误的<code>Hash[:by hand]</code>——<strong>手写代码是错误产生的根源！</strong></p>
+
+<p>从2.0开始，Ruby将引入<strong>关键字参数</strong>：</p>
+<div class="highlight"><pre><code class="ruby"><span class="k">def</span> <span class="nc">obj</span><span class="o">.</span><span class="nf">method</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">d</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>其中<code>a</code>为固定参数，<code>b</code>为可选参数，<code>c</code>、<code>d</code>则为关键字参数。这样，局部变量<code>a</code>、<code>b</code>、<code>c</code>和<code>d</code>都将被恰当地赋值。</p>
+
+<p>在调用函数时，原有的调用方式无需更改。</p>
+
+<p><strong><em>Mort注：虽然幻灯片里没有写，传统的基于Hash参数的调用方法是这个样子的</em></strong></p>
+<div class="highlight"><pre><code class="ruby"><span class="n">obj</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="ss">:c</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">:d</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<p><strong><em>现在Ruby 2.0同时也支持直接采用关键字参数的调用方法：（Python程序员一定会觉得这种语法更亲切）</em></strong></p>
+<div class="highlight"><pre><code class="ruby"><span class="n">obj</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">d</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<p><strong><em>更详细的示例，可以参考这里：</em></strong></p>
+
+<p><a href="http://brainspec.com/blog/2012/10/08/keyword-arguments-ruby-2-0/">http://brainspec.com/blog/2012/10/08/keyword-arguments-ruby-2-0/</a></p>
+
+<h3>其他细微的句法改进</h3>
+
+<ul>
+<li>引入了符号数组字面值<code>%i</code>和<code>%I</code>。</li>
+</ul>
+<div class="highlight"><pre><code class="ruby"><span class="o">%</span><span class="n">i</span><span class="p">(</span><span class="n">foo</span> <span class="n">bar</span> <span class="n">baz</span><span class="p">)</span> <span class="c1"># =&gt; [:foo, :bar, :baz]</span>
+</code></pre></div>
+<ul>
+<li>Ruby现在默认把所有的输入都视作UTF-8编码。当然你也可以显式地指定需要的编码。</li>
+</ul>
+
+<h2>Ruby 2.0的核心性能改进</h2>
+
+<h3><code>require</code>的改进</h3>
+
+<ul>
+<li><p>背景：今天，由于我们有了许多gems，启动Ruby有时甚至需要一次require 128+个库——这带来了糟糕的性能问题。</p></li>
+<li><p>解决：<code>require</code>变得更快了（从计算复杂度的意义上来说）。</p>
+
+<ul>
+<li>若干技术被应用于减少多余的计算上。</li>
+</ul></li>
+</ul>
+
+<h3>Backtrace惰性生成</h3>
+
+<ul>
+<li><p>起初，backtraces只是字符串数组而已。</p></li>
+<li><p>每当抛出异常时，这些字符串就被自上而下地生成出来，即使在它们没有实际用途的情况下。</p>
+
+<ul>
+<li>这导致了超乎寻常的低效，尤其是当你有1024+个stack frames时（这在Rails应用中很常见）。</li>
+</ul></li>
+<li><p>从Ruby 2.x开始，<code>Thread::Backtrace</code>被用来取代字符串。</p>
+
+<ul>
+<li>它们非常地轻量级。</li>
+</ul></li>
+<li><p>当你需要查看backtrace时，只需将它们转换成字符串即可（调用<code>#to_s</code>）。</p></li>
+</ul>
+
+<h3>Flonum类</h3>
+
+<ul>
+<li><p>在64位平台（如今早就烂大街了）上，指针，整型和浮点型数均是64位宽度的。</p></li>
+<li><p>在Ruby中，指针和整型均为C级别的<code>register</code>寄存器变量。而<code>double</code>却是存储在内存中的，如果我们能够如操作指针一样操作它们，将如何呢？</p></li>
+<li><p>问题：如何让一个指针和一个double共存于一个union中？</p></li>
+<li><p>解决：一些技巧性的位移。</p></li>
+</ul>
+
+<p><strong><em>Mort注：图片懒得搬运了……请参见原幻灯片。</em></strong></p>
+
+<h3>GC（Garbage Collection）</h3>
+
+<ul>
+<li><p>Bitmap标志：以前，GC标志位存储于每个对象中，但现在已经被转移到了专用的内存页中，以减少缓存的误查询（同时也更加CoW (Copy-on-Write)友好）。</p></li>
+<li><p>非递归标志：标志函数如今避免了机器栈溢出的风险。</p></li>
+<li><p>惰性清理（从1.9.3起）：清理器只有在必须的地方才进行收集（减少了stop时间）。</p></li>
+</ul>
+
+<h2>Ruby 2.0的新核心特性：#1 调试工具</h2>
+
+<h3>DTrace支持</h3>
+
+<h3>TracePoint支持</h3>
+
+<h3>GC stats</h3>
+
+<h2>Ruby 2.0的新核心特性：#2 核心库</h2>
+
+<h3>细粒度的异步中断处理</h3>
+
+<p>Ruby的执行有时会因为各种原因而中断，例如，超时。</p>
+
+<p>Ruby 2.0提供了细粒度的异步中断处理方案：</p>
+<div class="highlight"><pre><code class="ruby"><span class="no">Thread</span><span class="o">.</span><span class="n">async_interrupt_timing</span> <span class="ss">Timeout</span><span class="p">:</span><span class="ss">:Error</span> <span class="o">=&gt;</span> <span class="ss">:defer</span> <span class="k">do</span>
+  <span class="n">timeout</span><span class="p">(</span><span class="nb">rand</span><span class="p">())</span> <span class="k">do</span>
+    <span class="k">begin</span>
+      <span class="no">Thread</span><span class="o">.</span><span class="n">async_interrupt_timing</span> <span class="ss">Timeout</span><span class="p">:</span><span class="ss">:Error</span> <span class="o">=&gt;</span> <span class="ss">:immediate</span> <span class="k">do</span>
+        <span class="n">setup</span>
+        <span class="n">handle</span>
+        <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+      <span class="k">end</span>
+    <span class="k">ensure</span>
+      <span class="n">teardown</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<h3>模块前插</h3>
+
+<p>有时候你想要给一个方法添加需要的安装或拆解代码，而相应的部分却定义在别处。</p>
+<div class="highlight"><pre><code class="ruby"><span class="k">module</span> <span class="nn">ActiveRecordHelper</span>
+  <span class="k">def</span> <span class="nf">save</span>
+    <span class="sc">??</span><span class="p">?</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>该如何去做呢？在Ruby 2.0中，你可以：</p>
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">Foo</span> <span class="o">&lt;</span> <span class="ss">AR</span><span class="p">:</span><span class="ss">:Base</span>
+  <span class="n">prepend</span> <span class="ss">AR</span><span class="p">:</span><span class="ss">:Helper</span>
+
+  <span class="k">def</span> <span class="nf">save</span>
+    <span class="n">bar</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">module</span> <span class="nn">AR::Helper</span>
+  <span class="k">def</span> <span class="nf">save</span>
+    <span class="n">foo</span>
+    <span class="k">super</span>
+    <span class="n">baz</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Foo</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">save</span>
+</code></pre></div>
+<p>这避开了Rails中的所谓“别名方法链（alias method chain）”的困扰。AMC什么的已经不再必要了。</p>
+
+<h3>惰性枚举器</h3>
+
+<p>Ruby的<code>foo.bar.baz. ...</code>风格（所谓的“流水作业”）有时会传递许多并不必要的临时对象，而这些理论上都可以通过惰性求值来避免。</p>
+<div class="highlight"><pre><code class="ruby"><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">fp</span><span class="o">|</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">each_line</span><span class="o">.</span> <span class="p">\</span>
+    <span class="nb">select</span> <span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="o">|</span> <span class="c1"># 生成了临时数组</span>
+    <span class="sr">/regexp/</span> <span class="o">=~</span> <span class="n">line</span>
+    <span class="p">}</span><span class="o">.</span> <span class="p">\</span>
+    <span class="n">each_with_index</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="p">,</span> <span class="n">no</span><span class="o">|</span> <span class="c1"># 生成了临时数组</span>
+    <span class="nb">sprintf</span><span class="p">(</span><span class="s2">&quot;%d: %s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">no</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+    <span class="p">}</span><span class="o">.</span> <span class="p">\</span>
+    <span class="n">first</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span><span class="o">|</span><span class="n">str</span><span class="o">|</span> <span class="c1"># 生成了临时数组</span>
+        <span class="nb">puts</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre><code class="ruby"><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">fp</span><span class="o">|</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">each_line</span><span class="o">.</span><span class="n">lazy</span> <span class="p">\</span>
+    <span class="nb">select</span> <span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="o">|</span> <span class="c1"># 没有临时数组产生</span>
+    <span class="sr">/regexp/</span> <span class="o">=~</span> <span class="n">line</span>
+    <span class="p">}</span><span class="o">.</span> <span class="p">\</span>
+    <span class="n">each_with_index</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="p">,</span> <span class="n">no</span><span class="o">|</span> <span class="c1"># 没有临时数组产生</span>
+    <span class="nb">sprintf</span><span class="p">(</span><span class="s2">&quot;%d: %s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">no</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+    <span class="p">}</span><span class="o">.</span> <span class="p">\</span>
+    <span class="n">first</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span><span class="o">|</span><span class="n">str</span><span class="o">|</span> <span class="c1"># 没有临时数组产生</span>
+        <span class="nb">puts</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="c1"># 甚至在到达EOF之前都不读取数据</span>
+</code></pre></div>
+<p>一个有趣的应用实例：无穷枚举器。</p>
+<div class="highlight"><pre><code class="ruby"><span class="c1"># Leibniz formula for π</span>
+<span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="ss">Float</span><span class="p">:</span><span class="ss">:INFINITY</span><span class="p">)</span><span class="o">.</span><span class="n">lazy</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
+    <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_f</span>
+<span class="p">}</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">65536</span><span class="p">)</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="ss">:+</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
+</code></pre></div>
+<h3>其他的新方法</h3>
+
+<ul>
+<li><code>Kernel.__dir__</code>：获取<code>__FILE__</code>所在的目录名。</li>
+<li><code>Kernel#to_h</code>：通用的Hash转换方法。</li>
+<li><code>Random</code>类（1.9+）：可重复的PRNG。</li>
+<li><code>IO#wait_writable</code>：等待直到可写。</li>
+<li>Refinements: 实验性的。</li>
+</ul>
+
+<p><strong><em>Mort注：更多关于Ruby 2.0核心特性的介绍，参考</em></strong></p>
+
+<ul>
+<li><a href="http://globaldev.co.uk/2012/11/ruby-2-0-0-preview-features">http://globaldev.co.uk/2012/11/ruby-2-0-0-preview-features</a></li>
+<li><a href="http://www.infoq.com/news/2012/11/ruby-20-preview1">http://www.infoq.com/news/2012/11/ruby-20-preview1</a></li>
+</ul>
+
+<h2>Ruby 2.0标准库的改进</h2>
+
+<ul>
+<li><strong>CGI</strong>
+
+<ul>
+<li>CGI已经为HTML5做好了一切准备。</li>
+</ul></li>
+<li><strong>net/http</strong>
+
+<ul>
+<li>支持SNI（Server Name Indication）。</li>
+</ul></li>
+<li><strong>Zlib绑定</strong>
+
+<ul>
+<li>Zlib如今运行在解释器的进程锁之外。这意味着zlib在多线程的情形下运行速度将更快。</li>
+</ul></li>
+<li><strong>更新的stdlibs（标准库）</strong>
+
+<ul>
+<li>Rubygems 2.0.0</li>
+<li>JSON 1.7.7</li>
+<li>Rake 0.9.5</li>
+<li>Rdoc 4.0</li>
+<li>以及其它（REXML，yaml，openssl……）</li>
+</ul></li>
+</ul>
+
+<h2>总结</h2>
+
+<h3>什么<u>不是</u>Ruby 2中的新鲜货</h3>
+
+<ul>
+<li><p>几乎所有的东西！</p></li>
+<li><p>“100%后向兼容”，matz如是说。</p></li>
+<li><p>（举个例子来说）Rails仍然能完好运行如初。</p></li>
+<li><p><em>不必畏惧！开始使用2.0.0版吧！</em></p></li>
+</ul>
+
+<h3>也就是说，</h3>
+
+<ul>
+<li><p>新的东西被加进来了。</p></li>
+<li><p>许多内部的东西得到了改进。</p></li>
+<li><p>即使你对你当前的环境充分自信，<em>2.0.0仍然值得你拥有。</em></p></li>
+</ul>
+
+<hr>
+
+<h2>Don&#39;t be afraid. Use Ruby today!</h2>
+
+<p><script type="text/javascript" src="http://jpopsuki.tv/js/embed.js.php?key=eb57d9ad12c4f7a324fc6854f673d40d&amp;amp;app=frontend&amp;amp;env=prod&amp;amp;debug=false&amp;amp;1361590282"></script><noscript>&lt;!-- Version SVN: $Id: <em>playerVideo.php 1267 2013-01-15 11:53:00Z sven.poeche $ --&gt;<div id="flash"><div id="flashcontent">&lt;object classid=&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot; id=&quot;flvplayer</em>5128380abf3d4&quot; name=&quot;c6a80378-3eb2-47e7-8415-ba1f7cff037e&quot; width=&quot;720&quot; height=&quot;400&quot; style=&quot;position:relative;top:0;left:0;z-index:9998;&quot;&gt;<param name="movie" value="http://jpopsuki.tv/flash/vimp.swf" /><param name="flashvars" value="hosturl=http%3A%2F%2Fjpopsuki.tv%2Fmedia%2Fflashcomm&amp;mediaid=5581&amp;context=embeded&amp;skin=http%3A%2F%2Fjpopsuki.tv%2Fflash%2Fskins%2Fair_black.swf&amp;autohidesidebaronplay=true" /><param name="scale" value="true" /><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="wmode" value="opaque" />&lt;!--[if !IE]&gt;--&gt;<object type="application/x-shockwave-flash" data="http://jpopsuki.tv/flash/vimp.swf" width="720" height="400" wmode="opaque"><param name="flashvars" value="hosturl=http%3A%2F%2Fjpopsuki.tv%2Fmedia%2Fflashcomm&amp;mediaid=5581&amp;context=embeded&amp;skin=http%3A%2F%2Fjpopsuki.tv%2Fflash%2Fskins%2Fair_black.swf&amp;autohidesidebaronplay=true" /><param name="scale" value="true" /><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="wmode" value="opaque" />&lt;!--&lt;![endif]--&gt;<div class="leanback-player-video"><span id="flashcomm-url">http://jpopsuki.tv/media/flashcomm?action=mediaview&amp;context=embeded&amp;id=5581</span><video id="index_video" width="720" height="400" preload="metadata" controls poster="http://jpopsuki.tv/cache/1a7aa8c88cad0006b50d216d5f88cb7b.jpg"><source src="http://jpopsuki.tv/images/media/eb57d9ad12c4f7a324fc6854f673d40d_1361040059.mp4" type="video/mp4" /><p style="margin: 15px;">Hint: Unfortunately your browser does not have Flash Player installed or the Flash Player version is outdated. You need Flash Player to view media in this community. <a href="http://www.macromedia.com/go/getflashplayer">Download Flash Player</a></p><img alt="AKB48 - Ruby" title="AKB48 - Ruby" src="http://jpopsuki.tv/cache/1a7aa8c88cad0006b50d216d5f88cb7b.jpg" />      &lt;!--[if !IE]&gt;--&gt;</object>&lt;!--&lt;![endif]--&gt;</object></div></div></noscript></p>
+
+    </article>
+    
+    
+    <article id="articlePost" style="padding-bottom: 0">
+        <div id="divDisqus">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'soimort';
+                
+                var disqus_url = 'http://www.soimort.org/posts/140/index.html';
+                
+                
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </article>
+    
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Blog">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="application-name" content="Looking-Glass" />
+    <meta name="author" content="LittleYang" />
+    <meta name="generator" content="Jekyll 0.12.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <meta itemprop="name" content="为什么我们应该频繁发布新版本（以及怎样发布）">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="" />
+
+    <title>为什么我们应该频繁发布新版本（以及怎样发布）</title>
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="57x57" />
+
+    <link rel="author" type="text/html" href="https://plus.google.com/100974147585154622588/about" />
+    <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+
+    <!-- Google Web Fonts (not in use) -->
+    <!-- link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Droid+Sans' / -->
+
+    <link rel="stylesheet" type="text/css" href="/~css/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/~css/mobile.css" media="all and (max-width:1023px)" />
+
+    <!-- Pygments -->
+    <link rel="stylesheet" type="text/css" href="/~css/pygments.css" media="all" />
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="/~css/tomorrow-night.min.css">
+    <script src="/~js/highlight.pack.js"></script>
+    <!-- script>hljs.initHighlightingOnLoad();</script -->
+
+    <!-- jQuery & Galleria -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="/~plugins/galleria/galleria-1.2.8.min.js"></script>
+
+    <!-- MathJax (not in use) -->
+    <!-- script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+
+    <!-- ShareThis (not in use) -->
+    <!-- script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "9aabed9c-ac3f-4f96-8f5a-8e7a27307543"}); </script -->
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27086900-1']);
+        _gaq.push(['_setDomainName', '.soimort.org']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script type="text/javascript" src="/~js/main.js"></script>
+
+</head>
+
+<body>
+    <!-- load background image (must be put in body) -->
+    <script type="text/javascript">
+        document.body.style.backgroundImage = "url('http://i.imgur.com/0eQ5v.jpg')";
+    </script>
+
+    <nav id="navBarTop">
+        <ul class="navBarListLeft">
+            <li><a href="/"><img src="/~images/home.png" alt="home" title="Home" class="navDock" height="24" /></a></li>
+            <li><a href="/atom.xml" target="_blank"><img src="/~images/feed.png" alt="feed" title="Feed" class="navDock" height="24" /></a></li>
+        </ul>
+
+        <ul class="navBarListRight">
+            <li style="position: relative; top: -5px"><b>LittleYang</b> on </li>
+            <!-- Google+ --><li><a href="https://plus.google.com/107586052733788098083/" target="_blank"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="gplus" title="Google+" class="navDock" height="24" /></a></li>
+            <!-- Twitter --><li><a href="https://twitter.com/soimort" target="_blank"><img src="/~images/twitter.png" alt="twitter" title="Twitter" class="navDock" height="24" /></a></li>
+            <!-- Facebook --><!-- li><a href="https://www.facebook.com/soimort" target="_blank"><img src="/~images/facebook.png" alt="facebook" title="Facebook" class="navDock" height="24" /></a></li -->
+            <!-- deviantArt --><li><a href="http://soimort.deviantart.com" target="_blank"><img src="/~images/deviantart.png" alt="deviantart" title="deviantART" class="navDock" height="24" /></a></li>
+            <!-- GitHub --><li><a href="http://github.com/soimort" target="_blank"><img src="/~images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a></li>
+        </ul>
+    </nav>
+
+    <nav id="navBarBottom">
+        <div class="navBarListLeft">
+            <div style="position: relative; top: 4px; width: 60%">
+                © 2013 <a href="http://www.google.com" target="_blank"><b>Little Yang</b></a>. Under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank"><b>CC BY-SA 3.0 License</b></a>.
+            </div>
+        </div>
+
+        <div class="navBarListRight">
+            <div style="position: relative; top: 4px; right: 0">
+                 |Powered by <a href="http://jekyllrb.com/" target="_blank"><b>Jekyll</b></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="divTitle">
+    <h1>为什么我们应该频繁发布新版本（以及怎样发布）</h1>
+    <p><div class="g-plusone" data-size="medium" data-annotation="none"></div></p>
+    <p><b>12 Dec 2012</b>, by <b>Mort</b></p>
+    <p></p>
+    <div id="divTitleNav">
+        <a href="/"><img src="/~images/left-arrow.png" class="navDock" /></a>
+    </div>
+</div>
+
+<div id="divPost">
+    <article id="articlePost">
+        <p>敏捷开发中有句常讲的话，叫做<a href="http://en.wikipedia.org/wiki/Release_early,_release_often">“Release early, release often（及早发布，频繁发布）”</a>。</p>
+
+<p>什么叫发布呢？简单地讲，就是把东西打包出一个新的版本，让最终用户可以直接拿过来用（无论是通过包管理器升级、下载预构建包手动安装还是下载源码自己去<code>make install</code>）。</p>
+
+<p>我个人理念中的频繁发布应该是，每增加几个小的功能或者修复一个issue，都分配一个新的<a href="http://semver.org/">语义版本号</a>。当然，对于WebKit这种持续集成的庞大代码库来说，因为每个Nightly build都会有一个SVN全局版本号，这种情况暂时不在考虑范围之内。</p>
+
+<p>基于语义版本的频繁发布有什么好处，我就不从哲学的角度分析了。来说一下最近遇到的一个问题：</p>
+
+<p><strong>0)</strong> 系统环境：Arch Linux + Python 3.3.0</p>
+
+<p><strong>1)</strong> 用pip安装docutils（用来渲染<a href="http://en.wikipedia.org/wiki/ReStructuredText">reStructuredText (reST)</a>格式文本的Python库。reST是一种类似Markdown的文本标记语言，用在<a href="http://pypi.python.org/pypi">PyPI</a>上）到系统位置：</p>
+<div class="highlight"><pre><code class="text">$ sudo pip-3.3 install docutils
+</code></pre></div>
+<p><strong>2)</strong> <a href="https://github.com/github/markup">GitHub Markup</a>可以调用docutils来渲染reST文件。执行其测试：</p>
+<div class="highlight"><pre><code class="text">$ git clone git://github.com/github/markup.git github-markup
+$ cd github-markup/
+$ rake
+</code></pre></div>
+<p>结果测试在reST这一步失败。</p>
+
+<p><strong>3)</strong> GitHub Markup通过一个python的wrapper来调用docutils，试图直接用Python 3.3执行这个python脚本，出错：</p>
+<div class="highlight"><pre><code class="text">$ python3.3 lib/github/commands/rest2html &lt;/dev/null
+...
+ImportError: No module named standalone
+</code></pre></div>
+<p><strong>4)</strong> 但是，换成Python 2就完全没有问题：</p>
+<div class="highlight"><pre><code class="text">$ sudo pip-2.7 install docutils
+$ python2 lib/github/commands/rest2html &lt;/dev/null
+&lt;div class=&quot;document&quot;&gt;
+&lt;/div&gt;
+</code></pre></div>
+<p>很明显，这是docutils不兼容Python 3.3导致的后果。</p>
+
+<p>根据Python的traceback信息，问题出在<code>/usr/lib/python3.3/site-packages/docutils-0.9.1-py3.3.egg/docutils/readers/__init__.py</code>的109行：</p>
+<div class="highlight"><pre><code class="text">module = __import__(reader_name, globals(), locals())
+</code></pre></div>
+<p>Python解释器抱怨说它找不到standalone这个module。但是standalone.py这个文件又是确实存在的：</p>
+
+<p><code>/usr/lib/python3.3/site-packages/docutils-0.9.1-py3.3.egg/docutils/readers/standalone.py</code></p>
+
+<p>仔细研究一下<a href="http://docs.python.org/3/whatsnew/3.3.html#using-importlib-as-the-implementation-of-import">Python 3.3的变化</a>就知道，原先的<code>__import__()</code>函数现在由<code>importlib.__import__()</code>实现，<strong>破坏了原有代码的后向兼容性</strong>，必须在调用时显式指定<code>level=1</code>参数：</p>
+<div class="highlight"><pre><code class="text">module = __import__(reader_name, globals(), locals(), level=1)
+</code></pre></div>
+<p><strong>5)</strong> 虽然官方的docutils 0.9.1包不兼容Python 3.3，不过这个问题看起来已经在Arch Linux的包上很好地解决了。参见Arch的patch：</p>
+
+<p><a href="https://projects.archlinux.org/svntogit/community.git/tree/trunk/01-python33-relative-import.patch?h=packages/docutils">https://projects.archlinux.org/svntogit/community.git/tree/trunk/01-python33-relative-import.patch?h=packages/docutils</a></p>
+
+<p>对于Arch来说，这个patch是必需的，因为Arch的Python早就升级到了 3.3版本。不解决这个bug，现有的docutils就根本没法用。</p>
+
+<p><strong>6)</strong> 所以，在Python 3.3上要使用docutils，解决的方法就是不要用easy_install/pip去安装上游的docutils 0.9.1，而是用pacman安装打过补丁的python-docutils 0.9.1包。（所以说用Arch偶尔也是有点额外好处的嘛）</p>
+
+<p><strong>7)</strong> 装过Arch的包之后，问题照旧。</p>
+
+<p>原因是：使用easy_install/pip安装的<a href="http://mrtopf.de/blog/en/a-small-introduction-to-python-eggs/">Python Eggs</a>优先级要高于使用pacman安装的库。也就是说，如果有一个用pacman安装的python库：</p>
+
+<p><code>/usr/lib/python3.3/site-packages/docutils</code></p>
+
+<p>同时在系统上又用easy_install或者pip安装了同样是这个包的Python Egg：</p>
+
+<p><code>/usr/lib/python3.3/site-packages/docutils-0.9.1-py3.3.egg/docutils</code></p>
+
+<p>那么Python优先使用的是这个蛋，而不是pacman给你在标准位置安装的包。卸载掉pip安装的蛋即可。</p>
+<div class="highlight"><pre><code class="text">$ sudo pip-3.3 uninstall docutils
+</code></pre></div>
+<p><strong>8)</strong> 现在就要说到问题的关键了。</p>
+
+<p>Python 3.3是今年九月发布的，但是官方的docutils 0.9.1对Python 3.3并不兼容。既然Arch都解决了这个问题，为什么上游的docutils至今还没解决呢？</p>
+
+<p>实际上，这issue早在七月份、Python 3.3正式发布之前就已经有人报到docutils的bug tracker上，而且仅仅三天后就被一个patch修复了：</p>
+
+<p><a href="http://sourceforge.net/tracker/?func=detail&amp;aid=3541369&amp;group_id=38414&amp;atid=422030">http://sourceforge.net/tracker/?func=detail&amp;aid=3541369&amp;group_id=38414&amp;atid=422030</a></p>
+
+<p>到目前为止，docutils最新的版本还是6月份发布的0.9.1。现在你大概知道问题出在哪了。这个bug实际上早就在svn库中被修复了，但是他们至今还没有在Cheeseshop（以及SourceForge上）发布出新的版本！如果你已经升级到了Python 3.3，你是没法直接把“最新发布”版的docutils 0.9.1拿来用的，你仍然需要一个来自下游（比如发行版，诸如Arch Linux）的补丁，或者干脆直接使用svn上的开发版。</p>
+
+<p>这不是一种解决问题的优雅方式。</p>
+
+<h2>我们应该频繁地发布版本——为什么不呢？</h2>
+
+<ul>
+<li><p>现在已经不是通过CD甚至3.5英寸软盘这种物理介质才能发布一个新版软件的年代了。你所需要的只是构建，然后上传到服务器。这一切几乎是零成本。</p>
+
+<ul>
+<li>如果你用PyPI或者RubyGems来托管你的Python/Ruby项目的话，发布一个新版本甚至可以只是一条命令那么简单。</li>
+</ul></li>
+<li><p>现在也不再是Unix hackers们热衷于用<code>diff</code>/<code>patch</code>来解决一切问题的年代了。用户很少愿意去碰源代码，尤其当这些代码属于他们不太关心的底层库时。没有哪个用户喜欢在写他们的程序时，发现依赖的底层库有一堆兼容性的bug；这些底层库虽然在svn或git中已经修复了bug，却没有及时地发布出新版本。结果用户只能给这些依赖自行打上patch重新构建，甚至直接使用开发版本。</p>
+
+<ul>
+<li>就算你通过给依赖库打上自己的补丁的方式解决了问题，依赖关系又该怎么写？</li>
+<li>你会想到把这些修补过的依赖库源码也放进自己的代码库里。问题是，你也许根本就没有必要去维护它们，等到依赖库的下一个版本发布时，这个bug就很可能已经被修复了。</li>
+<li>就编译型语言来说，你完全可以给依赖库打上补丁之后把构建出的链接库放到另外一个地方，假装它们是你的软件包的一部分，所以这问题对于传统的C/C++程序员来说并不严重；</li>
+<li>但是，在Python、Ruby这类语言的生态环境下面，你却很难这么去做。这种“不干净”的做法本身也破坏了这些语言社区鼓励代码重用的原则。</li>
+</ul></li>
+</ul>
+
+<h2>这也是为什么我们应该使用某种语言的“事实标准”包管理器的原因</h2>
+
+<p>稍微离题说一下，许多现代的编程语言都存在着自己事实标准（de facto）上的包管理机制。大部分时候，一条命令就可以完成从构建、测试到新版本的安装、发布等一系列任务，很少或者根本不需要你去手写繁琐的<code>Makefile</code>或者<code>configure.ac</code>，或者其他元构建系统的配置文件。</p>
+
+<ul>
+<li>Python做这件事情的东西以前是setuptools，现在叫做<a href="http://packages.python.org/distribute/">Distribute</a>（setuptools的fork），针对特定版本的Python环境打出来的软件包叫做一个Python蛋（类似于Java下面的jar）， 然后提供给最终用户安装蛋的工具是EasyInstall或者Pip（用以取代EasyInstall）。</li>
+<li>Ruby的包管理机制比Python要更加统一，这个东西叫做gem，几乎没有哪个Ruby程序员会不去用它（不用setuptools/distribute的Python程序员倒是大有人在……）。</li>
+<li>Perl 6现在的包管理器叫panda。</li>
+<li>Haskell有cabal。</li>
+<li>Node.js有npm。</li>
+<li>Dart有pub。</li>
+<li>Go语言……这个自然就不必多说了吧。<code>go</code>命令实在是太强大了，连包管理都能顺便解决。</li>
+</ul>
+
+<p>如果用了这些语言特定的包管理器来管理项目的话，你会发现发布新版本并不是一件麻烦事。不过这么做的好处可远不止是为频繁发布版本提供便利而已。</p>
+
+<p>对于任何一个开源社区来说，高效的协作是必不可少的。这要求以下两点：</p>
+
+<ol>
+<li>鼓励代码重用，以库的形式。
+
+<ul>
+<li>开发自己的库，让它做好一件事情。明确每部分功能的API接口，让它可以被别的库依赖；</li>
+<li>打包好自己的库，而且仅仅只打包自己的库，让它去依赖别的库；</li>
+<li>不要随意地把依赖库的源码包含到自己的代码当中，尤其当维护者并不理解它的大部分内容时；</li>
+</ul></li>
+<li>依赖关系明确，包括名称和版本号。</li>
+</ol>
+
+<p>早在现代的包管理机制出现之前的年代，GNU / Savannah、CPAN、CTAN这样的社区就已经为做好第一点付出了巨大的努力，而如今众多现代编程语言的标准包管理器更加鼓励了代码重用。今天，如果你写了一个库，并且想把它开源出去让每个人都能从中获益，你<strong>没有任何理由</strong>不去使用这些包管理机制提供的标准手段！</p>
+
+<p>第二点，是为了解决API兼容问题带来的依赖性地狱，所以，我想说的是：</p>
+
+<h2>我们应该让版本号有实质的意义，而不只是好玩</h2>
+
+<p><a href="http://semver.org/">语义版本规则（Semantic Versioning）</a>的提出，正是为了解决这样一个问题：</p>
+
+<p><em>In the world of software management there exists a dread place called &quot;dependency hell.&quot; The bigger your system grows and the more packages you integrate into your software, the more likely you are to find yourself, one day, in this pit of despair.</em></p>
+
+<p><em>In systems with many dependencies, releasing new package versions can quickly become a nightmare. If the dependency specifications are too tight, you are in danger of version lock (the inability to upgrade a package without having to release new versions of every dependent package). If dependencies are specified too loosely, you will inevitably be bitten by version promiscuity (assuming compatibility with more future versions than is reasonable). Dependency hell is where you are when version lock and/or version promiscuity prevent you from easily and safely moving your project forward.</em></p>
+
+<p>大概不是所有人都能习惯这套版本命名规则（Ruby程序员除外）。但是，你仍然应该让自己的版本号具有实质的含义，命名上具有一致性，至少能恰当地反映出API的变化。而不只是为了好玩或者追求形式。</p>
+
+<p>这么做是为了给用户提供便利，让他们知道什么时候API的兼容性可能会被破坏，什么时候命令行选项（和相应的CLI wrapper）的兼容性又可能会被破坏。如是，当他们依赖于你的库时，他们看到版本号就能够想到及时去更新自己的依赖关系，升级代码。这也是版本号本来应该起到的作用。</p>
+
+<p>我能理解很多人喜欢不受拘束，发明自己的东西，游离于体制和规则之外；甚至越是伟大的程序员就越是倾向于这么做。也许你更喜欢拿3.14159这样的数字来做版本号。这意味着你是一个了不起的Geek。但是，从长远看来，我不认为这样的版本号命名对整个社区的协作有什么好处——当然，我承认这很有趣。</p>
+
+<p>对于最终产品或者纯内部项目来说，版本号可能没那么重要，毕竟，在开发团队的圈子之外，没有人会太care某个库的API接口是什么，前后兼容性如何，因为大部分人只会去关心interface。但是，如果你正在或者将要去维护一个开源的项目——请严肃地对待版本号这件事情。</p>
+
+<p>我是说认真的。</p>
+
+    </article>
+    
+    
+    <article id="articlePost" style="padding-bottom: 0">
+        <div id="divDisqus">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'soimort';
+                
+                var disqus_url = 'http://www.soimort.org/posts/126/index.html';
+                
+                
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </article>
+    
+</div>
+
+
+</body>
+</html>

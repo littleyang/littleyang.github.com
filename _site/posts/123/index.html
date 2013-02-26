@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Blog">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="application-name" content="Looking-Glass" />
+    <meta name="author" content="LittleYang" />
+    <meta name="generator" content="Jekyll 0.12.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <meta itemprop="name" content="Chromium保存网页的.html文件神秘消失问题">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="" />
+
+    <title>Chromium保存网页的.html文件神秘消失问题</title>
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="57x57" />
+
+    <link rel="author" type="text/html" href="https://plus.google.com/100974147585154622588/about" />
+    <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+
+    <!-- Google Web Fonts (not in use) -->
+    <!-- link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Droid+Sans' / -->
+
+    <link rel="stylesheet" type="text/css" href="/~css/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/~css/mobile.css" media="all and (max-width:1023px)" />
+
+    <!-- Pygments -->
+    <link rel="stylesheet" type="text/css" href="/~css/pygments.css" media="all" />
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="/~css/tomorrow-night.min.css">
+    <script src="/~js/highlight.pack.js"></script>
+    <!-- script>hljs.initHighlightingOnLoad();</script -->
+
+    <!-- jQuery & Galleria -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="/~plugins/galleria/galleria-1.2.8.min.js"></script>
+
+    <!-- MathJax (not in use) -->
+    <!-- script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+
+    <!-- ShareThis (not in use) -->
+    <!-- script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "9aabed9c-ac3f-4f96-8f5a-8e7a27307543"}); </script -->
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27086900-1']);
+        _gaq.push(['_setDomainName', '.soimort.org']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script type="text/javascript" src="/~js/main.js"></script>
+
+</head>
+
+<body>
+    <!-- load background image (must be put in body) -->
+    <script type="text/javascript">
+        document.body.style.backgroundImage = "url('http://i.imgur.com/0eQ5v.jpg')";
+    </script>
+
+    <nav id="navBarTop">
+        <ul class="navBarListLeft">
+            <li><a href="/"><img src="/~images/home.png" alt="home" title="Home" class="navDock" height="24" /></a></li>
+            <li><a href="/atom.xml" target="_blank"><img src="/~images/feed.png" alt="feed" title="Feed" class="navDock" height="24" /></a></li>
+        </ul>
+
+        <ul class="navBarListRight">
+            <li style="position: relative; top: -5px"><b>LittleYang</b> on </li>
+            <!-- Google+ --><li><a href="https://plus.google.com/107586052733788098083/" target="_blank"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="gplus" title="Google+" class="navDock" height="24" /></a></li>
+            <!-- Twitter --><li><a href="https://twitter.com/soimort" target="_blank"><img src="/~images/twitter.png" alt="twitter" title="Twitter" class="navDock" height="24" /></a></li>
+            <!-- Facebook --><!-- li><a href="https://www.facebook.com/soimort" target="_blank"><img src="/~images/facebook.png" alt="facebook" title="Facebook" class="navDock" height="24" /></a></li -->
+            <!-- deviantArt --><li><a href="http://soimort.deviantart.com" target="_blank"><img src="/~images/deviantart.png" alt="deviantart" title="deviantART" class="navDock" height="24" /></a></li>
+            <!-- GitHub --><li><a href="http://github.com/soimort" target="_blank"><img src="/~images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a></li>
+        </ul>
+    </nav>
+
+    <nav id="navBarBottom">
+        <div class="navBarListLeft">
+            <div style="position: relative; top: 4px; width: 60%">
+                © 2013 <a href="http://www.google.com" target="_blank"><b>Little Yang</b></a>. Under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank"><b>CC BY-SA 3.0 License</b></a>.
+            </div>
+        </div>
+
+        <div class="navBarListRight">
+            <div style="position: relative; top: 4px; right: 0">
+                 |Powered by <a href="http://jekyllrb.com/" target="_blank"><b>Jekyll</b></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="divTitle">
+    <h1>Chromium保存网页的.html文件神秘消失问题</h1>
+    <p><div class="g-plusone" data-size="medium" data-annotation="none"></div></p>
+    <p><b>28 Oct 2012</b>, by <b>Mort</b></p>
+    <p></p>
+    <div id="divTitleNav">
+        <a href="/"><img src="/~images/left-arrow.png" class="navDock" /></a>
+    </div>
+</div>
+
+<div id="divPost">
+    <article id="articlePost">
+        <p>曾几何时，我的Chromium浏览器（包括Google Chrome在内）出现了某些网页不能正确保存的问题。</p>
+
+<p>准确地说：网页下载完成之后，<a href="chrome://downloads">chrome://downloads</a>中显示的状态会马上变成“Removed”，<code>_files</code>文件夹在，但是硬盘上相同的位置却找不到与之对应的<code>.html</code>文件。</p>
+
+<p>这个issue的奇妙之处，就在于它难以可预测地重现出来。有时候一个网页第一次不能正确保存，多试上几次就好了。在观察之前，你永远也不知道这个html文件保存成功了与否。。。（看起来就和薛定谔的喵星人实验一样）</p>
+
+<p>这issue似乎也没法traceback，因为毕竟不是segfault这类硬性bug。很长一段时间里我都不知道是不是只有我一个人遇到了这问题。</p>
+
+<p>最近终于找到了这个issue，居然在2010年Chrome还是4.0版的时候就有人报过了：</p>
+
+<p><a href="http://code.google.com/p/chromium/issues/detail?id=32771">http://code.google.com/p/chromium/issues/detail?id=32771</a></p>
+
+<p>Chromium的开发人员表示，导致这个bug在长达几年的时间内都没有得到解决的原因是这一块的代码过于复杂和混乱，他们准备在未来几个月内重构这部分代码，希望能够在今年年底内得到解决。。。</p>
+
+<p>然后是我目前的修补方案（当然不是Chromium的patch，我自己连编译一次都没成功过= =）：</p>
+
+<p>在Linux下，实际上大部分情况下这个html是保存下来了的，不过是以临时文件<code>.org.chromium.*</code>的形式，只是Chromium不知为何没有正确地创建最终的<code>.html</code>文件。（Windows的情况暂时还不清楚）</p>
+
+<p>进保存网页的目录下，Shell一行流：</p>
+
+<script src="https://gist.github.com/3961302.js?file=fix_unsaved_html.sh"></script>
+
+<p>或者写成bash函数（放进<code>~/.zshrc</code>或者<code>~/.bashrc</code>）：</p>
+
+<pre><code id="bash">function fix_unsaved_html {
+    i=
+    for i in .org.chromium.*; do
+        echo -ne "$i : "
+        f=`grep -o '"./[^"]*_files/' $i | uniq 2>/dev/null`
+        if [ -n "$f" ]; then
+            j=${f:3:-7}.html
+            mv -f $i $j
+            echo "moved to \"$j\""
+        else
+            rm -f $i
+            echo "removed"
+        fi
+    done 2>/dev/null
+}
+</code></pre>
+
+<p>每次用Chromium保存完网页后，记得找回丢失的<code>.html</code>们：</p>
+
+<pre><code id="bash">$ cd ~/Downloads/
+$ fix_unsaved_html
+</code></pre>
+
+<p>最后，希望这个几乎与Chromium历史一样悠久的bug如开发者所说，在今年年内能够得到解决。(`・ω・´)</p>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+    </article>
+    
+    
+    <article id="articlePost" style="padding-bottom: 0">
+        <div id="divDisqus">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'soimort';
+                
+                var disqus_url = 'http://www.soimort.org/posts/123/index.html';
+                
+                
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </article>
+    
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Blog">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="application-name" content="Looking-Glass" />
+    <meta name="author" content="LittleYang" />
+    <meta name="generator" content="Jekyll 0.12.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <meta itemprop="name" content="【译文】Qt C++ API速成">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="" />
+
+    <title>【译文】Qt C++ API速成</title>
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="57x57" />
+
+    <link rel="author" type="text/html" href="https://plus.google.com/100974147585154622588/about" />
+    <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+
+    <!-- Google Web Fonts (not in use) -->
+    <!-- link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Droid+Sans' / -->
+
+    <link rel="stylesheet" type="text/css" href="/~css/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/~css/mobile.css" media="all and (max-width:1023px)" />
+
+    <!-- Pygments -->
+    <link rel="stylesheet" type="text/css" href="/~css/pygments.css" media="all" />
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="/~css/tomorrow-night.min.css">
+    <script src="/~js/highlight.pack.js"></script>
+    <!-- script>hljs.initHighlightingOnLoad();</script -->
+
+    <!-- jQuery & Galleria -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="/~plugins/galleria/galleria-1.2.8.min.js"></script>
+
+    <!-- MathJax (not in use) -->
+    <!-- script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+
+    <!-- ShareThis (not in use) -->
+    <!-- script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "9aabed9c-ac3f-4f96-8f5a-8e7a27307543"}); </script -->
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27086900-1']);
+        _gaq.push(['_setDomainName', '.soimort.org']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script type="text/javascript" src="/~js/main.js"></script>
+
+</head>
+
+<body>
+    <!-- load background image (must be put in body) -->
+    <script type="text/javascript">
+        document.body.style.backgroundImage = "url('http://i.imgur.com/0eQ5v.jpg')";
+    </script>
+
+    <nav id="navBarTop">
+        <ul class="navBarListLeft">
+            <li><a href="/"><img src="/~images/home.png" alt="home" title="Home" class="navDock" height="24" /></a></li>
+            <li><a href="/atom.xml" target="_blank"><img src="/~images/feed.png" alt="feed" title="Feed" class="navDock" height="24" /></a></li>
+        </ul>
+
+        <ul class="navBarListRight">
+            <li style="position: relative; top: -5px"><b>LittleYang</b> on </li>
+            <!-- Google+ --><li><a href="https://plus.google.com/107586052733788098083/" target="_blank"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="gplus" title="Google+" class="navDock" height="24" /></a></li>
+            <!-- Twitter --><li><a href="https://twitter.com/soimort" target="_blank"><img src="/~images/twitter.png" alt="twitter" title="Twitter" class="navDock" height="24" /></a></li>
+            <!-- Facebook --><!-- li><a href="https://www.facebook.com/soimort" target="_blank"><img src="/~images/facebook.png" alt="facebook" title="Facebook" class="navDock" height="24" /></a></li -->
+            <!-- deviantArt --><li><a href="http://soimort.deviantart.com" target="_blank"><img src="/~images/deviantart.png" alt="deviantart" title="deviantART" class="navDock" height="24" /></a></li>
+            <!-- GitHub --><li><a href="http://github.com/soimort" target="_blank"><img src="/~images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a></li>
+        </ul>
+    </nav>
+
+    <nav id="navBarBottom">
+        <div class="navBarListLeft">
+            <div style="position: relative; top: 4px; width: 60%">
+                © 2013 <a href="http://www.google.com" target="_blank"><b>Little Yang</b></a>. Under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank"><b>CC BY-SA 3.0 License</b></a>.
+            </div>
+        </div>
+
+        <div class="navBarListRight">
+            <div style="position: relative; top: 4px; right: 0">
+                 |Powered by <a href="http://jekyllrb.com/" target="_blank"><b>Jekyll</b></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="divTitle">
+    <h1>【译文】Qt C++ API速成</h1>
+    <p><div class="g-plusone" data-size="medium" data-annotation="none"></div></p>
+    <p><b>28 Jan 2013</b>, by <b>Mort</b></p>
+    <p></p>
+    <div id="divTitleNav">
+        <a href="/"><img src="/~images/left-arrow.png" class="navDock" /></a>
+    </div>
+</div>
+
+<div id="divPost">
+    <article id="articlePost">
+        <p>Original Article: <a href="https://plus.google.com/108138837678270193032/posts/PFi1ZC9kmmY">Quick crash course in Qt C++ API</a> by <strong>Thiago Macieira</strong><br>
+(Chinese Translation by <strong>Mort Yao</strong>)</p>
+
+<hr>
+
+<p>很长时间没写过Native GUI了（貌似有三年？），估计C++和Qt都忘了不少。正好看到<a href="https://plus.google.com/108138837678270193032/posts/PFi1ZC9kmmY">这条G+</a>，觉得很有用，所以搬运过来。</p>
+
+<p>主要是帮助回忆起Qt（的C++ API）中一些容易忘记或者混淆的重要细节。</p>
+
+<hr>
+
+<ul>
+<li><p><strong>信号（signals）</strong>和<strong>槽（slots）</strong>：可以把它理解成其他GUI库中的M:N回调机制。（还有，不用在connect调用中写出参数的名称，只写出类型即可）</p></li>
+<li><p>如果你需要信号或槽，去派生<code>QObject</code>类；否则，你不必这么做。</p></li>
+<li><p>不是从<code>QObject</code>派生而来的Qt类（诸如<code>QString</code>、<code>QList</code>和<code>QNetworkProxy</code>）应该如同使用<code>int</code>基本类型那样使用它们—— <code>new QString(&quot;Hello&quot;)</code> =~= <code>new int(42)</code> （隐式地共享，原子性的<em>写入时复制</em>机制）</p></li>
+<li><p><code>QString</code>存储人类语言的文本，而非任意的二进制数据（那是<code>QByteArray</code>做的事情）；要用它来存储数据，你必须知道你使用的是何种编码。</p></li>
+<li><p><code>QString</code>和<code>QByteArray</code>自动以空字符<code>&#39;\0&#39;</code>结尾。</p></li>
+<li><p><strong>信号（signal）</strong>以动词<del>过去式</del><u>过去分词</u>命名，通常指示着某个状态的改变。</p></li>
+<li><p><strong>槽（slots）</strong>以动词<del>现在式</del><u>原形</u>命名，指示着某个将被执行的动作。</p></li>
+<li><p><strong>属性</strong>以名词或形容词命名；<strong>setter函数</strong>以“set”作为前缀，<strong>getter函数</strong>一般没有前缀（除了boolean量有时会以“is”作为前缀之外）。</p></li>
+<li><p><strong>事件（events）</strong>并不是信号，它们通常用来指示来自外部的因素（例如键盘或鼠标动作）。</p></li>
+<li><p>任何从<code>QWidget</code>或<code>QWindow</code>派生而来的可见的东西，只能够在GUI线程当中使用。</p></li>
+<li><p><strong>控件（widgets）</strong>通过<strong>布局（layouts）</strong>被放置在它们的父控件（parent widget）当中。</p></li>
+<li><p>Model-View类较复杂；请自行参考书籍。</p></li>
+<li><p><code>QObject</code>（因此也包含衍生的<code>QWidget</code>）在析构时删除其所有子对象。</p></li>
+<li><p><code>QThread</code>用来管理线程，它自身并不是线程。</p></li>
+<li><p>所有的I/O函数（以及<code>QFile</code>）是非阻塞的，被放在事件循环中执行操作，除了那些名字以“waitFor”打头的以外。</p></li>
+<li><p><code>QSocketNotifier</code>在Unix上能够通过socket处理任何文件描述符，但在Windows中就只能用于真实的socket；如果你需要在Windows上等待某个事件发生，使用<code>QWinEventNotifier</code>（Qt 5）或线程。</p></li>
+<li><p><code>moc</code>扩展<code>Q_OBJECT</code>宏；如果你添加或删除了一个<code>Q_OBJECT</code>，你也许需要告诉你的构建工具（qmake project）。</p></li>
+<li><p><code>uic</code>解析<code>.ui</code>文件，创建一个<code>.h</code>头文件，但这完全是可选的：你也可以自己手写UI。</p></li>
+</ul>
+
+    </article>
+    
+    
+    <article id="articlePost" style="padding-bottom: 0">
+        <div id="divDisqus">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'soimort';
+                
+                var disqus_url = 'http://www.soimort.org/posts/137/index.html';
+                
+                
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </article>
+    
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Blog">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="application-name" content="Looking-Glass" />
+    <meta name="author" content="LittleYang" />
+    <meta name="generator" content="Jekyll 0.12.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <meta itemprop="name" content="Pygments与highlight.js的对比测试">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="" />
+
+    <title>Pygments与highlight.js的对比测试</title>
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="57x57" />
+
+    <link rel="author" type="text/html" href="https://plus.google.com/100974147585154622588/about" />
+    <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+
+    <!-- Google Web Fonts (not in use) -->
+    <!-- link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Droid+Sans' / -->
+
+    <link rel="stylesheet" type="text/css" href="/~css/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/~css/mobile.css" media="all and (max-width:1023px)" />
+
+    <!-- Pygments -->
+    <link rel="stylesheet" type="text/css" href="/~css/pygments.css" media="all" />
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="/~css/tomorrow-night.min.css">
+    <script src="/~js/highlight.pack.js"></script>
+    <!-- script>hljs.initHighlightingOnLoad();</script -->
+
+    <!-- jQuery & Galleria -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="/~plugins/galleria/galleria-1.2.8.min.js"></script>
+
+    <!-- MathJax (not in use) -->
+    <!-- script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+
+    <!-- ShareThis (not in use) -->
+    <!-- script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "9aabed9c-ac3f-4f96-8f5a-8e7a27307543"}); </script -->
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27086900-1']);
+        _gaq.push(['_setDomainName', '.soimort.org']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script type="text/javascript" src="/~js/main.js"></script>
+
+</head>
+
+<body>
+    <!-- load background image (must be put in body) -->
+    <script type="text/javascript">
+        document.body.style.backgroundImage = "url('http://i.imgur.com/0eQ5v.jpg')";
+    </script>
+
+    <nav id="navBarTop">
+        <ul class="navBarListLeft">
+            <li><a href="/"><img src="/~images/home.png" alt="home" title="Home" class="navDock" height="24" /></a></li>
+            <li><a href="/atom.xml" target="_blank"><img src="/~images/feed.png" alt="feed" title="Feed" class="navDock" height="24" /></a></li>
+        </ul>
+
+        <ul class="navBarListRight">
+            <li style="position: relative; top: -5px"><b>LittleYang</b> on </li>
+            <!-- Google+ --><li><a href="https://plus.google.com/107586052733788098083/" target="_blank"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="gplus" title="Google+" class="navDock" height="24" /></a></li>
+            <!-- Twitter --><li><a href="https://twitter.com/soimort" target="_blank"><img src="/~images/twitter.png" alt="twitter" title="Twitter" class="navDock" height="24" /></a></li>
+            <!-- Facebook --><!-- li><a href="https://www.facebook.com/soimort" target="_blank"><img src="/~images/facebook.png" alt="facebook" title="Facebook" class="navDock" height="24" /></a></li -->
+            <!-- deviantArt --><li><a href="http://soimort.deviantart.com" target="_blank"><img src="/~images/deviantart.png" alt="deviantart" title="deviantART" class="navDock" height="24" /></a></li>
+            <!-- GitHub --><li><a href="http://github.com/soimort" target="_blank"><img src="/~images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a></li>
+        </ul>
+    </nav>
+
+    <nav id="navBarBottom">
+        <div class="navBarListLeft">
+            <div style="position: relative; top: 4px; width: 60%">
+                © 2013 <a href="http://www.google.com" target="_blank"><b>Little Yang</b></a>. Under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank"><b>CC BY-SA 3.0 License</b></a>.
+            </div>
+        </div>
+
+        <div class="navBarListRight">
+            <div style="position: relative; top: 4px; right: 0">
+                 |Powered by <a href="http://jekyllrb.com/" target="_blank"><b>Jekyll</b></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="divTitle">
+    <h1>Pygments与highlight.js的对比测试</h1>
+    <p><div class="g-plusone" data-size="medium" data-annotation="none"></div></p>
+    <p><b>28 Dec 2012</b>, by <b>Mort</b></p>
+    <p></p>
+    <div id="divTitleNav">
+        <a href="/"><img src="/~images/left-arrow.png" class="navDock" /></a>
+    </div>
+</div>
+
+<div id="divPost">
+    <article id="articlePost">
+        <script>
+$(document).ready(function() {$('article > pre code').each(function(i, e) {hljs.highlightBlock(e)}); });
+</script>
+
+<p>请<a href="https://raw.github.com/soimort/soimort.github.com/master/_posts/posts/131/2012-12-28-pygments.md">猛击此处</a>查看本文的Markdown源文件。</p>
+
+<hr>
+
+<h2>在Markdown中嵌入代码的方式</h2>
+
+<p><a href="/posts/130/">Jekyll 0.12.0发布</a>之后，如果你原来还在用<a href="http://softwaremaniacs.org/soft/highlight/en/">highlight.js</a>渲染高亮代码的话，也许现在可以考虑回到<a href="http://pygments.org/">Pygments</a>上了。</p>
+
+<p>不仅仅是因为pygments.rb大大提升了调用Pygments渲染效率的关系，它当然还有其他一些便利之处！</p>
+
+<ul>
+<li>在Jekyll 0.11.2（使用<a href="https://github.com/github/albino">Albino</a>来调用Pygments）上，在Markdown中嵌入一段高亮Ruby代码需要用到预定义的Liquid标签：</li>
+</ul>
+
+<pre><code class="no-highlight">{&#37; highlight ruby &#37;}
+def ackermann(m, n)
+    if m == 0
+        n + 1
+    elsif n == 0
+        ackermann(m - 1, 1)
+    else
+        ackermann(m - 1, ackermann(m, n - 1))
+    end
+end
+{&#37; endhighlight &#37;}
+</code></pre>
+
+<ul>
+<li>使用Jekyll + highlight.js，在Markdown中嵌入一段高亮Ruby代码需要手写<code>&lt;pre&gt;</code><code>&lt;code&gt;</code>之类的HTML标签：</li>
+</ul>
+
+<pre><code class="no-highlight">&lt;pre&gt;&lt;code class="ruby"&gt;def ackermann(m, n)
+    if m == 0
+        n + 1
+    elsif n == 0
+        ackermann(m - 1, 1)
+    else
+        ackermann(m - 1, ackermann(m, n - 1))
+    end
+end
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+
+<p>这两种写法多少都显得有些臃肿。如今</p>
+
+<ul>
+<li>在Jekyll 0.12.0（使用<a href="https://github.com/tmm1/pygments.rb">pygments.rb</a>来调用Pygments）上，可以直接使用GitHub Flavored Markdown所支持的“围栏式代码块”方式：</li>
+</ul>
+
+<pre><code class="no-highlight">```ruby
+def ackermann(m, n)
+    if m == 0
+        n + 1
+    elsif n == 0
+        ackermann(m - 1, 1)
+    else
+        ackermann(m - 1, ackermann(m, n - 1))
+    end
+end
+```
+</code></pre>
+
+<p>在需要大量引用代码的场合，这种写法显然更加简洁。</p>
+
+<hr>
+
+<h2>实际代码渲染效果</h2>
+
+<p>以下是若干种语言的代码在highlight.js和Pygments中的实际渲染效果比较。</p>
+
+<ul>
+<li><strong>highlight.js</strong>：7.3版本（全语言支持pack），使用tomorrow-night主题；</li>
+<li><strong>Pygments</strong>：pygments.rb 0.3.3版本，使用和tomorrow-night相同的暗色系背景。</li>
+</ul>
+
+<hr>
+
+<h3>Ruby</h3>
+
+<ul>
+<li>highlight.js:
+
+<ul>
+<li>对函数定义中的参数列表<code>(m, n)</code>进行高亮，略显怪异。</li>
+<li>没有把<code>puts</code>函数高亮出来。</li>
+</ul></li>
+</ul>
+
+<pre><code id="ruby">def ackermann(m, n)
+    if m == 0
+        n + 1
+    elsif n == 0
+        ackermann(m - 1, 1)
+    else
+        ackermann(m - 1, ackermann(m, n - 1))
+    end
+end
+
+puts ackermann(3, 6)
+</code></pre>
+
+<ul>
+<li>Pygments:
+
+<ul>
+<li>对<code>puts</code>进行了高亮。</li>
+</ul></li>
+</ul>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">def</span> <span class="nf">ackermann</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">elsif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="n">ackermann</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="n">ackermann</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ackermann</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">ackermann</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</code></pre></div>
+
+<hr>
+
+<h3>Haskell</h3>
+
+<ul>
+<li>highlight.js:
+
+<ul>
+<li>这后面两行最右边的括号是怎么一回事……连括号匹配都处理不对么？</li>
+</ul></li>
+</ul>
+
+<pre><code id="haskell">ackermann :: (Int, Int) -> Int
+ackermann (0, n) = n + 1
+ackermann (m, 0) = ackermann (m - 1, 1)
+ackermann (m, n) = ackermann (m - 1, ackermann (m, n - 1))
+
+main = print (ackermann (4, 1))
+</code></pre>
+
+<ul>
+<li>Pygments:
+
+<ul>
+<li>定义部分的函数名称使用醒目的亮色渲染出来，一目了然。</li>
+</ul></li>
+</ul>
+
+<div class="highlight"><pre><code class="haskell"><span class="nf">ackermann</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">ackermann</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nf">ackermann</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">=</span> <span class="n">ackermann</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nf">ackermann</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="ow">=</span> <span class="n">ackermann</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ackermann</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="nf">main</span> <span class="ow">=</span> <span class="n">print</span> <span class="p">(</span><span class="n">ackermann</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+
+<hr>
+
+<h3>Standard ML</h3>
+
+<ul>
+<li>highlight.js:
+
+<ul>
+<li>highlight.js尚不支持ML语言，所以这高亮效果几乎等于是没有。</li>
+</ul></li>
+</ul>
+
+<pre><code id="sml">fun ackermann (0, n) = n + 1
+    | ackermann (m, 0) = ackermann (m - 1, 1)
+    | ackermann (m, n) = ackermann (m - 1, ackermann (m, n - 1))
+
+val _ = print (Int.toString (ackermann (4, 1)) ^ "\n")
+</code></pre>
+
+<ul>
+<li>Pygments:
+
+<ul>
+<li>语言关键字正确高亮。</li>
+<li>定义部分的函数名称使用醒目的亮色渲染出来了。</li>
+</ul></li>
+</ul>
+
+<div class="highlight"><pre><code class="sml"><span class="kr">fun</span> <span class="nf">ackermann</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="p">=</span> <span class="n">n</span> <span class="n">+</span> <span class="mi">1</span>
+    <span class="p">|</span> <span class="nf">ackermann</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">=</span> <span class="n">ackermann</span> <span class="p">(</span><span class="n">m</span> <span class="n">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">|</span> <span class="nf">ackermann</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="p">=</span> <span class="n">ackermann</span> <span class="p">(</span><span class="n">m</span> <span class="n">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ackermann</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="n">-</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="kr">val</span> <span class="p">_</span> <span class="p">=</span> <span class="n">print</span> <span class="p">(</span><span class="nn">Int</span><span class="p">.</span><span class="n">toString</span> <span class="p">(</span><span class="n">ackermann</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="n">^</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<hr>
+
+<h3>OCaml</h3>
+
+<ul>
+<li>highlight.js:
+
+<ul>
+<li>同上，不支持ML。</li>
+</ul></li>
+</ul>
+
+<pre><code id="ocaml">let _ =
+    let rec ackermann (m, n) =
+        match (m, n) with
+        | 0, n -> n + 1
+        | m, 0 -> ackermann (m - 1, 1)
+        | m, n -> ackermann (m - 1, ackermann (m, n - 1))
+    in
+    Printf.printf "%d\n" (ackermann (4, 1))
+</code></pre>
+
+<ul>
+<li>Pygments:
+
+<ul>
+<li>语言关键字正确高亮。</li>
+</ul></li>
+</ul>
+
+<div class="highlight"><pre><code class="ocaml"><span class="k">let</span> <span class="o">_</span> <span class="o">=</span>
+    <span class="k">let</span> <span class="k">rec</span> <span class="n">ackermann</span> <span class="o">(</span><span class="n">m</span><span class="o">,</span> <span class="n">n</span><span class="o">)</span> <span class="o">=</span>
+        <span class="k">match</span> <span class="o">(</span><span class="n">m</span><span class="o">,</span> <span class="n">n</span><span class="o">)</span> <span class="k">with</span>
+        <span class="o">|</span> <span class="mi">0</span><span class="o">,</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="o">|</span> <span class="n">m</span><span class="o">,</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="n">ackermann</span> <span class="o">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>
+        <span class="o">|</span> <span class="n">m</span><span class="o">,</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">ackermann</span> <span class="o">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">ackermann</span> <span class="o">(</span><span class="n">m</span><span class="o">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span>
+    <span class="k">in</span>
+    <span class="nn">Printf</span><span class="p">.</span><span class="n">printf</span> <span class="s2">&quot;%d</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">(</span><span class="n">ackermann</span> <span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">))</span>
+</code></pre></div>
+
+<hr>
+
+<h3>Scala</h3>
+
+<ul>
+<li>highlight.js:
+
+<ul>
+<li>自定义的object名称和内置类型使用相同的颜色来进行高亮，略奇怪。</li>
+<li>不知为何函数定义的参数列表中的符号要使用和正常符号不同的颜色来表示……</li>
+<li>连<code>match</code>都没高亮出来。</li>
+</ul></li>
+</ul>
+
+<pre><code id="scala">object Ackermann {
+    def ackermann(m: Int, n: Int): Int = {
+        (m, n) match {
+            case (0, n) => n + 1
+            case (m, 0) => ackermann(m - 1, 1)
+            case _ => ackermann(m - 1, ackermann(m, n - 1))
+        }
+    }
+    
+    def main(args: Array[String]) {
+        println(ackermann(4, 1))
+    }
+}
+</code></pre>
+
+<ul>
+<li>Pygments:
+
+<ul>
+<li>整体效果很完美。</li>
+<li>自定义的object名称使用醒目的亮色渲染。</li>
+<li>模式匹配中的<code>=&gt;</code>符号也高亮了出来，看着很清晰。</li>
+</ul></li>
+</ul>
+
+<div class="highlight"><pre><code class="scala"><span class="k">object</span> <span class="nc">Ackermann</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">ackermann</span><span class="o">(</span><span class="n">m</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span>
+        <span class="o">(</span><span class="n">m</span><span class="o">,</span> <span class="n">n</span><span class="o">)</span> <span class="k">match</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">n</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">case</span> <span class="o">(</span><span class="n">m</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">ackermann</span><span class="o">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="k">case</span> <span class="k">_</span> <span class="k">=&gt;</span> <span class="n">ackermann</span><span class="o">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">ackermann</span><span class="o">(</span><span class="n">m</span><span class="o">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+    <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span> <span class="o">{</span>
+        <span class="n">println</span><span class="o">(</span><span class="n">ackermann</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">))</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<hr>
+
+<h3>C</h3>
+
+<ul>
+<li>highlight.js:
+
+<ul>
+<li>highlight.js是前端处理，所以嵌入代码中的大于号小于号（以及其他各种必须进行HTML转义的符号）必须在写Markdown的时候进行手动替换。如果不转义直接放在Markdown里的话会被当作HTML解析，无法在浏览器中正确显示：（注意到<code>#include</code>后面的<code>&lt;stdio.h&gt;</code>被浏览器当作HTML标签吞掉了）</li>
+</ul></li>
+</ul>
+
+<pre><code id="cpp">#include <stdio.h>
+
+int ackermann(int m, int n)
+{
+    if (m == 0)
+        return n + 1;
+    if (n == 0)
+        return ackermann(m - 1, 1);
+    return ackermann(m - 1, ackermann(m, n - 1));
+}
+
+int main()
+{
+    printf("%d\n", ackermann(4, 1));
+    return 0;
+}
+</code></pre>
+
+<ul>
+<li>Pygments:
+
+<ul>
+<li>Pygments则是对代码块进行预处理之后再输出到HTML，它将负责解决转义字符的问题。所以在写Markdown的时候根本无需考虑进行任何替换，直接把现成的代码块拷贝到“围栏”中就可以：</li>
+</ul></li>
+</ul>
+
+<div class="highlight"><pre><code class="cpp"><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="n">ackermann</span><span class="p">(</span><span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ackermann</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">ackermann</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ackermann</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ackermann</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr>
+
+<h2>总结</h2>
+
+<ul>
+<li>如果需要在JavaScript前端做实时的代码高亮渲染，当然只能用highlight.js（或者类似的google-code-prettify）；</li>
+<li>在其他的应用场合，<strong>Pygments是更好的选择</strong>。它对于各种语言的高亮支持的确是目前最完善的。</li>
+</ul>
+
+    </article>
+    
+    
+    <article id="articlePost" style="padding-bottom: 0">
+        <div id="divDisqus">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'soimort';
+                
+                var disqus_url = 'http://www.soimort.org/posts/131/index.html';
+                
+                
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </article>
+    
+</div>
+
+
+</body>
+</html>

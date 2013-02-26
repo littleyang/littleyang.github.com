@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Blog">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="application-name" content="Looking-Glass" />
+    <meta name="author" content="LittleYang" />
+    <meta name="generator" content="Jekyll 0.12.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <meta itemprop="name" content="Arch Linux Rollback安装笔记">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="" />
+
+    <title>Arch Linux Rollback安装笔记</title>
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="57x57" />
+
+    <link rel="author" type="text/html" href="https://plus.google.com/100974147585154622588/about" />
+    <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+
+    <!-- Google Web Fonts (not in use) -->
+    <!-- link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Droid+Sans' / -->
+
+    <link rel="stylesheet" type="text/css" href="/~css/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/~css/mobile.css" media="all and (max-width:1023px)" />
+
+    <!-- Pygments -->
+    <link rel="stylesheet" type="text/css" href="/~css/pygments.css" media="all" />
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="/~css/tomorrow-night.min.css">
+    <script src="/~js/highlight.pack.js"></script>
+    <!-- script>hljs.initHighlightingOnLoad();</script -->
+
+    <!-- jQuery & Galleria -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="/~plugins/galleria/galleria-1.2.8.min.js"></script>
+
+    <!-- MathJax (not in use) -->
+    <!-- script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+
+    <!-- ShareThis (not in use) -->
+    <!-- script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "9aabed9c-ac3f-4f96-8f5a-8e7a27307543"}); </script -->
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27086900-1']);
+        _gaq.push(['_setDomainName', '.soimort.org']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script type="text/javascript" src="/~js/main.js"></script>
+
+</head>
+
+<body>
+    <!-- load background image (must be put in body) -->
+    <script type="text/javascript">
+        document.body.style.backgroundImage = "url('http://i.imgur.com/0eQ5v.jpg')";
+    </script>
+
+    <nav id="navBarTop">
+        <ul class="navBarListLeft">
+            <li><a href="/"><img src="/~images/home.png" alt="home" title="Home" class="navDock" height="24" /></a></li>
+            <li><a href="/atom.xml" target="_blank"><img src="/~images/feed.png" alt="feed" title="Feed" class="navDock" height="24" /></a></li>
+        </ul>
+
+        <ul class="navBarListRight">
+            <li style="position: relative; top: -5px"><b>LittleYang</b> on </li>
+            <!-- Google+ --><li><a href="https://plus.google.com/107586052733788098083/" target="_blank"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="gplus" title="Google+" class="navDock" height="24" /></a></li>
+            <!-- Twitter --><li><a href="https://twitter.com/soimort" target="_blank"><img src="/~images/twitter.png" alt="twitter" title="Twitter" class="navDock" height="24" /></a></li>
+            <!-- Facebook --><!-- li><a href="https://www.facebook.com/soimort" target="_blank"><img src="/~images/facebook.png" alt="facebook" title="Facebook" class="navDock" height="24" /></a></li -->
+            <!-- deviantArt --><li><a href="http://soimort.deviantart.com" target="_blank"><img src="/~images/deviantart.png" alt="deviantart" title="deviantART" class="navDock" height="24" /></a></li>
+            <!-- GitHub --><li><a href="http://github.com/soimort" target="_blank"><img src="/~images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a></li>
+        </ul>
+    </nav>
+
+    <nav id="navBarBottom">
+        <div class="navBarListLeft">
+            <div style="position: relative; top: 4px; width: 60%">
+                © 2013 <a href="http://www.google.com" target="_blank"><b>Little Yang</b></a>. Under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank"><b>CC BY-SA 3.0 License</b></a>.
+            </div>
+        </div>
+
+        <div class="navBarListRight">
+            <div style="position: relative; top: 4px; right: 0">
+                 |Powered by <a href="http://jekyllrb.com/" target="_blank"><b>Jekyll</b></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="divTitle">
+    <h1>Arch Linux Rollback安装笔记</h1>
+    <p><div class="g-plusone" data-size="medium" data-annotation="none"></div></p>
+    <p><b>23 Jul 2012</b>, by <b>Mort</b></p>
+    <p></p>
+    <div id="divTitleNav">
+        <a href="/"><img src="/~images/left-arrow.png" class="navDock" /></a>
+    </div>
+</div>
+
+<div id="divPost">
+    <article id="articlePost">
+        <p>本文依照我至今为止四次在Dell Latitude E6420笔记本上安装Arch Linux的过程中所记录的零碎笔记整理而成。</p>
+
+<p>本文之所以存在，目的是作为个人备忘，以便将来再次把系统玩崩溃重装时参考（毕竟纸上写的笔记不易整理和保存）。第一不追求什么逻辑性，第二不追求技术上的正确性。</p>
+
+<p>在本文写作时，Arch的<a href="http://www.archlinux.org/news/install-media-20120715-released/">2012.07.15版镜像</a>刚好发布。但文中的安装方式依然基于<a href="http://www.archlinux.org/news/20110819-installation-media/">2011.08.19版镜像</a>，原因很简单：自从Linux 3.3.7之后的内核，在Dell Latitude E6420上无法正常关机和重启，经验证内核参数<code>reboot=pci</code>也不能解决该问题。2012.07.15包含3.4.4版的内核，故无法在我当前的笔记本上使用。</p>
+
+<p>但是，由于2011.08.19版的软件库略显陈旧，本文采取了使用rollback到3.3.8发布之前的时间点、即2012年6月8日的Arch软件库的安装方式。感谢伟大的<a href="http://arm.konnichi.com/">ARM（Arch Rollback Machine）</a>为此提供了可能。</p>
+
+<p>需要注意的是，在初始安装阶段我仍然使用了2011.08.19提供的AIF（Arch Installation Framework）方式。在最新的2012.07.15光盘镜像中，官方已经放弃了对AIF的支持，取而代之以若干辅助安装的Bash脚本。</p>
+
+<hr>
+
+<h2>1. 准备阶段</h2>
+
+<h3>1.1. 下载镜像文件</h3>
+
+<p>下载Arch的“Current Release”：2011.08.19的<a href="http://www.archlinux.org/download/">Core Image</a>。</p>
+
+<p>不能用Netinstall Image，因为在安装阶段有可能会意外地连不上Custom的ARM服务器，这样一来就只能通过官方的最新镜像来安装，于是后面降级就会遇到困难。</p>
+
+<p><strong>（注：随着2012.07.15的发布，如今所有archlinux-2011.08.19的iso文件都已经从官方源中消失了。）</strong></p>
+
+<h3>1.2. 创建可引导的U盘</h3>
+
+<p>使用<a href="http://www.linuxliveusb.com/">LinuxLive USB Creator</a>。</p>
+
+<p>UNetbootin现在变得不太靠谱，某些发行版的镜像写进去引导不了（这其中包括Arch），故不推荐。</p>
+
+<p>Win32 Image Writer和dd for windows具有极大的危险性，用来处理U盘没问题，如果用它来处理移动硬盘的某个分区可能会导致整个移动硬盘的分区表被破坏！（参见我的<a href="http://blog.soimort.org/2012/04/archcodejam.html">惨痛教训</a>）LinuxLive和UNetbootin都可以用来写入镜像到单独的移动硬盘分区。</p>
+
+<h3>1.3. 重启，从U盘引导进入用于安装的核心系统</h3>
+
+<hr>
+
+<h2>2. 初始安装阶段</h2>
+
+<h3>2.1. 卸载PC扬声器模块（可选）</h3>
+
+<p>就是控制台下每次按错键都会发出的“哔——哔”警告声，这玩意实在是太吵了。我每次都首先把它关掉。</p>
+<div class="highlight"><pre><code class="text"># rmmod pcspkr
+</code></pre></div>
+<h3>2.2. 改变键盘布局和控制台字体（可选）</h3>
+
+<p>如果一定要使用非英语的键盘布局（比如瑞典语键盘什么的），可以通过</p>
+<div class="highlight"><pre><code class="text"># km
+</code></pre></div>
+<p>来设置。控制台字体这东西改不改个人觉得意义不大，反正文本终端下的点阵字体都一样丑。</p>
+
+<h3>2.3. 查看官方安装手册（可选）</h3>
+
+<p>Alt+F2打开新的虚拟控制台，</p>
+<div class="highlight"><pre><code class="text"># less /usr/share/aif/docs/official_installation_guide_en
+</code></pre></div>
+<p>Alt+F1返回原控制台。</p>
+
+<h3>2.4. 进入AIF安装框架</h3>
+<div class="highlight"><pre><code class="text"># /arch/setup
+</code></pre></div>
+<p>Alt+F7可以随时查看安装过程中的控制台输出，Alt+F1返回。</p>
+
+<h3>2.5. Select source / 选择源</h3>
+
+<p>选择core-local一项即可。</p>
+
+<h3>2.6. Select editor / 选择编辑器</h3>
+
+<p>选择nano或vi。</p>
+
+<h3>2.7. Set clock / 设置时钟</h3>
+
+<p>为了避免不必要的混乱，推荐把Linux下的硬件时钟模式设置为UTC（时区设成自己当前的时区就可以），Windows下亦统一使用UTC作为当前时区（反正Windows不是有世界时钟的桌面小插件嘛）。</p>
+
+<h3>2.8. Prepare hard drive(s) / 准备硬盘</h3>
+
+<p>选择“3 Manually configure block devices, filesystems and mountpoints”。</p>
+
+<p>使用dev识别设备分区，好处是名称容易记住（<code>/dev/sda3</code>之类），缺点是将来内核升级的时候设备名有可能会变化。</p>
+
+<p>uuid难以被人类记住，好处是它不会随着内核的升级改变（但重新格式化分区仍然会改变该分区的uuid）。使用label则意味着必须给每个分区定一个卷标且在将来不能轻易修改。</p>
+
+<p>选择用于安装Arch的硬盘分区和挂载点，最少仅需要一个用于挂载<code>/</code>的分区。根据实际情况可以增加单独的<code>/boot</code>、<code>/tmp</code>、<code>/usr</code>、<code>/var</code>分区和swap交换分区。如果想要用作<code>/home</code>的分区原来保存有重要数据的话，安全起见这里可以先不用设置<code>/home</code>的挂载分区（以后再手动改fstab）。</p>
+
+<p>AIF里只能把已有的分区格式化。调整分区大小、划分新的分区等工作应当在安装前使用cfdisk、GParted等工具完成。</p>
+
+<h3>2.9. Select packages / 选择软件包</h3>
+
+<h4>2.9.1. Select bootloader / 选择启动引导器</h4>
+
+<p>选择bootloader，这里是GRUB Legacy和syslinux。先选GRUB Legacy，以后再升级。（如果以前的系统有单独的<code>/boot</code>分区和现成的bootloader，则可跳过此步）</p>
+
+<p><strong>（注：最新的2012.07.15应该已经用GRUB 2取代了GRUB Legacy）</strong></p>
+
+<h4>2.9.2. Select package groups / 选择软件包组</h4>
+
+<p>选择base。base-devel包含开发工具。先选，以后再升级。</p>
+
+<h4>2.9.3. Select packages / 选择软件包</h4>
+
+<p>不用选了直接确认。以后再安装。</p>
+
+<h3>2.10. Install packages / 安装软件包</h3>
+
+<p>等待。（安装过程很快）</p>
+
+<h3>2.11. Configure system / 配置系统</h3>
+
+<h4>2.11.1. /etc/rc.conf（系统基础设置）</h4>
+
+<p>比较重要的有两件事。一是设置HOSTNAME：</p>
+<div class="highlight"><pre><code class="text">HOSTNAME=&quot;Foo&quot;
+</code></pre></div>
+<p>通常情况下使用动态地址分配（DHCP）上网，需要设置：</p>
+<div class="highlight"><pre><code class="text">interface=eth0
+</code></pre></div>
+<p>其他的配置选项（如HARDWARECLOCK、TIMEZONE、LOCALE、KEYMAP、DAEMONS）已经自动生成，这里暂时无须修改。</p>
+
+<h4>2.11.2. /etc/fstab（文件系统挂载点）</h4>
+
+<p>假定某分区设备名为<code>/dev/sda9</code>，使用ext4文件系统，挂载到<code>/home</code>，则增加一行：</p>
+<div class="highlight"><pre><code class="text">/dev/sda9 /home ext4 defaults 0 1
+</code></pre></div>
+<h4>2.11.3. /etc/mkinitcpio.conf</h4>
+
+<p>暂时无须修改。</p>
+
+<h4>2.11.4. /etc/modprobe.d/modprobe.conf（内核模块黑名单）</h4>
+
+<p>暂时无须修改。也可以直接在这一步里屏蔽掉不想要的内核模块（例如pcspkr）。</p>
+
+<h4>2.11.5. /etc/resolv.conf</h4>
+
+<p>若使用DHCP则无须修改。dhcpcd每次会自动写入相应的DNS服务器地址。</p>
+
+<h4>2.11.6. /etc/hosts</h4>
+
+<p>已经自动生成，最好确认一下这里的hostname与前面<code>/etc/rc.conf</code>中的设置是否一致。</p>
+
+<h4>2.11.7. /etc/locale.gen（本地化设置）</h4>
+
+<p>通过去除注释选择想要的本地化类型（用于glibc等支持本地化的软件包）。</p>
+
+<p>可以在以后再修改并使用</p>
+<div class="highlight"><pre><code class="text"># locale-gen
+</code></pre></div>
+<p>生成。通过</p>
+<div class="highlight"><pre><code class="text"># locale -a
+</code></pre></div>
+<p>查看所有当前可用的本地化类型。</p>
+
+<h4>2.11.8. /etc/pacman.conf（Pacman设置）</h4>
+
+<p>这里暂时不要做任何修改（后面会对pacman进行升级）。</p>
+
+<h4>2.11.9. /etc/pacman.d/mirrorlist（镜像设置）</h4>
+
+<p>这一步非常重要。注释掉其他所有行，添加一行ARM的源地址：</p>
+<div class="highlight"><pre><code class="text">Server = http://arm.konnichi.com/2012/06/08/$repo/os/$arch
+</code></pre></div>
+<p><code>http://arm.konnichi.com</code>后面的URL显示了想要rollback到的时间点。</p>
+
+<h4>2.11.10. 设置root密码</h4>
+
+<h3>2.12. Install bootloader / 安装启动引导器</h3>
+
+<p>若使用GRUB Legacy，<code>/boot/grub/menu.lst</code>会被自动生成，只需确认一下即可。</p>
+
+<p>安装到<code>/dev/sda</code>（硬盘设备）。</p>
+
+<h3>2.13. 重启，引导进入硬盘上的Arch系统</h3>
+<div class="highlight"><pre><code class="text"># reboot
+</code></pre></div>
+<hr>
+
+<h2>3. 升级阶段</h2>
+
+<h3>3.1. 检测网络是否正常（适用于DHCP）</h3>
+
+<p>检测IP地址：</p>
+<div class="highlight"><pre><code class="text"># ip addr
+</code></pre></div>
+<p>检测网络连通：（是否能连接上ARM的服务器）</p>
+<div class="highlight"><pre><code class="text"># ping -c 3 arm.konnichi.com
+</code></pre></div>
+<p>如遇到问题可以使用<code># /etc/rc.d/network restart</code>和<code># dhcpcd eth0</code>重启网络（如果之前<code>/etc/rc.conf</code>设置正确，<code>interface=eth0</code>，MODULES中包含有network一项，则dhcpcd应当能够正常工作）</p>
+
+<h3>3.2. 开始升级软件包</h3>
+
+<p>由于当前系统的软件包过于老旧，全系统升级的命令</p>
+<div class="highlight"><pre><code class="text"># pacman -Syu
+</code></pre></div>
+<p>会导致一些依赖性问题，故不要使用。我们将逐一升级系统中的软件包。</p>
+
+<h3>3.3. 升级pacman数据库</h3>
+
+<p>首先执行：</p>
+<div class="highlight"><pre><code class="text"># pacman -Syy
+</code></pre></div>
+<p>从ARM获取目标时间点的软件包数据库。</p>
+
+<h3>3.4. 升级pacman</h3>
+
+<p>然后便可以升级pacman自身：</p>
+<div class="highlight"><pre><code class="text"># pacman -Sf pacman
+</code></pre></div>
+<p>此命令会同时升级glibc、linux-api-headers等依赖库。-f命令行参数是必须的。</p>
+
+<p>如果有<code>/etc/pacman.conf.pacnew</code>生成则拿它覆盖掉原有的<code>/etc/pacman.conf</code>。</p>
+
+<p>官方的说明提示是通过</p>
+<div class="highlight"><pre><code class="text"># pacman-key --init
+# pacman-key --populate archlinux
+</code></pre></div>
+<p>来创建初始密钥。这并不适用于我们从ARM获取的软件包，所以为了避开Pacman 4这套新引入的签名验证机制，直接在<code>/etc/pacman.conf</code>里使用如下配置：</p>
+<div class="highlight"><pre><code class="text">SigLevel = Optional TrustAll
+</code></pre></div>
+<p>同时通过去除注释打开<code>[multilib]</code>（如果在x86_64的Arch下需要用到32位库的话，multilib里的许多包至关重要）。</p>
+
+<p>重新执行：</p>
+<div class="highlight"><pre><code class="text"># pacman -Syy
+</code></pre></div>
+<p>以获取属于multilib的软件包数据库。</p>
+
+<h3>3.5. 升级kmod</h3>
+<div class="highlight"><pre><code class="text"># pacman -S kmod
+</code></pre></div>
+<p>以取代原有的module-init-tools。</p>
+
+<h3>3.6. 升级systemd-tools</h3>
+<div class="highlight"><pre><code class="text"># pacman -Sf systemd-tools
+</code></pre></div>
+<p>以取代原有的udev。此命令会同时升级hwid等依赖库。-f命令行参数是必须的。</p>
+
+<h3>3.7. 升级initscripts</h3>
+
+<p>通过升级kmod和systemd-tools，我们已经完成了对initscripts依赖的升级。</p>
+
+<p>现在升级</p>
+<div class="highlight"><pre><code class="text"># pacman -Sf initscripts
+</code></pre></div>
+<p>重启之后Linux启动阶段sysctl会提示出现奇怪的“<code>-p/etc/sysctl.conf</code>参数错误”。</p>
+
+<p>这个问题仿佛是从<code>initscripts-2012.05.1-1</code>开始引入的，直到<code>initscripts-2012.05.1-3</code>都存在。经检查，发现问题出在<code>/usr/lib/initscripts/arch-sysctl</code>里面的</p>
+<div class="highlight"><pre><code class="text">sysctl -q -p&quot;$path&quot;
+</code></pre></div>
+<p>显然原来应该是</p>
+<div class="highlight"><pre><code class="text">sysctl -q -p &quot;$path&quot;
+</code></pre></div>
+<p><code>-p</code>和<code>&quot;$path&quot;</code>之间不知何故少了一个空格（之前的版本一直是有的，不知道为什么到了2012.05.1之后就消失了）。</p>
+
+<p>解决方法是不要使用当前时间点（2012.06.08）的<code>initscripts-2012.05.1-3</code>，而使用更新后（2012.06.10）的<code>initscripts-2012.06.1-1</code>来作升级：</p>
+<div class="highlight"><pre><code class="text"># pacman -U http://arm.konnichi.com/2012/06/10/core/os/x86_64/initscripts-2012.06.1-1-any.pkg.tar.xz
+</code></pre></div>
+<p>升级后用<code>/etc/rc.conf.pacnew</code>来取代原来的<code>/etc/rc.conf</code>（原来的设置要手动保留）。</p>
+
+<p>此外，<code>/etc/rc.conf</code>中的LOCALE设置不再生效，新的LOCALE设置需要在<code>/etc/locale.conf</code>中进行。</p>
+
+<h3>3.8. 升级filesystem</h3>
+<div class="highlight"><pre><code class="text"># pacman -Sf filesystem
+</code></pre></div>
+<h3>3.9. 升级linux-firmware</h3>
+<div class="highlight"><pre><code class="text"># pacman -S linux-firmware
+</code></pre></div>
+<h3>3.10. 升级mkinitscpio</h3>
+<div class="highlight"><pre><code class="text"># pacman -Sf mkinitcpio
+</code></pre></div>
+<p>此命令会同时升级util-linux等依赖库。-f命令行参数是必须的。</p>
+
+<h3>3.11. 升级linux</h3>
+
+<p>升级mkinitscpio完成后，接下来便可以进行linux内核的升级（旧版本的mkinitscpio无法用于较新的linux，会导致生成内核模块错误无法启动）：</p>
+<div class="highlight"><pre><code class="text"># pacman -S linux
+</code></pre></div>
+<h3>3.12. 升级其他软件包</h3>
+
+<p>剩余的软件包可以直接进行全系统升级（dhcpcd除外）：</p>
+<div class="highlight"><pre><code class="text"># pacman -Syu --ignore dhcpcd
+</code></pre></div>
+<h3>3.13. 可能的错误：dhcpcd无法连接IPv4</h3>
+
+<p>较新版本的dhcpcd会直接使用IPv6，导致用户在仅支持IPv4的情形下无法正常连接到网络。</p>
+<div class="highlight"><pre><code class="text">dhcpcd[*]: eth0: sending IPv6 Router Solicitation
+</code></pre></div>
+<p>通过<code># ip addr</code>命令显示的eth0没有分配到IPv4地址（inet）。</p>
+
+<p>如果前一步不慎升级了dhcpcd，则降级到旧版本的dhcpcd可以解决该问题：</p>
+<div class="highlight"><pre><code class="text"># pacman -U http://arm.konnichi.com/2011/08/19/core/os/x86_64/dhcpcd-5.2.12-1-x86_64.pkg.tar.xz
+</code></pre></div>
+<p>可能需要在有网络连接的电脑上手动下载该软件包。</p>
+
+<h3>3.14. 可能的错误：启动时syslog-ng提示找不到/usr/lib/libpcre.so.0</h3>
+
+<p>这是由于使用了较旧的pcre库所致。进行了包括pcre在内的全系统升级后重启应该可以消除该错误提示。</p>
+
+<h3>3.15. 可能的错误：启动时/etc/rc.sysinit提示mountpoint: command not found</h3>
+
+<p>这是一个非常诡异的错误，在网上可以搜到不少类似的情况，我自己也遇到过两次。</p>
+
+<p><code>/bin/mountpoint</code>是包含在util-linux包内的文件，这个包之前是安装过的，在全系统升级之前<code>/bin/mountpoint</code>也经确认是存在的，但升级之后有可能会神秘消失。原因不明，疑似升级某个包（怀疑是sysvinit？）时导致的bug。</p>
+
+<p>解决方法是重新安装一遍util-linux：</p>
+<div class="highlight"><pre><code class="text"># pacman -S util-linux
+</code></pre></div>
+<h3>3.16. 升级到GRUB 2</h3>
+
+<p>可以直接使用当前时间点extra库的grub2-bios包进行升级（会移除已有的grub包）：</p>
+<div class="highlight"><pre><code class="text"># pacman -S grub2-bios
+</code></pre></div>
+<p>也可以使用最新的grub-bios进行升级（已移到core库）。手动从镜像下载grub-bios、grub-common、freetype2和fuse这四个包进行安装（后两个包属于extra库）。</p>
+
+<h3>3.17. 安装GRUB 2</h3>
+
+<p>升级到GRUB 2必须执行以下的手动安装步骤（即使<code>/boot/grub/grub.cfg</code>已经存在）：</p>
+<div class="highlight"><pre><code class="text"># grub-mkconfig -o /boot/grub/grub.cfg
+# grub-install /dev/sda
+</code></pre></div>
+<p>如果要对GRUB进行配置（例如添加Windows引导选项，修改GRUB颜色、背景主题），可以修改<code>/etc/default/grub</code>和<code>/etc/grub.d/40_custom</code>这两个文件，然后通过执行<code># grub-mkconfig -o /boot/grub/grub.cfg</code>重新生成新的<code>grub.cfg</code>。不要直接去修改<code>grub.cfg</code>。</p>
+
+<h3>3.18. 重启，确认GRUB 2引导正常</h3>
+<div class="highlight"><pre><code class="text"># reboot
+</code></pre></div>
+<p>如此，得到了一个较新的最小化系统。</p>
+
+<h3>3.19. 可能的错误：GRUB进入引导界面前一闪而过的错误提示：error: file &#39;/boot/grub/locale/en.mo.gz&#39; not found</h3>
+
+<p>直接拷贝如下文件即可：</p>
+<div class="highlight"><pre><code class="text"># cp /boot/grub/locale/en@quot.mo /boot/grub/locale/en_US.mo
+</code></pre></div>
+<h3>3.20. 附：GRUB的手动引导</h3>
+
+<p>如果忘记在GRUB 2中写入某OS的引导选项或者引导选项错误，需要手动引导则可以简单地使用类似如下命令（假设要引导的是位于分区表第5个分区上的Arch Linux）：</p>
+<div class="highlight"><pre><code class="text">&gt; insmod ext2
+&gt; set root=&#39;hd0,msdos5&#39;
+&gt; linux /boot/vmlinuz-linux
+&gt; initrd /boot/initramfs-linux.img
+&gt; boot
+</code></pre></div>
+<p>若要引导的是位于分区表的第2个分区上的Windows：</p>
+<div class="highlight"><pre><code class="text">&gt; insmod ntfs
+&gt; set root=&#39;hd0,msdos2&#39;
+&gt; chainloader +1
+&gt; boot
+</code></pre></div>
+<p>若使用GRUB Legacy，与之类似（注意GRUB Legacy的设备编号从0开始，即第2个分区实际上是<code>(hd0,1)</code>）：</p>
+<div class="highlight"><pre><code class="text">&gt; root (hd0,1)
+&gt; chainloader +1
+&gt; boot
+</code></pre></div>
+<hr>
+
+<h2>4. 配置阶段</h2>
+
+<h3>4.1. 添加控制台下的鼠标支持（可选）</h3>
+
+<p>如果需要经常在控制台下进行工作，添加鼠标支持可能会比较有用。</p>
+
+<p>安装GPM：</p>
+<div class="highlight"><pre><code class="text"># pacman -S gpm
+</code></pre></div>
+<p>同时在<code>/etc/rc.conf</code>中添加相应启动守护进程：</p>
+<div class="highlight"><pre><code class="text">DAEMONS=(... gpm)
+</code></pre></div>
+<h3>4.2. 设置模块黑名单（可选）</h3>
+
+<p>有些内核模块可能并不总是我们需要的。对于我而言，PC扬声器和触摸板属于“完全没用”之列。（PC扬声器的报警声很烦人；触摸板会严重干扰键盘输入）</p>
+
+<p>我曾经花了很长时间寻找我的笔记本上触摸板属于哪个驱动，结果发现是psmouse模块。</p>
+
+<p>以前可以通过<code>/etc/rc.conf</code>中的MODULES变量屏蔽模块。现在唯一的方式是在<code>/etc/modprobe.d/modprobe.conf</code>（如果没有则创建）中设置黑名单：</p>
+<div class="highlight"><pre><code class="text">blacklist pcspkr
+blacklist psmouse
+</code></pre></div>
+<p>将来临时需要用到这些模块时，可以手动加载：</p>
+<div class="highlight"><pre><code class="text"># modprobe psmouse
+</code></pre></div>
+<p>不需要时再卸载：</p>
+<div class="highlight"><pre><code class="text"># rmmod psmouse
+</code></pre></div>
+<h3>4.3. NTFS分区的读写支持</h3>
+
+<p>安装NTFS-3G：</p>
+<div class="highlight"><pre><code class="text"># pacman -S ntfs-3g
+</code></pre></div>
+<p>在<code>/etc/fstab</code>中挂载NTFS分区时，应当使用ntfs-3g而不是ntfs。</p>
+
+<h3>4.4. 添加用户、设置权限</h3>
+
+<p>总是用root账户来执行日常操作是不可取的。应当添加一个自己的用户：</p>
+<div class="highlight"><pre><code class="text"># adduser
+</code></pre></div>
+<p>注意把用户添加到合适的组（audio, games, lp, optical, power, scanner, storage, video, wheel）。</p>
+
+<p>如果忘记添加到某个组，以后可以直接编辑<code>/etc/group</code>。</p>
+
+<p>然后为了使用户可以执行sudo操作，还需安装：</p>
+<div class="highlight"><pre><code class="text"># pacman -S sudo
+</code></pre></div>
+<p>执行</p>
+<div class="highlight"><pre><code class="text"># visudo
+</code></pre></div>
+<p>来编辑用户的sudo权限（实际上是<code>/etc/sudoers</code>这个文件）。可以将</p>
+<div class="highlight"><pre><code class="text">root ALL=(ALL) ALL
+%wheel ALL=(ALL) ALL
+</code></pre></div>
+<p>两行去注释。</p>
+
+<p>注意：非root用户执行某些程序必须使用sudo，否则不会报错但无法正常使用，例如util-linux中的fdisk、cfdisk。</p>
+
+<hr>
+
+<h2>5. 桌面阶段</h2>
+
+<h3>5.1. 安装常用字体</h3>
+
+<p>安装一些常用的字体（后者“文泉驿正黑”提供必要的中文支持）：</p>
+<div class="highlight"><pre><code class="text"># pacman -S ttf-dejavu wqy-zenhei
+</code></pre></div>
+<p>当然也可以安装opendesktop-fonts等其他字体。</p>
+
+<h3>5.2. 安装显卡驱动、3D支持和Xorg</h3>
+<div class="highlight"><pre><code class="text"># pacman -S xf86-video-intel mesa mesa-demos xorg-server xorg-xinit xorg-utils xorg-server-utils
+</code></pre></div>
+<p>也可以直接安装Xorg全部组件：</p>
+<div class="highlight"><pre><code class="text"># pacman -S xorg
+</code></pre></div>
+<p>为了测试X，需要有：</p>
+<div class="highlight"><pre><code class="text"># pacman -S xorg-twm xorg-xclock xterm
+</code></pre></div>
+<p>执行：</p>
+<div class="highlight"><pre><code class="text"># startx
+</code></pre></div>
+<p>或</p>
+<div class="highlight"><pre><code class="text"># xinit
+</code></pre></div>
+<p>进入TWM窗口管理器，测试X是否运行正常。</p>
+
+<p>如果当前用户主目录下有<code>~/.xinitrc</code>，则启动时会读取此文件内容。xinit可以向该脚本传递参数。</p>
+
+<p>通过<code># exit</code>或<code># pkill X</code>退出X。（后者会报出一个运行错误）</p>
+
+<h3>5.3. 安装声卡设备驱动</h3>
+
+<p>默认的Arch内核构建里已经包含了ALSA，故一般没有必要再安装它。</p>
+<div class="highlight"><pre><code class="text"># pacman -S alsa-utils
+</code></pre></div>
+<p>安装后通过</p>
+<div class="highlight"><pre><code class="text"># alsamixer
+</code></pre></div>
+<p>来取消静音。可以使用</p>
+<div class="highlight"><pre><code class="text"># speaker-test -c 2
+</code></pre></div>
+<p>进行测试。</p>
+
+<h3>5.4. 安装电源管理框架</h3>
+<div class="highlight"><pre><code class="text"># pacman -S pm-utils
+</code></pre></div>
+<p>用于在命令行下休眠和进入省电模式。</p>
+
+<h3>5.5. 安装Openbox桌面管理器（可选）</h3>
+
+<p>安装Openbox：</p>
+<div class="highlight"><pre><code class="text"># pacman -S openbox
+</code></pre></div>
+<p>Openbox的配置位于<code>~/.config/openbox</code>下的<code>menu.xml</code>、<code>rc.xml</code>、<code>autostart</code>三个文件。</p>
+
+<p>其他配置桌面可能会用到的组件：</p>
+<div class="highlight"><pre><code class="text"># pacman -S obconf obmenu menumaker openbox-themes xcompmgr xscreensaver feh conky tint2
+</code></pre></div>
+<p>tint2的图形化配置程序tint2conf需要pygtk：</p>
+<div class="highlight"><pre><code class="text"># pacman -S pygtk
+</code></pre></div>
+<p>安装D-Bus和ConsoleKit：</p>
+<div class="highlight"><pre><code class="text"># pacman -S dbus consolekit
+</code></pre></div>
+<p>必须在<code>/etc/rc.conf</code>中添加相应的守护进程：</p>
+<div class="highlight"><pre><code class="text">DAEMONS=(... dbus)
+</code></pre></div>
+<p>创建<code>~/.xinitrc</code>文件：</p>
+<div class="highlight"><pre><code class="text">tint2 &amp;
+exec ck-launch-session dbus-launch --sh-syntax --exit-with-session openbox-session
+</code></pre></div>
+<p>执行：</p>
+<div class="highlight"><pre><code class="text"># startx
+</code></pre></div>
+<p>或</p>
+<div class="highlight"><pre><code class="text"># xinit
+</code></pre></div>
+<p>进入Openbox（附带启动tint2）。</p>
+
+<h3>5.6. 安装GNOME（可选）</h3>
+<div class="highlight"><pre><code class="text"># pacman -S gnome gnome-extra
+</code></pre></div>
+<p>如果要想在系统启动完毕后自动进入图形界面，修改<code>/etc/inittab</code>中的运行级即可：</p>
+<div class="highlight"><pre><code class="text"># Boot to console
+#id:3:initdefault:
+# Boot to X11
+id:5:initdefault:
+</code></pre></div>
+<p>并且设置登录管理器为GDM：</p>
+<div class="highlight"><pre><code class="text">x:respawn:/usr/sbin/gdm -nodaemon
+</code></pre></div>
+<p>如果要在GDM启动时同时启动其他组件（例如tint2），则在<code>~/.xprofile</code>中（注意不是<code>~/.xinitrc</code>）添加：</p>
+<div class="highlight"><pre><code class="text">tint2 &amp;
+</code></pre></div>
+<h3>5.7. 安装PolicyKit和NetworkManager</h3>
+
+<p>若使用Openbox：安装polkit和networkmanager以在桌面环境下取代network管理网络：</p>
+<div class="highlight"><pre><code class="text"># pacman -S networkmanager
+</code></pre></div>
+<p>polkit作为依赖会被自动安装。</p>
+
+<p>若使用GNOME，则networkmanager（和dbus、polkit）很可能已经作为依赖被安装。</p>
+
+<p>需要手动在<code>/etc/rc.conf</code>中删除network守护进程，添加：</p>
+<div class="highlight"><pre><code class="text">DAEMONS=(... dbus networkmanager)
+</code></pre></div>
+<p>注意networkmanager必须出现在dbus之后。</p>
+
+<h3>5.8. 调整键盘映射（可选）</h3>
+
+<p>有时候可能需要修改键盘上某些键的位置。</p>
+
+<p>使用</p>
+<div class="highlight"><pre><code class="text"># xmodmap -pke &gt; ~/.Xmodmap
+</code></pre></div>
+<p>生成映射表文件并进行修改。</p>
+
+<p>若使用Openbox，在<code>~/.xinitrc</code>中启动窗口管理器的命令前添加一行：</p>
+<div class="highlight"><pre><code class="text">xmodmap $HOME/.Xmodmap
+</code></pre></div>
+<p>若使用GNOME，则xmodmap会在进入X时自动应用用户主目录下的<code>~/.Xmodmap</code>映射表。</p>
+
+<h3>5.9. 安装iBus输入法</h3>
+<div class="highlight"><pre><code class="text"># pacman -S ibus ibus-qt ibus-pinyin ibus-anthy
+</code></pre></div>
+<p>若使用Openbox，在<code>~/.xinitrc</code>中启动窗口管理器前添加一行：</p>
+<div class="highlight"><pre><code class="text">ibus-daemon -x -d
+</code></pre></div>
+<p>若使用GNOME，则ibus-daemon会在进入X时自动启动，不需要修改任何配置文件。</p>
+
+<hr>
+
+<h2>6. 常见问题</h2>
+
+<h4>Linux下写入NTFS分区里的内容在重启进入Windows后消失了</h4>
+
+<p>Windows休眠到硬盘后，不要在Linux下对相应的NTFS分区进行写操作。</p>
+
+<h4>启动时sdhci-pci提示“Invalid iomem size. You may experience problems.”</h4>
+
+<p>最简单的解决办法是禁用sdhci和sdhci_pci模块，在<code>/etc/modprobe.d/modprobe.conf</code>中添加黑名单：</p>
+<div class="highlight"><pre><code class="text">blacklist sdhci
+blacklist sdhci_pci
+</code></pre></div>
+<h4>禁用IPv6</h4>
+
+<p>在内核加载时直接禁用。在<code>/etc/modprobe.d/modprobe.conf</code>中添加一行：</p>
+<div class="highlight"><pre><code class="text">alias net-pf-10 off
+</code></pre></div>
+<h4>明明是可执行文件双击后却没反应，命令行下执行却提示文件找不到</h4>
+
+<p>如果权限没问题的话，这可能是试图在x86_64系统上执行32位程序却缺少相应库所导致的。</p>
+
+<p>用ldd查看该文件是否“not a dynamic executable”。如果是，安装multilib中的各种32位库，也可以直接安装wine（wine的依赖关系基本包含了所有常用的32位库）。</p>
+
+<h4>RAR格式文件打不开</h4>
+
+<p>安装p7zip。</p>
+
+<h4>需要更多有用的GNOME设置</h4>
+
+<p>安装gnome-tweak-tool。</p>
+
+<h4>GDM和GNOME使用X11光标而不是GNOME的光标样式</h4>
+
+<p>在<code>/usr/share/icons/default/index.theme</code>中写入：（如果不存在则创建）</p>
+<div class="highlight"><pre><code class="text">[Icon Theme]
+Inherits=Adwaita
+</code></pre></div>
+<p>或者直接从AUR安装<a href="https://aur.archlinux.org/packages.php?ID=52925">gnome-cursors-fix</a>这个包。</p>
+
+<h4>iBus输入法不能输入，总是显示“No input window”</h4>
+
+<p>记得要在ibus-setup的Preferences - Input Method中手动添加已安装的输入法（它们不会自动出现在列表中），然后重启iBus。</p>
+
+<h4>GNOME集成的即时通讯工具不能用，总是显示一个叉</h4>
+
+<p>安装telepathy。</p>
+
+<h4>从GNOME登录Google帐号的时候总提示密码错误</h4>
+
+<p>说明你开通了Google的双步验证机制。不要使用Google帐号的密码，而使用Google提供的Application-specific password就好了。（其实App Engine和Google Talk也都是使用这个密码的）</p>
+
+<h4>浏览器无法播放Flash</h4>
+
+<p>安装flashplugin。</p>
+
+<p>适用于Chromium和Firefox，但是不知为何GNOME Web并不支持。</p>
+
+<h4>某些CJK字体无法正常显示出来</h4>
+
+<p>安装opendesktop-fonts。注意：会覆盖原来的文泉驿字体。</p>
+
+<h4>VLC播放视频时画面和音轨略不同步</h4>
+
+<p>这是PulseAudio自2.0以来引入的一个bug（特性？），目前好像只针对VLC存在，其他播放器正常。</p>
+
+<p><a href="https://bugs.freedesktop.org/show_bug.cgi?id=50024">https://bugs.freedesktop.org/show_bug.cgi?id=50024</a></p>
+
+<p>可以退回到2.0以前的pulseaudio和libpulse，或者使用我自己的一个PulseAudio fork：</p>
+
+<p><a href="https://github.com/soimort/pulseaudio-vlc-friendly">https://github.com/soimort/pulseaudio-vlc-friendly</a></p>
+
+<h4>GitHub网页上的字体貌似比起以前有明显的锯齿失真（？）</h4>
+
+<p>但愿这不是我的错觉。</p>
+
+<p>降级ttf-freefont到版本20100919-2。</p>
+
+    </article>
+    
+    
+    <article id="articlePost" style="padding-bottom: 0">
+        <div id="divDisqus">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'soimort';
+                
+                var disqus_url = 'http://www.soimort.org/tech-blog/2012/07/23/arch-rollback.html';
+                
+                
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </article>
+    
+</div>
+
+
+</body>
+</html>

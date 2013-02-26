@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Blog">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="application-name" content="Looking-Glass" />
+    <meta name="author" content="LittleYang" />
+    <meta name="generator" content="Jekyll 0.12.0" />
+    <meta name="description" content="本文采用 Creative Commons Attribution-ShareAlike 3.0 Unported 授权。" />
+    <meta name="keywords" content="" />
+
+    <meta itemprop="name" content="Qt编码风格约定">
+    <meta itemprop="description" content="本文采用 Creative Commons Attribution-ShareAlike 3.0 Unported 授权。">
+    <meta itemprop="image" content="" />
+
+    <title>Qt编码风格约定</title>
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="57x57" />
+
+    <link rel="author" type="text/html" href="https://plus.google.com/100974147585154622588/about" />
+    <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+
+    <!-- Google Web Fonts (not in use) -->
+    <!-- link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Droid+Sans' / -->
+
+    <link rel="stylesheet" type="text/css" href="/~css/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/~css/mobile.css" media="all and (max-width:1023px)" />
+
+    <!-- Pygments -->
+    <link rel="stylesheet" type="text/css" href="/~css/pygments.css" media="all" />
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="/~css/tomorrow-night.min.css">
+    <script src="/~js/highlight.pack.js"></script>
+    <!-- script>hljs.initHighlightingOnLoad();</script -->
+
+    <!-- jQuery & Galleria -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="/~plugins/galleria/galleria-1.2.8.min.js"></script>
+
+    <!-- MathJax (not in use) -->
+    <!-- script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+
+    <!-- ShareThis (not in use) -->
+    <!-- script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "9aabed9c-ac3f-4f96-8f5a-8e7a27307543"}); </script -->
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27086900-1']);
+        _gaq.push(['_setDomainName', '.soimort.org']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script type="text/javascript" src="/~js/main.js"></script>
+
+</head>
+
+<body>
+    <!-- load background image (must be put in body) -->
+    <script type="text/javascript">
+        document.body.style.backgroundImage = "url('http://i.imgur.com/0eQ5v.jpg')";
+    </script>
+
+    <nav id="navBarTop">
+        <ul class="navBarListLeft">
+            <li><a href="/"><img src="/~images/home.png" alt="home" title="Home" class="navDock" height="24" /></a></li>
+            <li><a href="/atom.xml" target="_blank"><img src="/~images/feed.png" alt="feed" title="Feed" class="navDock" height="24" /></a></li>
+        </ul>
+
+        <ul class="navBarListRight">
+            <li style="position: relative; top: -5px"><b>LittleYang</b> on </li>
+            <!-- Google+ --><li><a href="https://plus.google.com/107586052733788098083/" target="_blank"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="gplus" title="Google+" class="navDock" height="24" /></a></li>
+            <!-- Twitter --><li><a href="https://twitter.com/soimort" target="_blank"><img src="/~images/twitter.png" alt="twitter" title="Twitter" class="navDock" height="24" /></a></li>
+            <!-- Facebook --><!-- li><a href="https://www.facebook.com/soimort" target="_blank"><img src="/~images/facebook.png" alt="facebook" title="Facebook" class="navDock" height="24" /></a></li -->
+            <!-- deviantArt --><li><a href="http://soimort.deviantart.com" target="_blank"><img src="/~images/deviantart.png" alt="deviantart" title="deviantART" class="navDock" height="24" /></a></li>
+            <!-- GitHub --><li><a href="http://github.com/soimort" target="_blank"><img src="/~images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a></li>
+        </ul>
+    </nav>
+
+    <nav id="navBarBottom">
+        <div class="navBarListLeft">
+            <div style="position: relative; top: 4px; width: 60%">
+                © 2013 <a href="http://www.google.com" target="_blank"><b>Little Yang</b></a>. Under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank"><b>CC BY-SA 3.0 License</b></a>.
+            </div>
+        </div>
+
+        <div class="navBarListRight">
+            <div style="position: relative; top: 4px; right: 0">
+                 |Powered by <a href="http://jekyllrb.com/" target="_blank"><b>Jekyll</b></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="divTitle">
+    <h1>Qt编码风格约定</h1>
+    <p><div class="g-plusone" data-size="medium" data-annotation="none"></div></p>
+    <p><b>29 Dec 2011</b>, by <b>Mort</b></p>
+    <p>本文采用 Creative Commons Attribution-ShareAlike 3.0 Unported 授权。</p>
+    <div id="divTitleNav">
+        <a href="/"><img src="/~images/left-arrow.png" class="navDock" /></a>
+    </div>
+</div>
+
+<div id="divPost">
+    <article id="articlePost">
+        <p>原文地址： <a href="http://wiki.qt-project.org/Coding_Style">http://wiki.qt-project.org/Coding_Style</a><br />
+中文翻译： by <a href="http://www.soimort.org">Mort</a></p>
+<p>这里是对编写Qt代码时编码风格约定的概述。<br />
+数据通过对Qt源码库、论坛和邮件列表的发掘，经开发者的协作整理而成。</p>
+<h2>缩进（Indentation）</h2>
+<ul>
+	<li>每一级缩进使用4个空格。</li>
+	<li>使用空格，而不是制表符tab！</li>
+</ul>
+<h2>声明变量（Declaring variables）</h2>
+<ul>
+	<li>每个变量应分别在单独的一行声明。</li>
+	<li>尽可能避免使用过短的（如：“a”、“rbarr”、“nughdeget”）变量名。</li>
+	<li>单字符的变量名仅在作为计数器或临时变量、其用途显而易见时方可使用。</li>
+	<li>当需要用到一个变量时，再对它进行声明。</li>
+</ul>
+<pre><code>// 错误的
+int a, b;
+char *c, *d;</code></pre>
+<pre><code>// 正确的
+int height;
+int width;
+char *nameOfThis;
+char *nameOfThat;</code></pre>
+<ul>
+	<li>变量和函数名称应以小写字母开头。名称中间的每个单词均以大写字母打头。</li>
+	<li>避免使用缩写。</li>
+</ul>
+<pre><code>// 错误的
+short Cntr;
+char ITEM_DELIM = '\t';</code></pre>
+<pre><code>// 正确的
+short counter;
+char itemDelimiter = '\t';</code></pre>
+<ul>
+	<li>类的名称总是以大写字母开头。公用类以‘Q’开头（如：QRgb）。公用函数大部分以‘q’开头（如：qRgb）。</li>
+</ul>
+<h2>空格（Whitespace）</h2>
+<ul>
+	<li>使用空行在合适的位置区分代码段。</li>
+	<li>仅使用一个空行。</li>
+	<li>在关键词的后面，或花括号的前面，使用一个且仅一个空格。</li>
+</ul>
+<pre><code>// 错误的
+if(foo){
+}</code></pre>
+<pre><code>// 正确的
+if (foo) {
+}</code></pre>
+<ul>
+	<li>对于指针或引用，总是在类型和‘*’或‘&amp;’之间使用单个空格分隔，但在‘*’或‘&amp;’与变量名之间则没有任何空格。</li>
+</ul>
+<pre><code>char *x;
+const QString &amp;myString;
+const char * const y = "hello";</code></pre>
+<ul>
+	<li>在二元运算符的前后使用空格分隔。</li>
+	<li>强制类型转换（cast）后面不加空格。</li>
+	<li>尽可能避免C风格的强制类型转换。</li>
+</ul>
+<pre><code>// 错误的
+char* blockOfMemory = (char* ) malloc(data.size());</code></pre>
+<pre><code>// 正确的
+char *blockOfMemory = reinterpret_cast&lt;char *&gt;(malloc(data.size()));</code></pre>
+<h2>花括号（Braces）</h2>
+<ul>
+	<li>作为一条基本准则，左花括号总是紧接着上一行作为代码段的开始：</li>
+</ul>
+<pre><code>// 错误的
+if (codec)
+{
+}</code></pre>
+<pre><code>// 正确的
+if (codec) {
+}</code></pre>
+<ul>
+	<li>特例：函数的实现和类的声明中，左花括号总是从单独的一行开始。</li>
+</ul>
+<pre><code>static void foo(int g)
+{
+    qDebug("foo: %i", g);
+}</code></pre>
+<pre><code>class Moo
+{
+};</code></pre>
+<ul>
+	<li>当条件判断的代码段中包含一行以上语句，或只有一行语句但相当复杂时，使用花括号。</li>
+</ul>
+<pre><code>// 错误的
+if (address.isEmpty()) {
+    return false;
+}</code></pre>
+<pre><code>for (int i = 0; i &lt; 10; ++i) {
+    qDebug("%i", i);
+}</code></pre>
+<pre><code>// 正确的
+if (address.isEmpty())
+    return false;</code></pre>
+<pre><code>for (int i = 0; i &lt; 10; ++i)
+    qDebug("%i", i);</code></pre>
+<ul>
+	<li>特例1：当父代码段语句覆盖多行或存在卷起（wrap）时，应当使用花括号。</li>
+</ul>
+<pre><code>// 正确的
+if (address.isEmpty() || !isValid()
+    || !codec) {
+    return false;
+}</code></pre>
+<ul>
+	<li>特例2：当if-then-else中的if语句块或else语句块覆盖多行时，也应当使用花括号。</li>
+</ul>
+<pre><code>// 错误的
+if (address.isEmpty())
+    return false;
+else {
+    qDebug("%s", qPrintable(address));
+    ++it;
+}</code></pre>
+<pre><code>// 正确的
+if (address.isEmpty()) {
+    return false;
+} else {
+    qDebug("%s", qPrintable(address));
+    ++it;
+}</code></pre>
+<pre><code>// 错误的
+if (a)
+    if (b)
+        ...
+    else
+        ...</code></pre>
+<pre><code>// 正确的
+if (a) {
+    if (b)
+        ...
+    else
+        ...
+}</code></pre>
+<ul>
+	<li>当一个条件判断代码段的内容为空时，应当加上花括号。</li>
+</ul>
+<pre><code>// 错误的
+while (a);</code></pre>
+<pre><code>// 正确的
+while (a) {}</code></pre>
+<h2>圆括号（Parentheses）</h2>
+<ul>
+	<li>使用圆括号对表达式进行分组：</li>
+</ul>
+<pre><code>// 错误的
+if (a &amp;&amp; b || c)</code></pre>
+<pre><code>// 正确的
+if ((a &amp;&amp; b) || c)</code></pre>
+<pre><code>// 错误的
+a + b &amp; c</code></pre>
+<pre><code>// 正确的
+(a + b) &amp; c</code></pre>
+<h2>Switch语句（Switch statements）</h2>
+<ul>
+	<li>case关键词和switch出现在同一列（没有缩进）。</li>
+	<li>除非下一个case紧接其后立即出现，否则每一个case的结束必须有一个break（或return）语句，或者明确说明这里不应break的一个注释。</li>
+</ul>
+<pre><code>switch (myEnum) {
+case Value1:
+    doSomething();
+    break;
+case Value2:
+case Value3:
+    doSomethingElse();
+    // fall through
+default:
+    defaultHandling();
+    break;
+}</code></pre>
+<h2>分行（Line breaks）</h2>
+<ul>
+	<li>保持行的长度小于100个字符；在必要的时候应当进行分行。</li>
+	<li>分行后的逗号应当出现在上一行的结尾；运算符应当出现在下一行的开头。在行末出现的运算符很容易因为编辑器显示范围有限而被忽视。</li>
+</ul>
+<pre><code>// 正确的
+if (longExpression
+    + otherLongExpression
+    + otherOtherLongExpression) {
+}</code></pre>
+<pre><code>// 错误的
+if (longExpression +
+    otherLongExpression +
+    otherOtherLongExpression) {
+}</code></pre>
+<h2>继承和‘virtual’关键词（Inheritance and the `virtual` keyword）</h2>
+<ul>
+	<li>当重实现一个虚方法时，不要把‘virtual’关键词放在头文件当中。</li>
+</ul>
+<h2>一般适用的特例（General exception）</h2>
+<ul>
+	<li>如果某条规则使你的代码看上去很差劲，尽管去破坏它！</li>
+</ul>
+    </article>
+    
+    
+    <article id="articlePost" style="padding-bottom: 0">
+        <div id="divDisqus">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'soimort';
+                
+                var disqus_url = 'http://www.soimort.org/tech-blog/2011/12/29/qt-coding-style_zh.html';
+                
+                
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </article>
+    
+</div>
+
+
+</body>
+</html>
