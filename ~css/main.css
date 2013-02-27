@@ -305,7 +305,7 @@ div#divTitle {
 div#divTitle div#divTitleNav {
 	position: fixed;
 	left: 4%;
-  top: 120px;
+  bottom: 180px;
 	width: 30%;
 }
 
