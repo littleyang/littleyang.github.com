@@ -311,10 +311,10 @@ div#divTitle div#divTitleNav {
 
 div#divPost {
 	position: absolute;
-	left: 32%;
+	left: 33%;
     top: 128px;
 	width: 56%;
-	padding: 12px;
+	padding: 16px;
 
 	background-color: #6ca2e0;
 	border-radius: 8px;
