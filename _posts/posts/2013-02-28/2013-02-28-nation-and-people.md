@@ -32,7 +32,7 @@ tags: []
 -----------------
 ## 怎么去产生连接
 * 这个是[google](http://www.google.com "google")的网址连接
-
-  ****************
 * 这个也是[google](http://www.google.cm)的连接，你可以点击试试
+* 这是个参考连接[google][1](http://www.google.com)
+* 这是参考连接[google][2](http://www.google.com)
 
