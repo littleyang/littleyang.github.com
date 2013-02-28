@@ -1,4 +1,6 @@
 ---
+uri: /post/people-nation
+permalink: /post/people-nation/index.html
 layout: post
 title: "国与民角力"
 description: ""
