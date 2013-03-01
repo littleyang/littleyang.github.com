@@ -1,4 +1,6 @@
 ---
+uri: /cs/program/python-first
+permalink: /cs/program/python-first/index.html
 layout: post
 title: "Python 学习【1】"
 description: ""
