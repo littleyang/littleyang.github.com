@@ -13,7 +13,7 @@ python作为优美的程序语言，在数据运算和统计中有着广泛的�
 --------
 ## 第一个程序:Hello,world。
 
-    hellowolrd程序，可谓是世界上最完美的一个程序，对于你学习任何语言，都是了解入门的第一步。当然，我们只是需要
+hellowolrd程序，可谓是世界上最完美的一个程序，对于你学习任何语言，都是了解入门的第一步。当然，我们只是需要
 通过这个程序输出"hello,world"，来表达这种语言的执行结果,显示语言的特性。代码如下:
 
 ```python
@@ -30,7 +30,7 @@ hello,world
 ---------
 ## 第二个程序:认识python变量
 
-    python是一个纯面向对象的语言，任何对象的存在都以变量的形式存在,无论是数字，字符串，还是数组等。可以看看如下代码:
+python是一个纯面向对象的语言，任何对象的存在都以变量的形式存在,无论是数字，字符串，还是数组等。可以看看如下代码:
 
 ```python
   1 #python is an object oriented language,it is no variable type ,so if you define a variable
