@@ -71,4 +71,34 @@ this is my string
 1
 ```
 
+---------------
+## 接下来是基本数据结构的一些特性，如数组等
+
+python 有一些已经封装好的数据结构，list,dictionary等，有很多的方法都已经封装到python lib中
+
+```python
+numbers = []
+strings = []
+names = ["john","Eric","Jess"]
+second_name = names[1]
+numbers.append(1)
+numbers.append(2)
+strings.append("hello")
+strings.append("name")
+print numbers
+print strings
+print second_name
+
+print ("the second name on names is %s" % second_name)
+```
+
+显示结果如下:
+
+```
+[1, 2]
+['hello', 'name']
+Eric
+the second name on names is Eric
+```
+
 
