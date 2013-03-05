@@ -1,6 +1,6 @@
 ---
 uri: /cs/program/python-second
-permalinkt: /cs/program/python-second/index.html
+permalink: /cs/program/python-second/index.html
 layout: post
 title: "python学习【2】"
 description: ""
