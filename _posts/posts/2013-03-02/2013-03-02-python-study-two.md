@@ -107,4 +107,34 @@ for i in numbers:
 126
 ```
 
+## 4、关于python函数的一些简单问题
+
+通过定义函数，来执行不同的功能，达到模块化系统开发问题，python函数及其简单，与c语言，以及其他的语言几乎一样，除了靠冒号标志函数结尾以为，其他基本一致。python对C语言有着原生的接口支持，及时可直接调用c接口，一下的问题描述：循环数组里面的内容，用数组里面的内容组成新的内容，在第三个函数里面输出相应的显示。代码如下:
+
+```python
+def list_benefit():
+  list_benefit = ["More organized code", "More readable code",
+      "Easier code reuse", "Allowing programmers to share and connect code together"
+     ]
+  return list_benefit
+
+def build_sentence(benefit):
+   return "%s is a benefit of functions!" %benefit
+
+def name_of_the_benefit_of_function():
+  list_of_benefits = list_benefit()
+    for benefit in list_of_benefits:
+      print build_sentence(benefit)
+
+name_of_the_benefit_of_function();
+```
+
+执行结果如下:
+
+```
+More organized code is a benefit of functions!
+More readable code is a benefit of functions!
+Easier code reuse is a benefit of functions!
+Allowing programmers to share and connect code together is a benefit of functions!
+```
 
