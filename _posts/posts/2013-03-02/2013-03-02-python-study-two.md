@@ -46,4 +46,37 @@ if big_list.count(x) == 10 and big_list.count(y) == 10:
   Great!
 ```
 
+## python 的文件基本操作
+
+python 对文件的基本操作，实在是非常的方便，python语法通过严格的缩进已经冒号来控制代码的执行范围，如以下的一些代码示例，显示了同文件夹下面的list.py，按照一行读取一行打印的方式显示出来。
+
+```python
+f = open("list.py")
+try:
+  for line in f:
+    print line,
+finally:
+  f.close()
+
+```
+
+执行结果如下:
+
+```
+numbers = []
+strings = []
+names = ["john","Eric","Jess"]
+second_name = names[1]
+numbers.append(1)
+numbers.append(2)
+strings.append("hello")
+strings.append("name")
+print numbers
+print strings
+print second_name
+
+print ("the second name on names is %s" % second_name)
+
+```
+
 
