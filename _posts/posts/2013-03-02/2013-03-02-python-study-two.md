@@ -2,7 +2,7 @@
 uri: /cs/program/python-second
 permalink: /cs/program/python-second/index.html
 layout: post
-title: "python学习【2】"
+title: "python 学习【2】"
 description: ""
 category: ""
 tags: []
