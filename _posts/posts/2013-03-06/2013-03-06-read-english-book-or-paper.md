@@ -2,7 +2,7 @@
 uri: /work/read-by-english/opinion
 permalink: /work/read-by-english/opinion/index.html
 layout: post
-title: "英文阅读是的【痛苦】与【痛快】"
+title: "英文阅读的【痛苦】与【痛快】"
 description: ""
 category:
 tags: []
