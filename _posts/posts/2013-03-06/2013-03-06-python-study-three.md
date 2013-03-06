@@ -37,3 +37,38 @@ python 是一个面向对象的语言，对于任何一个面向对象的语言�
 blah
 this is class function
 ```
+
+### 2、关于类的一个简单的联系，问题秒速如下:
+
+> 定义一个关于car的类，有两个实例MyCar1和MyCar2,输出两个实例的描述:MyCar1 to be a red convertible worth $60,000 with a name of Fer, and MyCar2 to be a blue van named Jump worth $10,000.
+
+一下是代码的实现以及执行结果，总的来说，都是为了更加深入的理解python 类的概念以及使用，类与对象是一个通用的编程概念。
+
+```python
+class Car:
+  name = ""
+  kind = "car"
+  color = ""
+  value = 100.00
+  def description(self):
+    desc_string = "%s is a %s %s worth $%.2f." %(self.name,self.color,self.kind,self.value)
+    return desc_string
+
+MyCar1 = Car()
+MyCar1.name ="Fer"
+MyCar1.color="red"
+MyCar1.value = 60000
+print MyCar1.description()
+
+MyCar2 = Car()
+MyCar2.name = "Jump"
+MyCar2.color = "blue"
+MyCar2.value = 10000
+print MyCar2.description()
+```
+执行结果如下:
+
+    Fer is a red car worth $60000.00.
+    Jump is a blue car worth $10000.00.
+
+
