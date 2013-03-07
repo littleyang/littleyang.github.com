@@ -36,6 +36,7 @@ python 是一个面向对象的语言，对于任何一个面向对象的语言�
 ```
 blah
 this is class function
+
 ```
 -----
 
@@ -72,4 +73,50 @@ print MyCar2.description()
     Fer is a red car worth $60000.00.
     Jump is a blue car worth $10000.00.
 
+### 3、python 多参数函数的定义
 
+与其他的编程语言一样，python也可以使用多参数传递，可以使用*作为多参数参数变量定义，还有一个有趣的特点就是可以像hash那样指定某个特定的所传递参数的名称的值，使用double asterisk **,值得一提的是ruby的多参数传递，ruby也可以使用*作为多参数传递，更有意思的是ruby可以使用&传递函数（或者是code block）这个功能很有特点,下面是一个关于python多参数传递的一个小练习,功能描述如下:
+
+>Fill in the "foo" and "bar" functions so they can receive a variable amount of arguments (3 or more) The "foo" function must return the amount of extra arguments received. The "bar" must return "True" if the argument with the keyword "magicnumber" is worth 7, and False otherwise.
+
+简单的说，主要内容就是:
+
+    foo函数返回多参数的个数，bar函数返回特定的参数"magicnum"判断值。
+
+
+代码已经函数执行测试结果如下:
+
+```python
+
+def foo(a,b,c,*other):
+  return len(other)
+
+def bar(a,b,c,**other):
+  if other.get("magicnum")==7:
+    return True
+  else:
+    return False
+
+print foo(1,2,3,4,5,6)
+
+print bar(1,2,3,magicnum=7)
+
+if foo(1,2,3,4) == 1:
+  print "Good."
+if foo(1,2,3,4,5) == 2:
+  print "Better."
+if bar(1,2,3,magicnumber = 6) == False:
+  print "Great."
+if bar(1,2,3,magicnumber = 7) == True:
+  print "Awesome!"
+
+```
+执行结果如下:
+
+    3
+    True
+    Good.
+    Better.
+    Great.
+
+-------
