@@ -1,6 +1,4 @@
 ---
-uri: /cs/program/python/binary-search
-permalink: /cs/program/python/binary-serach/index.html
 layout: post
 title: "python的二分查找算法"
 description: ""
