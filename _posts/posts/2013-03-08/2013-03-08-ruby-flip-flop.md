@@ -2,10 +2,10 @@
 uri: /cs/program/ruby-flip-flop
 permalink: /cs/program/ruby-flip-flop/index.html
 layout: post
-title: "关于ruby语言中if或者while中的范围求值问题"
+title: "关于ruby语言中if或者while中的范围求值(flip-flop)问题"
 description: ""
 category:
-tags: []
+tags: [ruby flip-flop]
 ---
 
 ruby是一个非常有意思的编程语言，与python有很多相似之处，也有很多有特点的地方，非常的灵活。其中"触发器"就是一个非常有意思的概念。翻看和google很多中文资料博客都没有对这个进行详细的解读，现在来做一个比较详细的解读.<br/>
