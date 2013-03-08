@@ -4,6 +4,7 @@ permalink: /cs/program/ruby-flip-flop/index.html
 layout: post
 title: "关于ruby语言中if或者while中的范围求值问题"
 description: ""
+iamge: ~images/flip-flop.png
 category:
 tags: []
 ---
@@ -58,6 +59,6 @@ a =(11..20).collect{|i| (i%4==0)...(i%3==0)?i:nil}
 
 英文比较好的可以自己去理解，就不做翻译了。那么如何理解上面的结果了，先看看下面这个图:
 
-![ruby-flip-flop](~/images/flip-flop.png)
+![ruby-flip-flop](~images/flip-flop.png)
 
 
