@@ -1,6 +1,8 @@
 ---
+uri: /cs/program/python-insert-sort
+permalink: /cs/program/python-insert-sort/index.html
 layout: post
-title: "direct insert sort"
+title: [[]]
 description: ""
 category:
 tags: []
