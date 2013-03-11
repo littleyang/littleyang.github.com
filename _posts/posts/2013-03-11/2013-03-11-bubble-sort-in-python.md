@@ -1,6 +1,4 @@
 ---
-uri: /cs/porgram/bubble-sort
-permalink: /cs/program/bubble-sort/index.html
 layout: post
 title: "python实现冒泡排序算法"
 description: ""
