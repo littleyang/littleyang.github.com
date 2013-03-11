@@ -1,6 +1,6 @@
 ---
-uri: /cs/program/python-insert-sort
-permalink: /cs/program/python-insert-sort/index.html
+uri: /cs/program/python/insert/sort
+permalink: /cs/program/python/insert/sort/index.html
 layout: post
 title: [[]]
 description: ""
