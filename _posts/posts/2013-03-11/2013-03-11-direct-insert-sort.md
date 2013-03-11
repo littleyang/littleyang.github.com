@@ -1,8 +1,8 @@
 ---
-uri: /cs/program/python/insert/sort
-permalink: /cs/program/python/insert/sort/index.html
+uri: /cs/program/python-insert-sort
+permalink: /cs/program/python-insert-sort/index.html
 layout: post
-title: [[]]
+title: "python直接插入算法排序"
 description: ""
 category:
 tags: []
