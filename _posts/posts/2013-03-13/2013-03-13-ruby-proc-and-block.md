@@ -1,6 +1,4 @@
 ---
-uri: /cs/program/ruby-block-and-proc
-permalink: /cs/program/ruby-block-and-proc/index.html
 layout: post
 title: "ruby的Proc对象"
 description: ""
