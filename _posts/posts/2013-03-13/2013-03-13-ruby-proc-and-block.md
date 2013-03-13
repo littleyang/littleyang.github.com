@@ -2,7 +2,7 @@
 layout: post
 title: "ruby的Proc对象"
 description: ""
-[[category:]]
+category:
 tags: []
 ---
 
