@@ -1,61 +1,83 @@
 ---
+uri: /cs/program/mysql
+permalink: /cs/program/mysql/index.html
 layout: post
-title: "ruby的Proc对象"
+title: "mysql的存储过程"
 description: ""
-[[category:]]
+category:
 tags: []
 ---
 
-Block是ruby的一系列依附在方法上的代码块，执行于类或者方法的上下文之间，不是对象。Proc是代码块的对象。一下有四种方法可以创建一个Proc对象
-下面是ruby program对这两者区别的一个描述:
+mysql 自从5.1以后，加入了事件机制，通过事件功能可以让数据库自动在固定的时段事件执行一定的功能，存储过程等。以下就是一个简单的需求，在某系统中加入生日提醒功能，即是:以某一内置的账号给所有用户插入一条关于某某人生日的信息提醒。当然，这里需要解决的主要有两个问题；
+>
+>#### 数据库用户与信息表之间的关联问题。
+>#### 对于同一天生日的人不同提醒的问题。
+>
 
->Ruby’s blocks are chunks of code attached to a method. They operate in the context in which
-they were defined. Blocks are not objects, but they can be converted into objects of class
-Proc.
+
+在本人实现该功能的时候比较曲折，数据库大概有80余张表，而且表的设计一无所知，就是说需要自己去看表的具体内容来推断表的功能。所以说，接手二手问题，真TMD就是一个操蛋的事情。</br>
+
+闲话不说了，下面是代码，有兴趣的可以自己看看:
+
+``` sql
+    /*
+    创建临时表空间
+    */
+    delimiter //
+    create procedure create_temp()
+    begin
+      drop table if exists temp_affair;
+      create temporary table temp_affair(`uid` BIGINT(20),`uname` VARCHAR(255));
+      #insert into temp_affair(uid) select EntityInternalID from security_principal where EntityInternalID !=-1;
+      insert into temp_affair(uid,uname) select security_principal.EntityInternalID,v3x_org_member.name from security_principal,v3x_org_member where v3x_org_member.id = security_principal.EntityInternalID;
+      end//
+
+    /*
+    创建插入提醒数据过程
+    */
+
+    delimiter //
+    create procedure notify_birthday()
+    begin
+      declare aid BIGINT(20);
+      declare uid BIGINT(20);
+      declare uname VARCHAR(120);
+      declare senderId BIGINT(20) default '-884316703172445';
+      declare bSubject VARCHAR(1000);
+      declare bname VARCHAR(120);
+      declare Done INT DEFAULT 0;
+      declare affairId BIGINT(20);
+      declare rs cursor for select * from temp_affair;
+      declare continue handler FOR SQLSTATE '02000' SET Done = 1;
+      select name from v3x_org_member where MONTH(birthday)=MONTH(CurDATE()) AND DAY(birthday)=DAY(CurDATE()) into bname;
+      select unix_timestamp() into affairId;
+      set bSubject = CONCAT(bname,"生日提醒");
+      if (select bname)is not null then
+        open rs;
+        fetch next from rs into uid,uname;
+        repeat
+        if (select bname)is not null then
+          set aid = uid + affairId;
+    #insert into 'v3x_affair' set 'id'=uid,'member_id'=uid,'sender_id'=senderId,'app'=1,'subject'=bSubject,state=2;
+    insert into v3x_affair(id,member_id,sender_id,subject,app,state) select aid,uid,senderId,bSubject,1,2;
+    fetch next from rs into uid,uname;
+        end if;
+        until Done end repeat;
+        close rs;
+    end if;
+    end;//
 
 
-###   通过&符号将一个代码块传递给一个方法，例如:
-
-```ruby
-
-def meth1(p1, p2, &block)
-puts block.inspect
-end
-meth1(1,2) { "a block" }
-meth1(3,4)
-
+    /*
+    创建生日提醒时间
+    */
+    CREATE EVENT `notify_birthday` ON SCHEDULE
+    EVERY 1 DAY
+    ON COMPLETION NOT PRESERVE
+    ENABLE
+    COMMENT 'notify_birthday'
+    DO BEGIN
+      call create_temp();
+      call notify_birthday();
+    END
 ```
-
-执行结果如下，此时{}里面的内容传递给&block。
-
-      #<Proc:0x0a4f4c@/tmp/prog.rb:4>
-      nil
-
-### 通过调用内置方法 Proc.new{}，创建block对象。例如:
-
-```ruby
-
-block = Proc.new { "a block" }
-block # => #<Proc:0x0a53c0@/tmp/prog.rb:1>
-
-```
-
-### 通过调用内置方法Kernel.lambda，例如：
-
-``` ruby
-
-block = lambda { "a block" }
-block # => #<Proc:0x0a53e8@/tmp/prog.rb:1 (lambda)>
-
-```
-
-
-### 通过符号->生成block对象。
-
-```ruby
-lam = >(
-p1, p2) { p1 + p2 }
-lam.call(4, 3) # => 7
-```
-
-
