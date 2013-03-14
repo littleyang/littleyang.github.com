@@ -29,8 +29,8 @@ begin
   drop table if exists temp_affair;
   create temporary table temp_affair(`uid` BIGINT(20),`uname` VARCHAR(255));
   #insert into temp_affair(uid) select EntityInternalID from security_principal where EntityInternalID !=-1;
-  insert into temp_affair(uid,uname) select security_principal.EntityInternalID,v3x_org_member.name from security_principal,v3x_org_member
-          where v3x_org_member.id = security_principal.EntityInternalID;
+  insert into temp_affair(uid,uname) select security_principal.EntityInternalID,v3x_org_member.name
+  from security_principal,v3x_org_member where v3x_org_member.id = security_principal.EntityInternalID;
 end//
 
 /*
