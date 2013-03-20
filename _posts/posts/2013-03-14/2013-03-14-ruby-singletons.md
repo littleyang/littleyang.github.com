@@ -50,3 +50,59 @@ bizbat.size  # => 0
 这个当中，有一个匿名类singleton class 被插入到 foobar这个实例化，然后再他的superclass 指向Array中,可以参考下面的图片来说明:
 
 ![picture](http://i.imgur.com/MyxKoHL.png)
+
+### 实现singleton的一些方法
+
+#### 1.从modules中实现sintleton,参考如下的代码:
+
+```ruby
+module Foo
+  def foo
+  "Hello World!"
+  end
+end
+
+foobar = []
+foobar.extend(Foo)
+foobar.singleton_methods # => ["foo"]
+```
+
+#### 2.直接实现singleton class，代码如下:
+
+```ruby
+foobar = []
+
+class << foobar
+  def foo
+    "Hello World!"
+  end
+end
+
+foobar.singleton_methods # => ["foo"]
+
+```
+#### 我们也可以使用类方法来实现singleton.
+
+```ruby
+class Foo
+  def self.one ()
+    1
+  end
+
+  class << self
+    def two ()
+      2
+    end
+  end
+
+  def three ()
+    3
+  end
+
+  self.singleton_methods # => ["two", "one"]
+  self.class             # => Class
+  self                   # => Foo
+end
+```
+singleton 模式来说，就是整个application中只有那么一个对象，很容易出现不知道的错误，因此如果没有特殊必要，最好少用singleton
+
