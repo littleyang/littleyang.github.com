@@ -69,4 +69,4 @@ tags: []
 
 现代的软件开发过程中任何都是保持这不断变化的。客户的需求随时都有可能更改，XP模型需要整个团队保持这种变化，以适应不断变化的需求。当然，这是个无底洞！以下的图片是XP模型的解释:
 ![图片](http://i.imgur.com/ZcWiFD2.png)
-![图片](http://i.imgur.com/TGgOUBO.png)
+![图片](http://i.imgur.com/eKeiPEQ.png)
