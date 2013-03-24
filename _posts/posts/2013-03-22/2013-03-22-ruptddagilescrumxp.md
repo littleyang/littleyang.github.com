@@ -72,3 +72,35 @@ tags: []
 现代的软件开发过程中任何都是保持这不断变化的。客户的需求随时都有可能更改，XP模型需要整个团队保持这种变化，以适应不断变化的需求。当然，这是个无底洞！以下的图片是XP模型的解释:
 ![图片](http://i.imgur.com/ZcWiFD2.png)
 ![图片](http://i.imgur.com/eKeiPEQ.png)
+
+### 测试驱动开发(TDD,Test Driven Development)
+
+TDD是另一种形式的极限编程开发方法。是在开发之前先写测试程序，然后在编码实现所需要的功能，测试驱动开发是戴两顶帽子思考的开发方式：先戴上实现功能的帽子，在测试的辅助下，快速实现其功能；再戴上重构的帽子，在测试的保护下，通过去除冗余的代码，提高代码质量。测试驱动着整个开发过程：首先，驱动代码的设计和功能的实现；其后，驱动代码的再设计和重构。其最为著名的就是Ruby on Rails 的测试,Rspec的测试模型。当然这些有利之处表现在哪里呢？
+
+>
+> 1. 可以有效的避免过度设计带来的浪费。但是也有人强调在开发前需要有完整的设计再实施可以有效的避免重构带来的浪费。
+> 2. 可以让开发者在开发中拥有更全面的视角，避免过度实现带来的浪费。
+>
+
+当然有利就必有弊:
+
+>
+> 1.开发者可能只完成满足了测试的代码，而忽略了对实际需求的实现。有实践者认为用结对编程的方式可以有效的避免这个问题。
+> 2.会放慢开发实际代码的速度，特别对于要求开发速度的原型开发造成不利。
+> 3.对于GUI,资料库和Web应用而言。构造单元测试比较困难，如果强行构造单元测试，反而给维护带来额外的工作量。
+> 4.使得开发更为关注用例和测试案例，而不是设计本身。
+> 我个人观点也不太喜欢这种开发模式。
+>
+
+一下是一段关于TDD的网上调查结果已经分析:
+
+>Test Driven Development (30%)
+>TDD is actually a very popular methodology. It involves using testing to continually drive the next step in the agile development process. Each short development cycle involves the creation of automated unit tests that can be implemented over and over to ensure that the software continues to perform properly as it evolves.
+>
+>Benefits: QA and documentation are built into the development process. The concept is simple to understand and implement: Test until failure, make changes until the unit passes, remove redundancies in the code, repeat.
+>
+>Drawbacks: Could be bad for morale over the long term since it focuses on forcing failure and fixing what’s wrong. May lose focus on the big picture unless the end purpose of the code is kept in mind.
+>
+>Applications: Appropriate when you need software that’s loosely coupled and easy to maintain. Good for speedy development with fewer bugs. Works best for team members who have a perfectionist or “fixit” attitude and like dealing with details.
+>
+>
