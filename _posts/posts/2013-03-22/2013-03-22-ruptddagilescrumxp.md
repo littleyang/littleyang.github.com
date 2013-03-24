@@ -46,8 +46,10 @@ tags: []
 
 所有的一切，包括快速开发模型(Aglie Modeling)按照工作流程主要分为迭代(Iterative)和增量式(Incremental)模式。
 
-> #### 迭代开发
+> #### 快速迭代开发(Aligle Unifiled Porgress)
 > 在RUP，每一代软件产品都要经历四个阶段:起始，精细，架构构建，产品化。一下图片是整个迭代开发的生命周期(lifecycle):
 > ![图片](http://i.imgur.com/PjphA1s.gif)
->
+> #### 企业级的RUP(Enterprise Rational Unifiled Progress)
+> 在整个开发流程中包括了两个阶段六个过程，Development(产品开发阶段)和Support(产品后期支持维护等)。Business Modeling(商业模型构建)，Requirement(需求建立)，Analysis & Design(分析与设计)，Model(产品模型化)，Enterprise Business Modeling(整个项目规划建模)，Enterprise Architecture(产品迭代开发)。其整个生命周期可以参考如下图片:
+> ![图片](http://i.imgur.com/jPlgG1M.jpg)
 
