@@ -50,6 +50,23 @@ tags: []
 > 在RUP，每一代软件产品都要经历四个阶段:起始，精细，架构构建，产品化。一下图片是整个迭代开发的生命周期(lifecycle):
 > ![图片](http://i.imgur.com/PjphA1s.gif)
 > #### 企业级的RUP(Enterprise Rational Unifiled Progress)
-> 在整个开发流程中包括了两个阶段六个过程，Development(产品开发阶段)和Support(产品后期支持维护等)。Business Modeling(商业模型构建)，Requirement(需求建立)，Analysis & Design(分析与设计)，Model(产品模型化)，Enterprise Business Modeling(整个项目规划建模)，Enterprise Architecture(产品迭代开发)。其整个生命周期可以参考如下图片:
+> 在整个开发流程中包括了两个阶段六个过程，Development(产品开发阶段)和Support(产品后期支持维护等)。Business Modeling(初期业务模型构建)，Requirement(需求建立)，Analysis & Design(分析与设计)，Model(产品模型化)，Enterprise Business Modeling(企业级业务建模)，Enterprise Architecture(产品迭代开发)。其整个生命周期可以参考如下图片:
 > ![图片](http://i.imgur.com/GPjsTHR.png)
+> #### RUP的核心流程
+> 在RUP中详细的规定了一下的流程内容:业务建模,需求，设计分析，实施，测试，部署，配置和变更管理，项目管理和环境搭建。对于每一个流程都给出了详细的流程细图，详细的说明了每一个活动所需要参与的角色，所需要模型和生产工件。
+>
 
+### 极限编程(XP)
+
+极限编程是一种过程化的编程，这是个很奇葩的理论。它没有对整个软件开发过程有着严格儿繁琐的规定，而是一套在实际开发中所需要遵守的原则。没有强调复杂儿繁琐的过程和文档，可以说XP是一个非常轻量级的开发理论，小巧而精悍 。适合小团队作战。但是XP非常强调客户的作用，其目的就是满足与需求。一下是其几个基本的简单的要求。
+
+>
+> 1. 提高团队的沟通
+> 2. 以最简单的方法设计和编程
+> 3. 从最终用户那里得到持续的反馈
+> 4. 在整个开发过程中保持团队的士气和勇气。
+>
+
+现代的软件开发过程中任何都是保持这不断变化的。客户的需求随时都有可能更改，XP模型需要整个团队保持这种变化，以适应不断变化的需求。当然，这是个无底洞！以下的图片是XP模型的解释:
+![图片](http://i.imgur.com/ZcWiFD2.png)
+![图片](http://i.imgur.com/TGgOUBO.png)
