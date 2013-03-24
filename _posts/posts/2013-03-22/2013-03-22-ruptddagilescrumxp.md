@@ -51,5 +51,5 @@ tags: []
 > ![图片](http://i.imgur.com/PjphA1s.gif)
 > #### 企业级的RUP(Enterprise Rational Unifiled Progress)
 > 在整个开发流程中包括了两个阶段六个过程，Development(产品开发阶段)和Support(产品后期支持维护等)。Business Modeling(商业模型构建)，Requirement(需求建立)，Analysis & Design(分析与设计)，Model(产品模型化)，Enterprise Business Modeling(整个项目规划建模)，Enterprise Architecture(产品迭代开发)。其整个生命周期可以参考如下图片:
-> ![图片](http://i.imgur.com/jPlgG1M.jpg)
+> ![图片](http://i.imgur.com/GPjsTHR.png)
 
