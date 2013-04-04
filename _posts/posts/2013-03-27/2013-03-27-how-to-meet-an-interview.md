@@ -21,44 +21,44 @@ tags: []
 
 在2007年12月，MIT的校园里夹杂着各类游戏，例如：Cranium、国际象棋、Catan。上图为巨大的拼字游戏，这游戏就放在MIT媒体实验室一侧的墙上。
 
-![picture][http://i.imgur.com/6P8up61.jpg]
+![picture](http://i.imgur.com/6P8up61.jpg)
 
 #### 1926年，MIT的学生将一辆福特车弄到建筑物上
 
 1926年，MIT的学生不愧是那个年代首屈一指的黑客，他们的想法是没有边际的：将一辆福特车弄到建筑物上，这使得校园中的每一个人感到很吃惊和兴奋，包括不得不将车弄下来的工人。
 
-![picture][http://i.imgur.com/FI0tbs0.jpg]
+![picture](http://i.imgur.com/FI0tbs0.jpg)
 
 #### 1982年11月20日，当时哈佛与耶鲁两支足球队的比赛中场的MIT黑气球
 
 1982年11月20日，当时哈佛与耶鲁两支足球队正在进行激烈的比赛。在上半场后半时，哈佛队底线攻球得分。此时，在46码线附近突然平地冒出一个小黑球，并且越变越大，上面写有醒目的“MIT”字样。当球的直径达到约6英尺时，它砰的一声爆裂开来，弄得满场浓烟，使身为东道主的哈佛大学极为难堪。事后，波士顿《地球报》评论认为：这场球的真正胜者既不是哈佛大学，也不是耶鲁大学，而是MIT。那时候盖茨还在创业，乔布斯已经是富翁了，哈哈
 
-![picture][http://i.imgur.com/swUIXzQ.jpg]
+![picture](http://i.imgur.com/swUIXzQ.jpg)
 
 #### 在1992年5月，一辆校园巡逻车被学生们弄到了MIT标志性建筑物“Great Dome”的屋顶上
 
 直到今天，MIT的黑色依旧是标志性的。在1992年5月，一辆校园巡逻车被学生们弄到了MIT标志性建筑物“Great Dome”的屋顶上，“GreatDome”是以哥伦比亚大学洛氏图书馆为原型建造的仿罗马万神殿式建筑。
 
-![picture][http://i.imgur.com/AL7tjHO.jpg]
+![picture](http://i.imgur.com/AL7tjHO.jpg)
 
 #### 在1999年，学生们把大圆顶改成了<<星球大战>>里的R2D2的外形
 
 Great Dome里的工作人员总是很忙碌，因为他们总是要清理屋顶，上面时不时的会有飞机、卡车、时间机器和宇宙飞船等。在1999年，学生们把大圆顶改成了<<星球大战>>里的R2D2的外形，实在是颇为神似。但这次R2-D2恶作剧事件在很多人的心中都占有一席之地，因为此事发生电影《星球大战I：魅影危机》上映的前几天。
 
-![picture][http://i.imgur.com/8YVU182.jpg]
+![picture](http://i.imgur.com/8YVU182.jpg)
 
 #### MIT学生们将MIT最高的建筑物Green Building变成了一个彩色俄罗斯方块游戏
 
 毫无疑问，这是人们记忆中最大的黑客事件。MIT学生们将MIT最高的建筑物Green Building变成了一个彩色俄罗斯方块游戏。游戏一开始是滚动展示俄罗斯方块的英文单词TETRIS，然后开始第一关，据称MIT黑客们长期以来将在GreenBuilding上玩俄罗斯方块视为hack的“圣杯”，因为建筑物的外形是与游戏相同的网格状。
 想想，你要是呗北邮主楼或者北师大图书馆这个搞，你要被开除吧？还要在看守所蹲半个月？当然，黑客要是抓到了才算。
 
-![picture][http://i.imgur.com/THl3s0c.jpg]
+![picture](http://i.imgur.com/THl3s0c.jpg)
 
 #### 在1990年10月，麻省理工学院校长Charles M. Vest第一天上班的时候，找不到办公室的门了.
 
 在1990年10月，麻省理工学院校长Charles M. Vest第一天上班的时候，找不到办公室的门了，因为前一天晚上学生把门伪装成了一面墙。
 
-![picture][http://i.imgur.com/zLlXb3E.gif]
+![picture](http://i.imgur.com/zLlXb3E.gif)
 
 #### 2006年4月6日，MIT主页头条是：MIT学生黑客从加州理工运了一台加农炮。
 
@@ -68,23 +68,23 @@ Great Dome里的工作人员总是很忙碌，因为他们总是要清理屋顶�
 
 有意思的是，这门炮曾经在20年前被加州理工旁边的HarveyMudd学院（也是一所名校）的11个学生偷去过，不过很快就要了回来。所以在3月28日晚上，加州理工学校保安发现大炮失踪后，还以为又是Harvey Mudd的学生干的，直到接到电话说大炮正在去波士顿的路上。从加州到波士顿可有3000英里啊，高速上开车要7天左右，相当于从黑龙江到广东。这台加农炮重达3吨，在高速上拖着走了5000公里，确实不易，真是“MIT欲黑者，虽远必黑”。
 
-![picture][http://i.imgur.com/6pdKKyI.jpg]
+![picture](http://i.imgur.com/6pdKKyI.jpg)
 
 当年的4月10号，Caltech在夜色的掩护下，比预期花了更长的时间终将大炮运回。
 
-![picture][http://i.imgur.com/h82MIDp.jpg]
+![picture](http://i.imgur.com/h82MIDp.jpg)
 
 #### 在2010年4月8日的早晨，黑客们将椅子、台球桌等，弄到了MIT媒体实验室右前方大拱门的下方。
 
-![pictue][http://i.imgur.com/sBowmZ6.jpg]
+![pictue](http://i.imgur.com/sBowmZ6.jpg)
 
 #### 在1994年，学生们在MIT的教学楼Building7大厅又上演了一出恶作剧
 
 在1994年，学生们在MIT的教学楼Building7大厅又上演了一出恶作剧，他们利用聚苯乙烯泡沫板，再把它夹在大理石上，还题了词“Entertainmentand Hacking”。当然在旁边详细的记录了怎么把它拆下来。呵呵。
 
-![picture][http://i.imgur.com/3KMxFmp.jpg]
+![picture](http://i.imgur.com/3KMxFmp.jpg)
 
-![pictue][http://i.imgur.com/LY3dB9e.jpg]
+![pictue](http://i.imgur.com/LY3dB9e.jpg)
 
 #### 1958年，五个很喜欢恶搞的MIT学生组织了一个活动，决定利用其中一位同学Oliver R. Smoot的身体，丈量一下波士顿哈佛桥的长度.
 
@@ -96,7 +96,7 @@ Great Dome里的工作人员总是很忙碌，因为他们总是要清理屋顶�
 
 于是Smoot居然成了一个大众计量单位。更有意思的是，这位Oliver R. Smoot后来曾经担任ANSI（美国国家标准研究所）的理事，真是天生干标准的命啊。
 
-![picture][http://i.imgur.com/ILToDF7.jpg]
+![picture](http://i.imgur.com/ILToDF7.jpg)
 
 #### MIT教学楼Building 7顶部安装了BBC热播剧“神秘博士”（Dr.Who）里的TARDIS
 
@@ -116,20 +116,20 @@ MIT的这些hack活动并非定期举行，而是大家随时随地凑到一起�
 
 MIT的这种黑客文化有趣，又有深远意义。正如Facebook创始人Mark Zuckerberg（他所就读的哈佛可没少受MIT黑客们的气）在上市招股书中强调的，黑客是一群理想主义者，希望影响世界，而黑客之道（The Hacker Way）意味着快速行动、打破成规；意味着勇往直前、不惧风险；意味着保持开放的心态，追求无止境。
 
-![picture][http://i.imgur.com/pb6B7Rz.jpg]
+![picture](http://i.imgur.com/pb6B7Rz.jpg)
 
 #### 2013年的大圆顶的的吃人豆和小精灵
 
 吃人豆按照脚手架的灯光的路径吃豆豆（power pellets）
 
-![picture][http://i.imgur.com/LW7KeoA.jpg]
+![picture][http://i.imgur.com/LW7KeoA.jpg)
 
 #### 2013年的炼金术士的面具
 
 流感流行的时候，这些功课宅男希望他不要感冒。
 
-![picture][http://i.imgur.com/wyAhILc.jpg]
-![picture][http://i.imgur.com/EUaGebm.jpg]
+![picture](http://i.imgur.com/wyAhILc.jpg)
+![picture](http://i.imgur.com/EUaGebm.jpg)
 
 
 
