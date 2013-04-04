@@ -76,7 +76,7 @@ Great Dome里的工作人员总是很忙碌，因为他们总是要清理屋顶�
 
 #### 在2010年4月8日的早晨，黑客们将椅子、台球桌等，弄到了MIT媒体实验室右前方大拱门的下方。
 
-![pictue](http://i.imgur.com/sBowmZ6.jpg)
+![pictue](http://i.imgur.com/AcCwcmI.png)
 
 #### 在1994年，学生们在MIT的教学楼Building7大厅又上演了一出恶作剧
 
@@ -122,7 +122,7 @@ MIT的这种黑客文化有趣，又有深远意义。正如Facebook创始人Mar
 
 吃人豆按照脚手架的灯光的路径吃豆豆（power pellets）
 
-![picture][http://i.imgur.com/LW7KeoA.jpg)
+![picture](http://i.imgur.com/Z2A3WQh.png)
 
 #### 2013年的炼金术士的面具
 
