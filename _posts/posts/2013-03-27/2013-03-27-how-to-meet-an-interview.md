@@ -1,4 +1,6 @@
 ---
+uri: /it/info/mithacker
+permalink: /it/info/mithacker/index.html
 layout: post
 title: "MIT的黑客文化"
 description: ""
