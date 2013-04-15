@@ -128,7 +128,79 @@ public class MyThreadFactory implements ThreadFactory{
 
 #### 线程同步的基本方法
 
+在很多情况下，多个线程可以共享一个或者多个资源(resource),这样就会导致资源的竞争。比如说银行系统，你又存折也有卡，你可以用
+两个人同时操作这个账户么？那银行不得亏死啊？(怎么可能！).现在必然面对这个问题。那么同步就是我们的解决方式。当一个线程占用
+某个资源的时候，其他的如果需要用，对不起，请你排队等待。这个就是同步，意思就是，我在用的时候，资源跟着我跑。我跑完了，才
+放开，让别人用。
+
 ##### 运用Synchronized关键字进行同步
+
+1. 同步一个方法(Synchronization a method)
+
+这个呢，也就是在声明方法的时候在权限(public,private,protected)之后synchronized 关键字标志这个方法是同步的。方法里面的
+参数变量，资源等都是只能让一个线程使用。如果有static关键字修饰的话就是表示一次只能有一个对象可以调用该静态类方法。如:
+
+```java
+public synchronized void getName(){
+  dosome();
+}
+```
+
+2. synchronized 不能修饰变量(不能用于变量申请之前，如:private synchronized string name)。同步一个代码块
+我们可以将需要同步的资源包括进synchronized关键字的代码块里面。也可以再代码块中同步一个变量，用于控制某些特殊的情况。
+如下面的代码片段:
+
+```java
+public String returnName(user){
+    synchronized(user){
+        return user.getName();
+    }
+}
+
+public void addBalance(int mount){}
+    synchronized{
+      int temp = this.balance;
+      balance = temp+mount;
+  }
+}
+```
+
+3. 在synchronized 中使用条件判断(conditions),在同步中我们使用wait(),notify(),nootifyAll()方法来叫醒通知其他正在等待的线程
+如下面的代码片段，其中最著名的一个问题就是producer-customer问题。
+
+```java
+/*
+ * the producer set method
+ */
+public synchronized void set(){
+    while(producer.store==Max){
+       try{
+            wait();
+       }catch(Exeception e){
+            e.PrintStakeTrace();
+       }
+    }
+    // notify customer thread
+    notify();
+}
+
+/*
+ * the producer get method
+ */
+ public synchronized void get(){
+
+    while(producer.size==0){
+        try{
+            wait();
+        }catch(Exeception e){
+          e.PrintStakeTrace();
+        }
+    }
+    notify();
+ }
+
+```
+
 ##### 运用Java提供的锁机制(Lock Mechanism)
 
 
