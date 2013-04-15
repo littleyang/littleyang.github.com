@@ -126,6 +126,8 @@ public class MyThreadFactory implements ThreadFactory{
 }
 ```
 
+------
+
 #### 线程同步的基本方法
 
 在很多情况下，多个线程可以共享一个或者多个资源(resource),这样就会导致资源的竞争。比如说银行系统，你又存折也有卡，你可以用
@@ -203,6 +205,35 @@ public synchronized void set(){
 
 ##### 运用Java提供的锁机制(Lock Mechanism)
 
+Java 提供了另外机制来实现对资源的同步，那就手锁的机制。锁(Lock)是Java Concurrent API里面的一个接口。是一个比synchronized
+更为强大和更为灵活的机制(mechanism),这个机制拥有以下的几个优点。
+
+1. 可以以一种更为灵活的方式来构建你的同步代码块(synchronized code block)。在使用synchronized时候，你必须要释放资源的控制
+权限一边其他资源的使用，而锁有更多的灵活方法来实现。
+2. Lock 提供了更多的函数方法来实现比synchronized 更多的功能。
+3. Lock可以通过读写锁来分离对资源的读写。read lock 允许更多的读取而不能修改。write lock则允许一个线程来修改。
+4. 锁提供了更好的性能。
+
+------
+
+##### 锁的使用
+
+一般而言，锁都是申请为最终变量(final),在需要的地方调用锁的lock方法，在不使用的时候调用unlock()释放锁即可。
+
+```java
+private final Lock queueLock=new ReentrantLock();
+
+
+public void printMessage(){
+    queueLock.lock();
+    try{
+        dosome();
+    }catch(Exeception e){
+      e.PrintStakeTrace();
+    }
+    queueLock.unlock();
+}
+```
 
 
 
