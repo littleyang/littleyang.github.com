@@ -101,6 +101,58 @@ private finall CountDownLatch controller;
 
 #### 关卡(CyclicBarrier)
 
+在很多时候也许会遇到这样的情况，多个线程需要在某个公共点上来执行，这个就是我们的CyclicBarrier。这个乍看起来有点像是
+CountDownLatch,但是又不是。CyclicBarrier 比 CountDownLatch 有更强大的功能。CyclicBarrier 初始化了一个需要等待线程的
+整数，当线程到达这个点时候调用await()方法来等待其他线程的完成。只有最后一个(numbers)线程到达这个点的时候，才唤起其他
+线程继续执行。并且这个类可以接受一个thread对象，当所有thread到来之后进行执行。
+
+```java
+public class OneClass implements Runnable{
+  // 创建一个CyclicBarrier 对象
+  private final CyclicBarrier barrier;
+  // 通过构造器方法来实现barrier的初始化
+  public ClassNameMethod(CyclicBarrier barrier){
+    this.barrier = barrier;
+  }
+  /*
+   *在线程的run方法中调用barrier的await()方法
+   */
+  public void run(){
+    doSome();
+    try{
+      barrier.await();
+    }catch(Exception e){
+      // 异常处理
+      e.printStackTrace();
+    }
+  }
+}
+/**
+ * 同时构造另外一个可以执行的线程类
+ */
+public AnotherClass implements Runnable{
+
+  // 重写run方法、
+  public void run(){
+    doSomeThing();
+  }
+}
+/**
+ * mainClass
+ */
+ public class MainClass{
+    public static void main(String[] args){
+      // 创建CyclicBarrier 对象
+      // 创建一个需要执行的对象
+      AnotherClass another = new AnotherClass();
+      //表示在五个线程到来的时候同时执行another对象,当做线程来执行
+      CyclicBarrier barrier = new (5,another);
+      doSomeOtherTask();
+    }
+}
+
+```
+
 #### 相位(Phaser)
 
 
