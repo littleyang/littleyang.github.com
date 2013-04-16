@@ -28,6 +28,34 @@ tags: []
 
 #### 信号量(Semaphores)。
 
+信号量是对一组竞争资源保护作用的计数器。当一个线程需要获得该资源时必须要获得对应的信号量。如果信号量的计数大于0，则可以
+使用该资源，信号量减少1。当信号量为0的时候，线程进入等待状态。当某个线程完成之后，需要释放对应的信号量，以便其他线程使用
+一下是简单的代码实现片段:
+
+```java
+// 申请一个信号量变量
+private final Semaphores semaphore;
+// 通过构造器初始化信号量
+public className(){
+  semaphore = new Semaphores(3);
+}
+
+// 在方法中通过Semaphores 的 acquire() 方法获得信号量
+public void doSomeWork(){
+  try{
+      // 获得信号量
+      semaphore.acquire();
+      // 其他的事情
+      doSome();
+    }catch(Exeception e){
+        // 异常处理
+        e.printStackTrace();
+    }finally{
+      // 释放信号量
+      semaphore.release();
+    }
+}
+```
 #### 门闩。(CountDownLatch)
 
 #### 关卡(CyclicBarrier)
