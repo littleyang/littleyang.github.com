@@ -56,7 +56,48 @@ public void doSomeWork(){
     }
 }
 ```
+
+------
+
 #### 门闩。(CountDownLatch)
+
+所谓的门闩就是:让某个线程等待多个操作事件的结束。就像门闩那样，当把所有的门闩都给锁上的时候，门就被上锁了。具体实现是
+为某个线程初始化一个操作数(integer operation numbers)，当等待的事件达到这个操作数之后再执行线程。一下是简单的代码实现：
+调用wait()方法让线程进入等待状态，当某个事件(Event)完成之后调用countDown()方法来计数。最后当counter为0的时候调用await()
+方唤醒线程,这样的情况如一个视频电话会议系统等，当所有人都进入到会议室了才进行开会。
+
+```java
+// 创建一个CountDownLatch 对象
+private finall CountDownLatch controller;
+// 可以通过构造器来实现对controller的初始化
+/*
+ * 构造器方法
+ */
+ public constructorMethod(int num){
+    controller = new CountDownLatch(num);
+}
+
+/*
+ * 当某个方法调用这个类时候进行计数
+ */
+ public void arrived(){
+    // 调用countDown()方法计数
+    controller.countDown();
+
+}
+
+/*
+ *在线程的run方法中调用await()方法唤醒线程
+ */
+ public void run(){
+
+     try{
+       controller.await();
+    }catch(Exception e){
+       e.printStackTrace();
+    }
+ }
+```
 
 #### 关卡(CyclicBarrier)
 
