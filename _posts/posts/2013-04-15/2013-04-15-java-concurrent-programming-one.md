@@ -235,5 +235,48 @@ public void printMessage(){
 }
 ```
 
+##### 读写锁
+
+在java提供的并发编程API中，读写锁(ReadWriteLock Interface)是一个非常重要的改进。ReentrantReadWriteLock 类是一个实现，当然
+也可以自己实现方法。读写锁将一个锁分成了两个锁，read和write thread，一个是用于读操作一个用于写操作。可以多读，不能多写，
+但是当一个线程在写的时候，其他线程是不能读取这个资源的。使用读写锁的代码片段如下:
+
+```java
+// 定义一个读写锁
+private ReadWriteLock lock;
+// 在一个方法中使用读写锁
+public void useReadWriteLockRead(){
+  lock.readLock().lock();
+  // do something
+  doSome();
+  lock.readLock().unlock();
+}
+// 使用写锁
+public void useReadWriteLockWrite(){
+
+  // 锁定资源，其他的读写锁则不能读
+  lock.writeLock().lock();
+  // do something
+  doSome();
+  // 释放锁
+  lock.writeLock().unlock();
+}
+```
+
+##### 修改锁的执行标准
+
+在使用锁的时候可以带一个boolean参数构建锁(fair mode)。 true表示锁在执行的时候使用fair mode ，该模式表示当锁被释放以后，
+被该锁锁定的资源会选择等待时间最多的线程去执行，反之则是随机选择需要该资源的线程。代码很简单：
+
+```java
+// 创建锁对象的时候使用fair mode
+private Lock lock = new ReentrantLock(true);
+```
+
+##### 锁的多条件控制
+
+我们可以通过 Java Concurrent API 的Condition 接口来实现锁的多条件控制。该机制可以让一个线程获得锁通过对Condition 的返回值
+true or false
+
 
 
