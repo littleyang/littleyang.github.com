@@ -155,6 +155,35 @@ public AnotherClass implements Runnable{
 
 #### 相位(Phaser)
 
+自Java7以后，引入了Phaser的类。Phaser 类提供了并发阶段性任务的功能。这样可以将某个线程任务分割为阶段性的步骤。这样的机制
+中所有的线程都在等待第一步完成之后再进行第二步。在创建Phaser对象的时候要初始化需要同步的操作数,同时也可以动态的增加或者
+减少这个值。
 
+```java
+/**
+ *创建第一个对象
+ */
+ public class ClassOne{
 
-
+    // 申明Phaser对象
+    private Phaser phaser;
+    // 通过构造器实现Phaser对象的初始化
+    public ClassOne(Phaser phaser){
+        this.phaser = phaser;
+    }
+    // 在方法中调用arriveAndRegister()方法来触发等待
+    public void doSomeWork(){
+      doSome();
+      phaser.arriveAndRegister();
+      // 或者调用arriveAndAwaitAdvanced()方法来等待某个第二阶段
+      // phaser.arriveAndAwaitAdvanced();
+      doSomeOtherTask();
+    }
+    // 重写run方法
+    public void run(){
+      // 调用arriveAndAwaitAdvanced();
+      doSomeWork();
+      phaser.arriveAndAwaitAdvanced();
+    }
+ }
+```
