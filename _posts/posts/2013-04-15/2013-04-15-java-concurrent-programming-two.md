@@ -303,6 +303,52 @@ public class MainTest{
 }
 ```
 
+加入你只需要返回一系列任务中的第一个结果，那么直需要调用executor.invokeAny(Callable object)来执行即可，该方法返回最先执行
+完成的那个结果,比如你又多个算法来对某个数据组进行排序的话，那么我们值关心最快的那个就可以用这样的方法;如果需要返回所有的
+结果，那么需要调用executor.invokeAll(Callable object)即可。
 
+
+#### 在某段延时之后执行某个结果
+
+当你在编写并发编程的时候，也许你需要某个或者多个线程在某个延时之后再执行，那么executor framework 也提供了这种机制。
+ScheduledThreadPoolExecutor 类提供了这样的基础方法。一下是简单的代码实现:
+
+```java
+/**
+ * 创建task 类
+ */
+ public class Task implements Callable<String>{
+
+    /*
+     * 重写call 方法
+     */
+    public String call(){
+      String returnString = "";
+      // do your own logic
+      doYourOwnLogic();
+      return returnString;
+    }
+
+ }
+
+/**
+ *测试类
+ */
+ public class MainTest{
+   // the main method
+   public static void main(String[] args){
+     // 创建计划表线程池执行器
+     ScheduledThreadPoolExecutor excutor = (ScheduledThreadPoolExecutor)Executors.
+                                            newScheduledThreadPool(1);
+    // 创建task 对象
+    Task testTask = new Task();
+    // 调用schedule()方法来执行延迟任务
+    executor.schedule(task,time);
+    // 最后关闭线程池
+    executor.shutdown();
+   }
+ }
+
+```
 
 
