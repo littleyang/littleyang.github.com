@@ -252,4 +252,57 @@ newFixedThreadPool()方法来创建。
 线程对象。
 3. 单个的线程池对象,顾名思义，里面只有一个可以执行的线程对象，可以调用newSingleThreadPool()方法来创建.
 
+#### 如何在线程执行中返回一个一个执行结果
+
+Concurret API 的 Executor Framework 的一个有用的功能是当执行一个线程的时候，可以返回某个执行结果。需要以下的两个接口：
+
+1. Callable<?(parameter)> 接口，这个接口里面的call()方法,与run()方法相似，你可以在这里面实现你需要的逻辑。然后返回指定
+类型的参数即可。
+2. Future interface，这个接口里面有一些获得Callable结果的方法。
+
+下面是一些简单的代码实现:
+
+```java
+/**
+ * 实现Callable 接口
+ */
+
+public class ResultClass implements Callable<Integer> {
+
+  public Integer call() throws Exeception{
+
+    integer result = 1;
+    // your own logic
+    yourLogic();
+    // 返回结果(类型一致)
+    return result;
+
+  }
+}
+/**
+ *主测试函数
+ */
+public class MainTest{
+  // main test method
+  public static void main(String[] args){
+
+    // 申明future 类型的变量
+    List<Future<integer>> resultList = new ArrayList<Future<integer>>();
+    // 创建线程池执行器,动态扩展为2
+    ThreadPoolExecutor executor = (ThreadPoolExecutor)Executors.newFixedThreadPool(2);
+    // 创建需要执行的线程对象
+    ResultClass testCase = new ResultClass();
+    // 执行Callable 对象
+    Future<Integer> result = executor.submit(testCase);
+    // 将result加入到 resultList中
+    resultList.add(result);
+    // 你的其他程序逻辑
+    doYourSomeOtherWork();
+
+  }
+}
+```
+
+
+
 
