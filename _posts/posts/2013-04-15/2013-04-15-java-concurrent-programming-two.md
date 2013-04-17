@@ -187,3 +187,62 @@ public AnotherClass implements Runnable{
     }
  }
 ```
+
+#### 并发线程之间的数据交换
+
+在Java API中提供了Exchanger类用于并发线程之间的数据交换功能。当两个线程到达某个临街面(critical section)的某个点
+(commont point),他们可以实现数据间的内部交换(interchanger),第一个线程的是数据进入到第二个线程，第二个线程的数据进入到
+第一个。具体用法可以去参考oracle 提供的Java API。
+
+-----------
+
+### 线程执行器(Thread Executor)和线程池(Thread pool)
+
+通常的情况下，我们创建并发一般都是创建Runnable对象然后创建对应的Thread对象来执行，当有很多并发对象的时候，明显这样的机制
+不实用了。那么这个时候我们可以使用线程执行器(Thread Executor)。自Java5以后，提供了Executor Framework完成这样的工作。
+Executor 是一个接口，ExecutorService和ThreadPoolExecutor是它的一个子接口。这样的机制把线程的创建和执行分开了。这样你只
+需要创建Runnable 对象(Object),然后传递给线程执行器(Thread Executor),而不必要创建对应的Thread 对象来执行这个线程对象。
+而且Executor Framework 还提供了Callable()接口，与Runnable类似，在它的call()方法里面可以返回执行结果，来知道线程的执行。这
+是一个有用机制和功能。
+
+#### 创建一个线程执行器
+
+下面这个简单的例子是简单的线程执行器的创建。
+
+```java
+/**
+ *创建Runnable 类
+ */
+public class TestCase implements runnable{
+
+    // override the run method
+    public void run(){
+      // do some work
+      doSomeWork();
+    }
+}
+/**
+ *创建线程执行器
+ */
+public class TestMain{
+  // main method
+  public static void main(String[] args){
+    // 创建线程执行器
+    ThreadPoolExecutor executor = new (ThreadPoolExecutor)Executors.newChachedThreadPool();
+    // 创建任务对象
+    TestCase task = new TestCase();
+    // 然后将task 传递给执行器
+    executor.execute(task);
+    // 其他代码
+    doSomeOtherTask();
+
+    // 关闭线程执行器
+    executor.shutdown();
+  }
+}
+```
+
+#### 线程池的分类
+
+
+
