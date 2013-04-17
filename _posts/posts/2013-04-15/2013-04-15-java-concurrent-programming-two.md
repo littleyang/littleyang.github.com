@@ -311,7 +311,8 @@ public class MainTest{
 #### 在某段延时之后执行某个结果
 
 当你在编写并发编程的时候，也许你需要某个或者多个线程在某个延时之后再执行，那么executor framework 也提供了这种机制。
-ScheduledThreadPoolExecutor 类提供了这样的基础方法。一下是简单的代码实现:
+ScheduledThreadPoolExecutor 类提供了这样的基础方法。同样，该类也可以周期性的执行某个线程，调用executor.scheduleAtFixedRate(),即可。
+一下是简单的代码实现；
 
 ```java
 /**
@@ -343,12 +344,19 @@ ScheduledThreadPoolExecutor 类提供了这样的基础方法。一下是简单�
     // 创建task 对象
     Task testTask = new Task();
     // 调用schedule()方法来执行延迟任务
-    executor.schedule(task,time);
+    executor.schedule(task,1,time);
+    // 周期性的执行某线程
+    executor.scheduleAtFixedRate(task,1,2,time);
     // 最后关闭线程池
     executor.shutdown();
    }
  }
 
 ```
+
+#### 线程取消执行和最终控制
+
+线程的取消，值需要在上面的result的例子里面调用result.cancle(true);即可。其他的执行可以参考Java Executor API;
+
 
 
