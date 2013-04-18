@@ -33,6 +33,37 @@ performance of the application.
 
 ![pivture](http://i.imgur.com/ZY4UOyw.png)
 
+但是也有它自己不利的地方:
+
+1. 线程任务只能使用fork(), join()方法作为同步机制，二不能使用其他的。
+2. 如果应用在I/O上面，性能不好，如文件的读取等。
+3. 不能抛出异常，需要自己定义异常的处理
+
+Fork/Join Framework 主要包括以下两个类:
+
+1. ForkJoinPool,是ExecutorService的一个实现类，因此它具有了executor的功能.同时还加入了work-stealing 算法。主要管理线程的
+执行以及提供线程执行信息等。
+2. ForkJoinTask,是执行在ForkJoinPool中的对象的一个基础类，它提供了fork()和join()的操作。通常你需要实现以下两个子类；
+RecursieAction(无返回结果的)和RecursiceTask(有返回结果的)。
+
+下面是一些简单的代码实现实现步骤:
+
+1. 创建一个ForkJoinPool执行任务对象
+2. 执行任务中：
+```java
+If (problem size > default size){
+  tasks=divide(task);
+  execute(tasks);
+} else {
+  resolve problem using another algorithm;
+}
+```
+3. 用同步的方法来执行任务。
+4. 更具是否需要返回结果来确定需要实现的接口或者继承类
+5. 构建自己的异常处理类
+
+在使用该功能的时候同样是具有Executor执行器的功能的。
+
 
 #### Concurrent Collections
 
