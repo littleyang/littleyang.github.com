@@ -69,4 +69,23 @@ If (problem size > default size){
 
 #### Concurrent Collections
 
+在Java API中提供了两种类型的多线程集合类，它们的数据集合是同步的：
+
+1. 阻塞集合类(Blocking Collection),这种集合类型包括了对元素的增删改查，当某个操作不能立即完成之后，其他线程等待该资源的
+释放才能继续。如ConcurrentLinkedDeque等
+2. 非阻塞集合类(Non-Blocking Collection),这种集合类中，如果某个线程对某个元素的操作不能立即完成，会返回null或者其他异常
+信息，二其他的线程操作不会被阻塞。LinkedBlockingDeque类等。
+
+具体如下信息:
+
+1. Non-blocking lists, using the ConcurrentLinkedDeque class
+2. Blocking lists, using the LinkedBlockingDeque class
+3. Blocking lists to be used with producers and consumers of data, using the LinkedTransferQueue class
+4. Blocking lists that order their elements by priority, with the PriorityBlockingQueue
+5. Blocking lists with delayed elements, using the DelayQueue class
+6. Non-blocking navigable maps, using the ConcurrentSkipListMap class
+7. Random numbers, using the ThreadLocalRandom class
+8. Atomic variables, using the AtomicLong and AtomicIntegerArray classes
+
+
 
