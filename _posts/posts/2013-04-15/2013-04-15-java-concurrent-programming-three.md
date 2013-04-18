@@ -20,7 +20,16 @@ tags: []
 自Java 5 以来引入了执行器的机制之后，就把线程的创建和执行分开来，你只需要创建Runnable 对象然后传递给执行器即可;自java 7
 以后又引入了Fork/Join Framework 机制，更进一步的完善了执行器的功能。这个机制运用了分治技术(Divide And Conquer Technology)
 主要目的是将线程分为细小的步骤执行。在这机制里面，某个任务的问题数量，是否多余指定的数量，如果多余指定的，那么就分为更小
-粒度的任务执行，反之则直接执行，可以用下面这个图简单的介绍这个原理。
+粒度的任务执行，反之则直接执行，可以用下面这个图简单的介绍这个原理。Fork/Join Framework与Executor Framework的主要区别
+在于Work-Stealing 算法的不同。下面是它的英文原文解释:
+>
+>Unlike the Executor framework, when a task is waiting for the finalization of the
+subtasks it has created using the join operation, the thread that is executing that task (called
+worker thread) looks for other tasks that have not been executed yet and begins its execution.
+By this way, the threads take full advantage of their running time, thereby improving the
+performance of the application.
+>
+
 ![pivture](http://i.imgur.com/ZY4UOyw.png)
 
 
