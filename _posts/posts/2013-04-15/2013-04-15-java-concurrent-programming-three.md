@@ -22,6 +22,7 @@ tags: []
 主要目的是将线程分为细小的步骤执行。在这机制里面，某个任务的问题数量，是否多余指定的数量，如果多余指定的，那么就分为更小
 粒度的任务执行，反之则直接执行，可以用下面这个图简单的介绍这个原理。Fork/Join Framework与Executor Framework的主要区别
 在于Work-Stealing 算法的不同。下面是它的英文原文解释:
+
 >
 >Unlike the Executor framework, when a task is waiting for the finalization of the
 subtasks it has created using the join operation, the thread that is executing that task (called
