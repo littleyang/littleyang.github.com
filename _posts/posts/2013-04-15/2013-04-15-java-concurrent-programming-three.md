@@ -50,6 +50,7 @@ RecursieAction(无返回结果的)和RecursiceTask(有返回结果的)。
 
 1. 创建一个ForkJoinPool执行任务对象
 2. 执行任务中：
+
 ```java
 If (problem size > default size){
   tasks=divide(task);
@@ -58,6 +59,7 @@ If (problem size > default size){
   resolve problem using another algorithm;
 }
 ```
+
 3. 用同步的方法来执行任务。
 4. 更具是否需要返回结果来确定需要实现的接口或者继承类
 5. 构建自己的异常处理类
