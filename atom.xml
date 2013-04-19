@@ -1,17 +1,17 @@
 ---
 layout: nil
-canonical: http://littleyang.github.com
+canonical: http://blog.invesx.com
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>Mort Yao</title>
+    <title>Hi,This is little yang</title>
     <link href="{{ page.canonical }}/atom.xml" rel="self" />
     <link href="{{ page.canonical }}" />
     <updated>{{ site.time | date_to_xmlschema }}</updated>
     <id>{{ page.canonical }}</id>
     <author>
-        <name>Mort Yao</name>
-        <email>mort.yao@soimort.org</email>
+        <name>Little Yang</name>
+        <email>littleyangqh@gmail.com</email>
     </author>
     {% for post in site.posts %}
     {% if post.layout == 'post' %}
