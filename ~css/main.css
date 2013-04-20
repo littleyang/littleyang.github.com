@@ -125,7 +125,7 @@ div#divBanner div#divSignature {
 div#divSeparator1 {
     position: absolute;
     left: 34%;
-    top: 208px;
+    top: 188px;
     width: 57%;
     height: 1px;
     background: #bbddff;
@@ -134,7 +134,7 @@ div#divSeparator1 {
 div#divSeparator2 {
     position: absolute;
 	left: 62%;
-    top: 208px;
+    top: 188px;
     width: 1px;
     min-height: 2400px;
     height: auto;
@@ -146,7 +146,7 @@ div#divSeparator2 {
 div#divMiddle {
 	position: absolute;
 	left: 34%;
-  top: 224px;
+  top: 204px;
 	width: 28%;
     padding-right: 12px;
 }
@@ -154,7 +154,7 @@ div#divMiddle {
 div#divRight {
 	position: absolute;
   left: 62%;
-  top: 224px;
+  top: 204px;
 	width: 28%;
   padding-left: 12px;
 }
