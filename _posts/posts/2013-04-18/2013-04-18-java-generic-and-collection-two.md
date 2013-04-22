@@ -1,8 +1,10 @@
 ---
+uri: /cs/program/java/generic
+permalink: /ca/program/java/generic/index.html
 layout: post
-title: "java generic and collection two"
+title: "Java 泛型与集合(泛型,Generic)"
 description: ""
-category: 
+category:
 tags: []
 ---
 {% include JB/setup %}

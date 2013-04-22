@@ -1,8 +1,10 @@
 ---
+uri: /cs/program/java/collection
+permalink: /cs/program/java/collection/index.html
 layout: post
-title: "java generic and collection one"
+title: "Java 泛型与集合(集合,Collection Framework)"
 description: ""
-category: 
+category:
 tags: []
 ---
 {% include JB/setup %}
