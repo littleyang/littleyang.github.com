@@ -33,6 +33,24 @@ public interface list<E>{
 
 这种带有参数的类的申明，方法的申明，变量的申明，实例的创建等，我们都叫做泛型。
 
+### 数据的打包与解包(Boxing And Unboxing)
+
+1. 对应的原始数据类型转化为引用类型，叫做打包。
+2. 对应的引用类型转化为原始类型叫做解包。
+3. 基本数据类型与对应的引用类型。
+
+>
+> byte----------Byte
+> short----------Short
+> int -----------Integer
+> long ----------Long
+> float --------- Float
+> double --------- Double
+> boolean --------- Boolean
+> char ------- Character
+>
+
+
 ### 泛型和子类型,通配符
 
 #### 两个原则
@@ -173,6 +191,17 @@ public class AddClass{
     }
   }
 }
+```
+
+### 泛型方法
+
+从上面的两个原则中，我们可以明白泛型的子类型是可以调用泛型方法的。泛型方法的定义如下:
+
+```java
+public <T> boolean containAll(Collection<T> c);
+
+public <T extends E> boolean addAll(Collection<T> x);
+
 ```
 
 
