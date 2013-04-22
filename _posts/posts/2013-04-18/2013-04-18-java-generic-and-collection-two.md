@@ -33,7 +33,7 @@ public interface list<E>{
 
 这种带有参数的类的申明，方法的申明，变量的申明，实例的创建等，我们都叫做泛型。
 
-### 泛型和子类型之间的区别。
+### 泛型和子类型,通配符
 
 #### 两个原则
 
@@ -56,5 +56,123 @@ structure, use a super wildcard when you only put values into a structure, and d
 a wildcard when you both get and put.
 >
 >
+
+#### 类型与子类型之间的问题
+
+首先看看下面这个代码有什么问题:
+
+```java
+// 定义一个list，用string为泛型参数
+List<String> list = new ArrayList<String>();
+// 定义个obs list,用Object作为泛型参数
+List<Object> obs = list;
+```
+
+上面的代码有什么问题么？问题在于第二行，list赋值给obs,是会出现编译错误的。为什么呢？问题String不是Object的子类么？那么list
+也是obs的子类么？第一个问题是肯定的，第二个问题是否定的。那他们之间有什么关系么？答案是他们之间没什么关系。
+</br>
+
+通常的，如果Foo是Bar的子类型(subclass or subinterface),G是泛型类型申明,那么G<Foo>并不是G<Bar>的子类，他们之间没什么关系。
+怎么理解呢？你可以想象一下，苹果是水果，橘子也是水果，但是水果是橘子是苹果么？就这么简单。
+
+#### 通配符(Wildcard)
+
+先看看下面的这段代码:
+
+```java
+/*
+ * 没有泛型之前我们写一个循环
+ */
+
+void printCollection(Collection c) {
+  Iterator i = c.iterator();
+  for (k = 0; k < c.size(); k++) {
+      System.out.println(i.next());
+  }
+}
+
+/*
+ * 泛型之中的新的循环方式
+ */
+
+void printCollection(Collection<Object> c) {
+  for (Object e : c) {
+    System.out.println(e);
+  }
+}
+
+```
+
+第一个，我们可以对任何的集合进行循环输出，第二个我们只能对Obejct类型的集合进行输出，似乎第一个比第一个有用多了，虽然第二个
+简单明了。那么我们能不能修改一下让第二个也可以对任意的集合类进行迭代输出呢？来看看下面的代码:
+
+```java
+
+void printCollection(Collection<?> c) {
+  for (Object e : c) {
+    System.out.println(e);
+  }
+}
+```
+这次可以了，我们可以对任何的集合类型进行输出了。与上面相比我们把Obejct用?代替了，也就是说？作为一个通配符使用了。在java
+泛型中我们使用？来作为通配符,"通行证"。
+
+#### 绑定一个通配符
+
+假如你有一个画图的程序，你想画圆，又想画长方形，那么我们怎么识别这个形状呢？来看看下面的代码结构。
+
+```java
+/**
+ * define shape class
+ */
+public abstract class Shape{
+  public abstract void draw();
+  ……
+}
+/**
+ * define the circle class
+ */
+public class Circle extends Shape{
+  ……
+  public void draw();
+  ……
+}
+/**
+ * define the rectangle class
+ */
+
+public class Rectangle class {
+  ……
+  public void draw();
+  ……
+}
+/**
+ * the main test class
+ */
+public class Main{
+  // define a main drawmethod
+  drawAll(List<? extends shape> shapes){
+    for(Shape s:shapes){
+      s.draw();
+    }
+  }
+}
+
+```
+
+通过这个代码可以清楚的看到，我们可以通过extends 关键之将通配符绑定为某个类型，但是这个是不适合把元素添加进去通配符的。因为
+一个类的子类有可能是其他的什么类，无法确定类型。如果需要添加元素，那么我们可以用下面这种语法
+
+```java
+
+public class AddClass{
+
+  public void addAll(List<? super Shape> shapes,list<Circle> cirlcs ){
+    for(Circle c:cirlcs){
+      shapes.add(c);
+    }
+  }
+}
+```
 
 
