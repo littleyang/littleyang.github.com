@@ -82,6 +82,6 @@ Java中的Iterator功能比较简单，并且只能单向移动:i
 
 #### 下面是关于集合类的比较表
 
-![picture]()
+![picture](http://imgur.com/5AsWh7u)
 
 
