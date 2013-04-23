@@ -54,6 +54,7 @@ Set 接口也是继承于Collection的，但是不允许存在重复的元素。
 ### Maps 的分析介绍
 
 Map接口用于维护键/值对(key/value pairs)。该接口描述了从不重复的键到值的映射。
+
 1. Map接口常用的实现类有：HashMap 和TreeMap。
 2. HashMap类使用散列表实现Map接口。散列映射并不保证它的元素的顺序。因此，元素加入散列映射的顺序并不一定是它们被迭代函数
 读出的顺序。
@@ -69,7 +70,8 @@ HashMap用于快速查找。在Map接口中，HashMap用的比较多，如果需
 Collection 接口的iterator()方法返回一个 Iterator。
 Iterator接口方法能以迭代方式逐个访问集合中各个元素，并安全的从Collection 中除去适当的元素。
 迭代器是一种设计模式，它是一个对象，它可以遍历并选择序列中的对象，而开发人员不需要了解该序列的底层结构。迭代器通常被称为“轻量级”对象，因为创建它的代价小。
-Java中的Iterator功能比较简单，并且只能单向移动:
+Java中的Iterator功能比较简单，并且只能单向移动:i
+
 1. 使用方法iterator()要求容器返回一个Iterator。第一次调用Iterator的next()方法时，它返回序列的第一个元素。
 2. 使用next()获得序列中的下一个元素。
 3. 使用hasNext()检查序列中是否还有元素。
@@ -77,5 +79,9 @@ Java中的Iterator功能比较简单，并且只能单向移动:
 为List设计的ListIterator具有更多的功能， 它可以从两个方向遍历List，也可以从List中插入和删除元素。
 “Iterator中删除操作对底层Collection也有影响。”迭代器是 故障快速修复 （fail-fast）的。
 这意味着，当另一个线程修改底层集合的时候，如果您正在用 Iterator 遍历集合，那么，Iterator就会抛出 ConcurrentModificationException （另 一种 RuntimeException异常）异常并立刻失败
+
+#### 下面是关于集合类的比较表
+
+![picture]()
 
 
