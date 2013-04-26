@@ -1,6 +1,6 @@
 ---
 uri: /cs/program/java/desginpatern/adapter
-permalink: /cs/program/java/desginpatern/Adapter/index.html
+permalink: /cs/program/java/desginpatern/adapter/index.html
 layout: post
 title: "Java设计模式-适配器模式"
 description: ""
