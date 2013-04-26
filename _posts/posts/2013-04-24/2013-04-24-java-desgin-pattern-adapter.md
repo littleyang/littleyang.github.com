@@ -37,4 +37,89 @@ tags: []
 
 ### 对象适配器(Obejct Adapter)
 
+好吧，那什么样的适配器才是对象适配器呢？看看上面的图片，我们在适配器(Adapter)中创建一个Adaptee的对象，然后再相应的方法里面
+调用该对象的方法就叫做对象适配器。下面用一个具体的实例看看:
+
+```java
+
+/**
+ * this is the client want to use interface
+ * @author jenny
+ * 首先创建一个目标对象接口，我么需要调用这个不表对象作为测试
+ *
+ */
+public interface Target {
+
+    void printList(ArrayList<String> list);
+
+}
+
+/**
+ *Adaptee对象实现类接口
+ */
+public interface AdapteeI {
+
+      public void printString(String s);
+
+}
+
+/*
+ *目标对象实现类实现
+ */
+public class Adaptee implements AdapteeI {
+
+    public void printString(String s){
+
+        System.out.println(s);
+    }
+
+}
+/*
+ * 适配器类，在适配器中创建一个被适配的兑现的具体实例
+ */
+
+public class Adapter implements Target {
+    public void printList(ArrayList<String> list) {
+
+      //Converting ArrayList<String> to String so that we can pass String to
+      // adaptee class
+      String listString = "";
+
+      for (String s : list){
+        listString += s + "\t";
+      }
+
+      // instantiating adaptee class
+      Adaptee ps =new Adaptee();
+      ps.printString(listString);
+    }
+}
+
+/*
+ * 主要测试函数
+ */
+
+public class Client {
+    public static void main(String[] args){
+        ArrayList<String> list=new  ArrayList<String>();
+        list.add("one");
+        list.add("two");
+        list.add("three");
+        Adapter pl = new Adapter();
+        pl.printList(list);
+
+    }
+
+}
+
+```
+
+运行上面的程序结果如下:
+
+```
+one two three
+
+```
+
+
 ### 对象适配器(Class Adapter)
