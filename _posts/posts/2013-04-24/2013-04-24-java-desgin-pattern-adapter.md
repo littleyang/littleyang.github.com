@@ -37,4 +37,4 @@ tags: []
 
 ### 对象适配器(Obejct Adapter)
 
-
+### 对象适配器(Class Adapter)
