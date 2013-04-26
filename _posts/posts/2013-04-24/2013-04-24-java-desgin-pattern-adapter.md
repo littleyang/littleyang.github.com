@@ -23,14 +23,16 @@ tags: []
 类，需要通过统一的接口对象去使用。我的目标接口需要具体的实现某个方法，但是但是这个方法在另外的类具有，那么我们就通过适配器
 去调用这个方法实现。
 
-![Imgur](http://i.imgur.com/n1XkRyq)
-![Imgur](http://i.imgur.com/n1XkRyq)
+![Imgur](http://i.imgur.com/n1XkRyq.png)
+![Imgur](http://i.imgur.com/n1XkRyq.png)
 
-![Imgur](http://i.imgur.com/bCBGSih)
-![Imgur](http://i.imgur.com/HZ1DrjS)
+![Imgur](http://i.imgur.com/bCBGSih.png)
+![Imgur](http://i.imgur.com/HZ1DrjS.png)
 
 上面的图片第一组(1,2),我们叫做对象适配器(Object Adapter);第二组(3,4)我们叫做类适配器(Class Adapter),
 其区分是在于适配器(Adapter)与被适配对象(adaptee)之间的实现关系，如果Adaptee 为一个成员，则是对象适配器；继承则是对象适配器
 下面详细介绍一下和一些实例代码:
+
+### 对象适配器(Obejct Adapter)
 
 
