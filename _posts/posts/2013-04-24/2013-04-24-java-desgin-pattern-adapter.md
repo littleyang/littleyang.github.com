@@ -24,7 +24,7 @@ tags: []
 去调用这个方法实现。
 
 ![Imgur](http://i.imgur.com/n1XkRyq.png)
-![Imgur](http://i.imgur.com/n1XkRyq.png)
+![Imgur](http://i.imgur.com/2ruaxpa.png)
 
 ![Imgur](http://i.imgur.com/bCBGSih.png)
 ![Imgur](http://i.imgur.com/HZ1DrjS.png)
