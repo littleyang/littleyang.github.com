@@ -123,3 +123,74 @@ one two three
 
 
 ### 对象适配器(Class Adapter)
+
+这个顾名思义，上面的图片可以看出，只要我们的适配器(Adapter)与被适配对象(Adaptee)之间存在继承关系，我们就叫做类适配器.看看
+下面的实例代码:
+
+```java
+
+/**
+ * 创建对象
+ */
+public class FootBallBag {
+
+      // define the put foot ball method
+        public void putFootBall(){
+           System.out.println("This is the put foot ball method!");
+        }
+
+}
+
+/**
+ * 创建适配对象
+ */
+
+public class BassketBallBag {
+
+      // define the put basket ball method
+      public v}id putBasketBall(){
+           System.out.println("This is the put basket ball method");
+      }
+
+}
+
+/**
+ *创建适配器
+ */
+public class PutBallAdapter extends BassketBallBag {
+
+      // first we should create foot ball bag
+      FootBallBag fbb ;
+      // implements the constructor
+         public PutBallAdapter(FootBallBag fbb){
+         this.fbb = fbb;
+      }
+      // ok, let to override the put basket ball method
+      @Override
+      public void putBasketBall(){
+          fbb.putFootBall();
+      }
+
+}
+
+/**
+ *创建测试对象
+ */
+
+ public class BallMainTest {
+
+      public static void main(String[] args){
+      // put a basket ball into the bag
+      PutBall pb = new PutBall();
+      BassketBallBag bbg = new BassketBallBag();
+      pb.putBall(bbg);
+      // let try to put a foot ball using the PutBall method directly,and this may be wrong
+      FootBallBag fb = new FootBallBag();
+      //pb.putBall(bbg);
+
+      // ok, let using the adapter pattern
+      // create an object of PutBallAdapte;
+      PutBallAdapter pba = new PutBallAdapter(fb);
+      pba.putBasketBall();                                                                  }
+  }
+}
