@@ -1,8 +1,10 @@
 ---
+uri: /cs/program/java/pattern/composite
+permalink: /cs/program/java/pattern/composite/index.html
 layout: post
-title: "composite patttern"
+title: "Java模式--符合模式(Composite Pattern)"
 description: ""
-category: 
+category:
 tags: []
 ---
 {% include JB/setup %}
