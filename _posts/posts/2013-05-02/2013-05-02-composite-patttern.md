@@ -20,5 +20,5 @@ tags: []
 
 上面是说呢，我们可以把一大波的对象组合成为一个组，然后再迭代处理的时候把它当最最终处理的对象一样的。好，上图上真相:
 
-![Imgur](http://i.imgur.com/c5OAzy5)
+![Imgur](http://i.imgur.com/c5OAzy5.png)
 
