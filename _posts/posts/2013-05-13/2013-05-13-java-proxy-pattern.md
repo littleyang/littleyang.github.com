@@ -29,6 +29,67 @@ tags: []
 
 ### 代理模式实例
 
+```java
+
+/**
+ * the proxy pattern: provide an proxy or surrogate object to control other class object access.
+ * but they share a common interface and methods
+ * as real world proxy, it just as it!
+ * @author jenny
+ *
+ */
+ public interface Common {
+
+      public void saveInfo();
+
+}
+
+
+public class RealObject implements Common {
+
+    @Override
+    public void saveInfo() {
+        // TODO Auto-generated method stub
+        System.out.println("This is the real object save method!");
+
+    }
+
+}
+
+
+public class ProxyObejct implements Common {
+
+    // create an proxy object
+    private RealObject object;
+    // constructor
+    public ProxyObejct(RealObject object) {
+         // TODO Auto-generated constructor stub
+          this.object = object;
+    }
+    @Override
+    public void saveInfo() {
+         // TODO Auto-generated method stub
+         System.out.println("Begin: This is the proxy obejct and begin to excute!");
+        object.saveInfo();
+         System.out.println("After: after the execute!");
+    }
+
+}
+
+public class MainTest {
+
+      public static void main(String[] args){
+           // test
+           RealObject rObject = new RealObject();
+          // proxy
+           ProxyObejct pObejct = new ProxyObejct(rObject);
+
+          pObejct.saveInfo();
+    }
+
+}
+```
+
 ### 动态代理(Dynamic proxy)
 
 
