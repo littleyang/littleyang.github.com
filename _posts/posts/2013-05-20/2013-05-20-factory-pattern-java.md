@@ -116,6 +116,163 @@ public class MainTest {
 
 上面这个模式很简单也很清晰:
 
+AbstractFactory 是一个静态类的接口，里面定义了很多关于创建具体的对象的方法，ConcreteFactory1和ConcreteFactory2是具体的创建
+具体对象的工厂，都继承于AbstractFactory;AbstractProductA和AbstractProductB是一系接口，具体的ProductA和ProductB是具体的操作
+对象。客户端直接调用工厂方法创建即可具体的对象即可
+
+直接看看这段代码的实例：
+
+```java
+
+/**
+ * this is the abstract factory common interface,and all concrete factory should implements
+ * this interface
+ * @author jenny
+ *
+ */
+public interface AbsFactoryFruit {
+
+    public Fruit createFruit(String name);
+
+    public Vigetable createVigetable(String name);
+
+
+}
+
+
+/**
+ * this is the concrete factory A
+ * @author jenny
+ *
+ */
+public class ChineseFruitAndVigatableFactory implements AbsFactoryFruit {
+
+    @Override
+    public Fruit createFruit(String name) {
+          // TODO Auto-generated method stub
+          return new AppleFruit("Chinese Apple fruit"+name);
+
+    }
+
+    @Override
+    public Vigetable createVigetable(String name) {
+           // TODO Auto-generated method stub
+          return new GreenVigitable("Chinese Green vigatable"+name);
+    }
+
+}
+
+
+/**
+ * this is concrete factory B
+ * @author jenny
+ *
+ */
+public class TaiWanFruitAndVigetableFactory implements AbsFactoryFruit {
+
+   @Override
+   public Fruit createFruit(String name) {
+
+        return new AppleFruit("TaiWan Apple Fruit"+name);
+   }
+
+   @Override
+   public Vigetable createVigetable(String name) {
+
+        return new GreenVigitable("TaiWan Green Vigatbale!"+name);
+
+    }
+
+}
+
+
+
+public interface Fruit {
+
+
+
+  }
+
+
+public interface Vigetable {
+
+}
+
+
+/**
+ * this is concrete productA
+ * @author jenny
+ *
+ */
+
+public class AppleFruit implements Fruit {
+
+     private String name;
+
+     public AppleFruit(String string) {
+        // TODO Auto-generated constructor stub
+        System.out.println("Apple fruit created!"+string);
+     }
+
+     public String getName() {
+         return name;
+     }
+
+     public void setName(String name) {
+         this.name = name;
+     }
+
+}
+
+/**
+ * this is concrete productB
+ * @author jenny
+ *
+ */
+public class GreenVigitable implements Vigetable {
+
+    private String name;
+
+    public String getName() {
+         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public GreenVigitable(String string) {
+        // TODO Auto-generated constructor stub
+        System.out.println("Green vigatable created! " +string);
+    }
+
+}
+
+
+
+  public class MainTest {
+
+        public static void main(String[] args){
+
+             // create an china factory
+             ChineseFruitAndVigatableFactory cf = new ChineseFruitAndVigatableFactory();
+             // create taiwan factory
+             TaiWanFruitAndVigetableFactory tf = new TaiWanFruitAndVigetableFactory();
+
+             cf.createFruit("Apple");
+             cf.createVigetable("bb");
+             tf.createFruit("aa");
+             tf.createVigetable("ss");
+
+
+       }
+
+  }
+
+```
+
+
 
 
 
