@@ -1,6 +1,8 @@
 ---
+uri: /cs/program/java/pattern/factory
+permalink: /cs/program/java/pattern/factory/index.html
 layout: post
-title: "factory pattern java"
+title: "Java工厂模式"
 description: ""
 category:
 tags: []
