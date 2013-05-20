@@ -111,7 +111,8 @@ public class MainTest {
 
 先来看张UML图：
 
-![Imgur](http://i.imgur.com/Zhfwg3b.png)
+
+![Imgur](http://i.imgur.com/u6F2xlo.png)
 
 上面这个模式很简单也很清晰:
 
