@@ -21,7 +21,7 @@ tags: []
 4. 它是开源的。
 …………
 
-更多的详细的可以去参考官方的文档，说明。![这个是网址](http://www.redis.io/)。接下来就看看实际的使用吧。
+更多的详细的可以去参考官方的文档，说明。[这个是网址](http://www.redis.io/)。接下来就看看实际的使用吧。
 
 
 ### 简单的说说它的应用场景吧
@@ -47,8 +47,8 @@ $ src/redis-server
 ### redis在rails中的设置
 
 这里会有很多的相关的信息可以再互联网上搜索到，
-![这个](http://jimneath.org/2011/03/24/using-redis-with-ruby-on-rails.html)是一个一个老外写的，我想是非常详细的一个了。
-国内有些程序员把它翻译过来了的，如![这个](http://www.jokry.com/articles/5a4fd1f6)。___ 需要说明的一点是___:
+[这个](http://jimneath.org/2011/03/24/using-redis-with-ruby-on-rails.html)是一个一个老外写的，我想是非常详细的一个了。
+国内有些程序员把它翻译过来了的，如[这个](http://www.jokry.com/articles/5a4fd1f6)。___ 需要说明的一点是___:
 这个文字里面的内容已经非常老了，这里面的redis-rb版本问2.1.1,最新的应该是3以上的了，所以参考的时候请注意吧。可能会出现
 一个叫做old argument syntax的一个错误(如果按照连接里面的参考).
 一下是具体的时间步骤：
