@@ -1,6 +1,6 @@
 ---
 uri: /cs/program/rails/redis-in-rails
-permalink: /cs/program/redis-in-rails/index.html
+permalink: /cs/program/rails/redis-in-rails/index.html
 layout: post
 title: "redis在rails中的使用"
 description: ""
