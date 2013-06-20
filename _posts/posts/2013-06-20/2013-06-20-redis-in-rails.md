@@ -63,7 +63,7 @@ gem 'redis'
 3. 在整个rails app中需要有一个关于redis的全局变量来调用存储接口，因此可以再app/config/initializers/下面建立一个初始化
 redis的文件，redis.rb.并加入一下代码解析reids的配置
 
-````
+```ruby
 ## Location, config/initializers/redis.rb
 
 config_file = File.join('config','redis.yml')
@@ -124,7 +124,7 @@ SQL (0.4ms)  INSERT INTO "contacters" ("created_at", "name", "updated_at") VALUE
 
 4. 在contacter model加入一下的代码:
 
-```
+```ruby
 def contact!(user)
   $redis.multi do
     $redis.sadd(self.redis_key(:following),user.id)
